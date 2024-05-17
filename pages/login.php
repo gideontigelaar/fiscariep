@@ -17,17 +17,17 @@
             <form action="login.php" method="post">
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" id="login-email" required>
                 </div>
 
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" id="login-password" required>
                 </div>
 
                 <p>Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
 
-                <button type="submit">Login</button>
+                <button type="submit"onclick="loginUser()">Login</button>
             </form>
         </div>
 
@@ -37,27 +37,27 @@
             <form action="register.php" method="post">
                 <div>
                     <label for="username">Username</label>
-                    <input type="text" name="username" id="username" required>
+                    <input type="text" id="register-username" required>
                 </div>
 
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" required>
+                    <input type="email" id="register-email" required>
                 </div>
 
                 <div>
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" id="register-password" required>
                 </div>
 
                 <div>
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" name="confirm_password" id="confirm_password" required>
+                    <input type="password" id="register-password-confirm" required>
                 </div>
 
                 <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
 
-                <button type="submit">Register</button>
+                <button type="submit" onclick="registerUser()">Register</button>
             </form>
         </div>
     </div>
