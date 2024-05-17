@@ -10,49 +10,56 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="login-form">
-            <h1>Login</h1>
+    <div class="auth_container">
+        <div class="login-form auth_form">
+            <div style="width:50%;" class="auth_form-left">
+                <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
+            </div>
+            <div style="width:50%;padding:50px;" class="auth_form-right">
+                <h1>Login</h1>
 
-            <form action="login.php" method="post">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="login-email" required>
-                </div>
+                <form action="login.php" method="post">
+                    <div style="display:inline-grid;width:100%;">
+                        <div class="auth_inputfield">
+                            <label for="email">Email</label>
+                            <input type="email" id="login-email">
+                        </div>
 
-                <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="login-password" required>
-                </div>
+                        <div class="auth_inputfield">
+                            <label for="password">Password</label>
+                            <input type="password" id="login-password">
+                        </div>
+                    </div>
 
-                <p>Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+                    <button class="but_primary" type="submit"onclick="loginUser()">Login</button>
 
-                <button type="submit"onclick="loginUser()">Login</button>
-            </form>
+                    <p style="text-align:center;opacity:70%;margin-top:20px;">Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+                </form>
+            </div>
         </div>
 
-        <div class="register-form hidden">
+        <div class="register-form auth_form hidden">
             <h1>Register</h1>
 
             <form action="register.php" method="post">
-                <div>
+                <div class="auth_inputfield">
                     <label for="username">Username</label>
-                    <input type="text" id="register-username" required>
+                    <input type="text" id="register-username">
                 </div>
 
-                <div>
+                <div class="auth_inputfield">
                     <label for="email">Email</label>
-                    <input type="email" id="register-email" required>
+                    <input type="email" id="register-email">
                 </div>
 
-                <div>
+                <div class="auth_inputfield">
                     <label for="password">Password</label>
-                    <input type="password" id="register-password" required>
+                    <input type="password" id="register-password">
                 </div>
 
-                <div>
+                <div class="auth_inputfield">
                     <label for="confirm_password">Confirm Password</label>
-                    <input type="password" id="register-password-confirm" required>
+                    <input type="password" id="register-password-confirm">
                 </div>
 
                 <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
@@ -60,6 +67,7 @@
                 <button type="submit" onclick="registerUser()">Register</button>
             </form>
         </div>
+        <span class="auth_copyright-text">Alle rechten voorbehouden.</span>
     </div>
 </body>
 </html>
