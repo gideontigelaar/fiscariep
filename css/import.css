@@ -1,5 +1,103 @@
+* {
+  transition: all 0.2s; }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal; }
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-Bold.ttf") format("truetype");
+  font-weight: bold; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat';
+  font-weight: bold; }
+
+p, span, label {
+  font-family: 'Montserrat';
+  font-weight: normal; }
+
+a {
+  text-decoration: none;
+  color: #2E3192; }
+
+a:hover {
+  opacity: 70%; }
+
 body {
-  background-color: red; }
+  background-color: #F5F5F5; }
 
 .hidden {
-  display: none; }
+  display: none !important; }
+
+button {
+  border: none;
+  cursor: pointer;
+  padding: 14px;
+  font-size: 16px;
+  font-family: 'Montserrat';
+  border-radius: 10px;
+  background-color: #F5F5F5; }
+
+button:hover {
+  opacity: 70%; }
+
+.but_primary {
+  background-color: #2f3192;
+  color: white; }
+
+.auth_form {
+  width: 50rem;
+  margin: 0 auto;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 15px;
+  display: flex;
+  column-gap: 40px;
+  height: 650px; }
+
+.auth_form-left {
+  background-color: #2E3192;
+  border-radius: 15px;
+  align-content: center;
+  text-align: center; }
+  .auth_form-left img {
+    width: 70%; }
+
+.auth_form-right {
+  align-self: center; }
+  .auth_form-right button {
+    width: 100%;
+    margin-top: 50px; }
+
+.auth_container {
+  height: 100%;
+  place-content: center; }
+  .auth_container h1 {
+    line-height: 0px;
+    margin-bottom: 3rem; }
+
+.auth_copyright-text {
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+  opacity: 40%; }
+
+.auth_inputfield {
+  display: inline-grid; }
+  .auth_inputfield label {
+    margin-bottom: 10px; }
+  .auth_inputfield input {
+    background-color: #F5F5F5;
+    border: none;
+    padding: 15px 15px 15px 15px;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 100%; }
+  .auth_inputfield input:focus {
+    outline: none; }
