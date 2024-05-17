@@ -1,12 +1,66 @@
 $grey: #F5F5F5;
 $dark-grey: #DADADA;
-$yellowgreen: #C1D72D;
-$darkblue: #2E3192;
+$primary-1: #2E3192;
+$primary-2: #C1D72D;
+
+* {
+    transition: all 0.2s;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+p, span, label {
+    font-family: 'Montserrat';
+    font-weight: normal;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-1;
+}
+
+a:hover {
+    opacity: 70%;
+}
 
 body {
-    background-color: red;
+    background-color: $grey;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    padding: 14px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+button:hover {
+    opacity: 70%;
+}
+
+.but_primary {
+    background-color: #2f3192;
+    color: white;
 }
