@@ -16,24 +16,24 @@
                 <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
             </div>
             <div style="width:50%;padding:50px;" class="auth_form-right">
-                <h1>Login</h1>
+                <h1>Inloggen</h1>
 
                 <div>
                     <div style="display:inline-grid;width:100%;">
                         <div class="auth_inputfield">
-                            <label for="email">Email</label>
+                            <label for="email">E-mail</label>
                             <input type="email" id="login-email">
                         </div>
 
                         <div class="auth_inputfield">
-                            <label for="password">Password</label>
+                            <label for="password">Wachtwoord</label>
                             <input type="password" id="login-password">
                         </div>
                     </div>
 
-                    <button class="but_primary" type="submit"onclick="loginUser()">Login</button>
+                    <button class="but_primary" type="submit"onclick="loginUser()">Inloggen</button>
 
-                    <p style="text-align:center;opacity:70%;margin-top:20px;">Don't have an account? <a href="#" onclick="toggleForm()">Register</a></p>
+                    <p style="text-align:center;opacity:70%;margin-top:20px;">Nog geen account? <a href="#" onclick="toggleForm()">Registreren</a></p>
                 </div>
             </div>
         </div>
@@ -43,36 +43,36 @@
                 <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
             </div>
             <div style="width:50%;padding:50px;" class="auth_form-right">
-                <h1>Register</h1>
+                <h1>Registreren</h1>
 
                 <div>
                     <div style="display:inline-grid;width:100%;">
                         <div class="auth_inputfield">
-                            <label for="username">Username</label>
+                            <label for="username">Gebruikersnaam</label>
                             <input type="text" id="register-username">
                         </div>
 
                         <div class="auth_inputfield">
-                            <label for="email">Email</label>
+                            <label for="email">E-mail</label>
                             <input type="email" id="register-email">
                         </div>
 
                         <div style="display:flex;column-gap:10px">
                             <div class="auth_inputfield">
-                                <label for="password">Password</label>
+                                <label for="password">Wachtwoord</label>
                                 <input type="password" id="register-password">
                             </div>
 
                             <div class="auth_inputfield">
-                                <label for="confirm_password">Confirm Password</label>
+                                <label for="confirm_password">Bevestig wachtoword</label>
                                 <input type="password" id="register-password-confirm">
                             </div>
                         </div>
                     </div>
 
-                    <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+                    <button style="width: 100%;" class="but_primary" type="submit" onclick="registerUser()">Registreren</button>
 
-                    <button style="width: 100%;" class="but_primary" type="submit" onclick="registerUser()">Register</button>
+                    <p style="text-align:center;opacity:70%;margin-top:20px;">Al een account? <a href="#" onclick="toggleForm()">Inloggen</a></p>
                 </div>
             </div>      
         </div>
