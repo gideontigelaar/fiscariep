@@ -18,7 +18,7 @@
             <div style="width:260px;" class="auth_form-left">
                 <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
             </div>
-            <div style="width:50%;padding:50px;" class="auth_form-right">
+            <div class="auth_form-right">
                 <h1>Inloggen</h1>
 
                 <div>
@@ -45,7 +45,7 @@
             <div style="width:260px;" class="auth_form-left">
                 <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
             </div>
-            <div style="width:50%;padding:50px;" class="auth_form-right">
+            <div class="auth_form-right">
                 <h1>Registreren</h1>
 
                 <div>
@@ -67,7 +67,7 @@
                             </div>
 
                             <div class="auth_inputfield">
-                                <label for="confirm_password">Bevestig wachtwoord</label>
+                                <label for="confirm_password">Bevestig <span class="hide-on-mobile">wachtwoord</span></label>
                                 <input type="password" id="register-password-confirm">
                             </div>
                         </div>

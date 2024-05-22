@@ -9,6 +9,17 @@
     height: 650px;
 }
 
+@media (max-width: 768px) {
+    .auth_form {
+        width: 95%;
+        padding: 0;
+        justify-content: center;
+        height: 570px;
+        margin-top: -50px;
+    }
+    
+}
+
 .auth_form-left {
     background-color: $primary-1;
     border-radius: 15px;
@@ -20,7 +31,16 @@
     }
 }
 
+@media (max-width: 768px) {
+    .auth_form-left {
+        display: none;
+    }
+}
+
 .auth_form-right {
+    width: 50%;
+    padding: 50px;
+    
     button {
         width: 100%;
         margin-top: 50px;
@@ -29,8 +49,15 @@
     align-self: center;
 }
 
+@media (max-width: 768px) {
+    .auth_form-right {
+        width: 100%;
+        padding: 12%;
+    }
+}
+
 .auth_container {
-    height: 100%;
+    height: 100dvh;
     place-content: center;
 
     h1 {
