@@ -14,34 +14,76 @@
 
 <body>
     <div class="auth_container">
-        <div class="login-form auth_form">
-            <div style="width:260px;" class="auth_form-left">
-                <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
-            </div>
-            <div class="auth_form-right">
-                <h1>Inloggen</h1>
 
-                <div>
-                    <div style="display:inline-grid;width:100%;">
-                        <div class="auth_inputfield">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="login-email">
+        <?php if (empty($_GET['token'])) { ?>
+            <div class="login-form auth_form">
+                <div style="width:260px;" class="auth_form-left">
+                    <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
+                </div>
+                <div class="auth_form-right">
+                    <h1>Inloggen</h1>
+
+                    <div>
+                        <div style="display:inline-grid;width:100%;">
+                            <div class="auth_inputfield">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="login-email">
+                            </div>
+
+                            <div class="auth_inputfield">
+                                <label for="password">Wachtwoord</label>
+                                <input type="password" id="login-password">
+                            </div>
                         </div>
 
-                        <div class="auth_inputfield">
-                            <label for="password">Wachtwoord</label>
-                            <input type="password" id="login-password">
-                        </div>
+                        <button class="but_primary" type="submit" onclick="loginUser()">Inloggen</button>
+
+                        <p style="text-align:center;opacity:70%;margin-top:20px;">Nog geen account? <a onclick="toggleForm()">Registreren</a></p>
+
+                        <p style="opacity: 70%;text-align: center;line-height: 0;"><a onclick="togglePasswordForm()">Wachtwoord vergeten?</a></p>
                     </div>
-
-                    <button class="but_primary" type="submit" onclick="loginUser()">Inloggen</button>
-
-                    <p style="text-align:center;opacity:70%;margin-top:20px;">Nog geen account? <a href="#" onclick="toggleForm()">Registreren</a></p>
-
-                    <p style="opacity: 70%;text-align: center;line-height: 0;"><a href="#" onclick="togglePasswordForm()">Wachtwoord vergeten?</a></p>
                 </div>
             </div>
-        </div>
+        <?php
+            } else {
+                $stmt = $pdo->prepare("SELECT token, expires_at FROM reset_password WHERE token = :token AND expires_at > NOW()");
+                $stmt->execute(['token' => $_GET['token']]);
+                $resetPassword = $stmt->fetch(PDO::FETCH_ASSOC);
+        ?>
+            <div class="reset-password-form auth_form">
+                <div style="width:260px;" class="auth_form-left">
+                    <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
+                </div>
+                <div class="auth_form-right">
+                    <?php
+                        if (!$resetPassword) {
+                            ?>
+                            <h1 style="margin-bottom: 25px;">Kan wachtwoord niet herstellen</h1>
+                            <?php
+                            echo "<p>Deze link is ongeldig of verlopen.</p>";
+                        } else {
+                    ?>
+                    <h1>Wachtwoord herstellen</h1>
+
+                    <div>
+                        <div style="display:inline-grid;width:100%;">
+                            <div class="auth_inputfield">
+                                <label for="password">Wachtwoord</label>
+                                <input type="password" id="reset-password">
+                            </div>
+
+                            <div class="auth_inputfield">
+                                <label for="confirm_password">Bevestig <span class="hide-on-mobile">wachtwoord</span></label>
+                                <input type="password" id="reset-password-confirm">
+                            </div>
+                        </div>
+
+                        <button class="but_primary" type="submit" onclick="resetPassword('<?= $_GET['token'] ?>')">Herstellen</button>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
 
         <div class="register-form auth_form hidden">
             <div style="width:260px;" class="auth_form-left">
@@ -77,7 +119,7 @@
 
                     <button style="width: 100%;" class="but_primary" type="submit" onclick="registerUser()">Registreren</button>
 
-                    <p style="text-align:center;opacity:70%;margin-top:20px;">Al een account? <a href="#" onclick="toggleForm()">Inloggen</a></p>
+                    <p style="text-align:center;opacity:70%;margin-top:20px;">Al een account? <a onclick="toggleForm()">Inloggen</a></p>
                 </div>
             </div>
         </div>

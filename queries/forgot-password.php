@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
 
 function sendError($message) {
@@ -29,7 +28,7 @@ if (strlen($email) > 100 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $stmt = $pdo->prepare("SELECT email FROM users WHERE email = :email");
 $stmt->execute(['email' => $email]);
 if (!$stmt->fetch(PDO::FETCH_ASSOC)) {
-    sendError('Dit e-mailadres is niet bekend.');
+    sendSuccess();
 }
 
 $token = bin2hex(random_bytes(32));

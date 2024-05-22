@@ -74,3 +74,23 @@ function forgotPassword() {
     }
     xhr.send('email=' + email);
 }
+
+function resetPassword(token) {
+    var password = document.getElementById('reset-password').value;
+    var confirmPassword = document.getElementById('reset-password-confirm').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../queries/reset-password.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                window.location.href = '/login';
+            } else {
+                var response = JSON.parse(xhr.responseText);
+                showErrorMessage(xhr.status, response.error, 3);
+            }
+        }
+    }
+    xhr.send('token=' + token + '&password=' + password + '&confirmPassword=' + confirmPassword);
+}
