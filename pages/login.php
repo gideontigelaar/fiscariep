@@ -38,7 +38,7 @@
 
                     <p style="text-align:center;opacity:70%;margin-top:20px;">Nog geen account? <a href="#" onclick="toggleForm()">Registreren</a></p>
 
-                    <p><a href="#" onclick="togglePasswordForm()">Wachtwoord vergeten?</a></p>
+                    <p style="opacity: 70%;text-align: center;line-height: 0;"><a href="#" onclick="togglePasswordForm()">Wachtwoord vergeten?</a></p>
                 </div>
             </div>
         </div>
