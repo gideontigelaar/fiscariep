@@ -11,6 +11,11 @@
   src: url("../assets/fonts/Montserrat-Bold.ttf") format("truetype");
   font-weight: bold; }
 
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../assets/fonts/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600; }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat';
   font-weight: bold; }
@@ -101,3 +106,53 @@ button:hover {
     width: 100%; }
   .auth_inputfield input:focus {
     outline: none; }
+
+.error_head-container {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  place-content: center;
+  top: -100px; }
+
+.error-container {
+  background-color: #E33232;
+  position: absolute;
+  width: 50%;
+  height: 60px;
+  border-radius: 12px;
+  display: flex; }
+  .error-container .error-text {
+    display: grid;
+    color: white;
+    margin-left: 10px;
+    align-content: center; }
+    .error-container .error-text .error-text-heading {
+      font-size: 14px;
+      opacity: 60%; }
+    .error-container .error-text .error-text-subtext {
+      font-weight: 600; }
+
+.error-icon {
+  width: fit-content;
+  height: -webkit-fill-available;
+  align-content: center;
+  filter: invert(1);
+  margin-left: 12px; }
+
+.error-countdown-container {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  display: flex; }
+  .error-countdown-container .error-countdown-box {
+    align-content: center;
+    height: 30px;
+    align-self: center;
+    margin-right: 20px;
+    width: 50px;
+    text-align: center;
+    color: white;
+    border-radius: 10000px;
+    background-color: #ffffff3d; }
+    .error-countdown-container .error-countdown-box span {
+      font-weight: 600; }

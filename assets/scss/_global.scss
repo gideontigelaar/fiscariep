@@ -2,6 +2,7 @@ $grey: #F5F5F5;
 $dark-grey: #DADADA;
 $primary-1: #2E3192;
 $primary-2: #C1D72D;
+$error-error-1: #E33232;
 
 * {
     transition: all 0.2s;
@@ -17,6 +18,12 @@ $primary-2: #C1D72D;
     font-family: 'Montserrat';
     src: url('../assets/fonts/Montserrat-Bold.ttf') format('truetype');
     font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/Montserrat-SemiBold.ttf') format('truetype');
+    font-weight: 600;
 }
 
 h1, h2, h3, h4, h5, h6 {
