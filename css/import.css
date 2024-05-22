@@ -120,7 +120,7 @@ p, span, label, button {
   height: 100dvh;
   place-content: center; }
   .auth_container h1 {
-    line-height: 0px;
+    line-height: 35px;
     margin-bottom: 3rem; }
 
 .auth_copyright-text {
