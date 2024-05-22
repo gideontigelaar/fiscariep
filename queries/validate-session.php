@@ -11,7 +11,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     http_response_code(500);
-    echo "An error occurred. Please try again later.";
+    echo "Er is een fout opgetreden. Probeer het later opnieuw.";
     exit();
 }
 

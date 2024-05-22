@@ -22,39 +22,39 @@ $password = $_POST['password'] ?? '';
 $passwordConfirm = $_POST['confirmPassword'] ?? '';
 
 if (empty($userName) || empty($email) || empty($password) || empty($passwordConfirm)) {
-    sendError('All fields are required.');
+    sendError('Alle velden zijn verplicht.');
 }
 
 if (strlen($userName) < 3 || strlen($userName) > 15 || !ctype_alnum($userName)) {
-    sendError('Username must be between 3 and 15 characters long and contain only letters and numbers.');
+    sendError('De gebruikersnaam moet tussen de 3 en 15 tekens lang zijn en mag alleen letters en cijfers bevatten.');
 }
 
 $stmt = $pdo->prepare("SELECT username FROM users WHERE username = :username");
 $stmt->execute(['username' => $userName]);
 if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-    sendError('Username is already taken.');
+    sendError('Gebruikersnaam is al bezet.');
 }
 
 if (strlen($email) > 100 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    sendError('Email is not valid.');
+    sendError('E-mailadres is niet geldig.');
 }
 
 $stmt = $pdo->prepare("SELECT email FROM users WHERE email = :email");
 $stmt->execute(['email' => $email]);
 if ($stmt->fetch(PDO::FETCH_ASSOC)) {
-    sendError('Email is already taken.');
+    sendError('Dit e-mailadres is al in gebruik.');
 }
 
 if ($password !== $passwordConfirm) {
-    sendError('Passwords do not match.');
+    sendError('Wachtwoorden komen niet overeen.');
 }
 
 if (strlen($password) > 255) {
-    sendError('Password is too long.');
+    sendError('Wachtwoord is te lang.');
 }
 
 if (!preg_match('/^(?=.*[a-z])(?=.*[0-9]).{8,}$/', $password)) {
-    sendError('Password must be at least 8 characters long and contain a lowercase letter and a number.');
+    sendError('Het wachtwoord moet minimaal 8 tekens lang zijn en een kleine letter en een cijfer bevatten.');
 }
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
