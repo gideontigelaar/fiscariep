@@ -37,6 +37,12 @@
     }
 }
 
+@media (max-width: 768px) {
+    .error-container {
+        width: 350px;
+    }
+}
+
 .error-icon {
     width: fit-content;
     height: -webkit-fill-available;

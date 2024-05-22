@@ -47,6 +47,8 @@ a:hover {
 
 body {
     background-color: $grey;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .hidden {
@@ -70,4 +72,30 @@ button:hover {
 .but_primary {
     background-color: #2f3192;
     color: white;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+
+p, span, label, button {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    p, span, label, button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
 }
