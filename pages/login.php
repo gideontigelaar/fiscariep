@@ -1,3 +1,5 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/validate-session.php"; ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +9,7 @@
     <link rel="stylesheet" href="../css/import.css">
 
     <script src="/assets/js/login.js"></script>
+    <script src="/assets/js/showError.js"></script>
 </head>
 
 <body>
@@ -64,7 +67,7 @@
                             </div>
 
                             <div class="auth_inputfield">
-                                <label for="confirm_password">Bevestig wachtoword</label>
+                                <label for="confirm_password">Bevestig wachtwoord</label>
                                 <input type="password" id="register-password-confirm">
                             </div>
                         </div>

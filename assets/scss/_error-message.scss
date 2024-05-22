@@ -1,0 +1,63 @@
+.error_head-container {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    place-content: center;
+    top: -100px;
+}
+
+.error-container {
+    background-color: $error-error-1;
+    position: absolute;
+    width: 50%;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+
+    .error-text {
+        display: grid;
+        color: white;
+        margin-left: 10px;
+        align-content: center;
+
+        .error-text-heading {
+            font-size: 14px;
+            opacity: 60%;
+        }
+
+        .error-text-subtext {
+            font-weight: 600;
+        }
+    }
+}
+
+.error-icon {
+    width: fit-content;
+    height: -webkit-fill-available;
+    align-content: center;
+    filter: invert(1);
+    margin-left: 12px;
+}
+
+.error-countdown-container {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    display: flex;
+
+    .error-countdown-box {
+        align-content: center;
+        height: 30px;
+        align-self: center;
+        margin-right: 20px;
+        width: 50px;
+        text-align: center;
+        color: white;
+        border-radius: 10000px;
+        background-color: #ffffff3d;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
