@@ -20,7 +20,7 @@ $email = $_POST['email'] ?? '';
 $password = $_POST['password'] ?? '';
 
 if (empty($email) || empty($password)) {
-    sendError('All fields are required.');
+    sendError('Alle velden zijn verplicht.');
 }
 
 $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
@@ -28,7 +28,7 @@ $stmt->execute(['email' => $email]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user || !password_verify($password, $user['password'])) {
-    sendError('Invalid email or password.');
+    sendError('Ongeldig e-mailadres of wachtwoord.');
 }
 
 $sessionToken = bin2hex(random_bytes(32));
