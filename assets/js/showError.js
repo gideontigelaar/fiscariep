@@ -50,17 +50,12 @@ function showErrorMessage(code, text, duration) {
 
 function shakeErrorMessage() {
     var errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
-    errorHeadContainer.style.transform = 'translateX(-10px)';
-    setTimeout(function() {
-        errorHeadContainer.style.transform = 'translateX(10px)';
+    var shakeSequence = [-10, 10, -5, 5, 0];
+    var delay = 100;
+
+    shakeSequence.forEach(function(position, index) {
         setTimeout(function() {
-            errorHeadContainer.style.transform = 'translateX(-5px)';
-            setTimeout(function() {
-                errorHeadContainer.style.transform = 'translateX(5px)';
-                setTimeout(function() {
-                    errorHeadContainer.style.transform = 'translateX(0)';
-                }, 100);
-            }, 100);
-        }, 100);
-    }, 100);
+            errorHeadContainer.style.transform = `translateX(${position}px)`;
+        }, delay * index);
+    });
 }
