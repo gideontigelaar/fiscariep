@@ -19,7 +19,7 @@ function loginUser() {
                 location.reload();
             } else {
                 var response = JSON.parse(xhr.responseText);
-                alert(response.error);
+                showErrorMessage(xhr.status, response.error, 3);
             }
         }
     }
@@ -41,7 +41,7 @@ function registerUser() {
                 location.reload();
             } else {
                 var response = JSON.parse(xhr.responseText);
-                alert(response.error);
+                showErrorMessage(xhr.status, response.error, 3);
             }
         }
     }
