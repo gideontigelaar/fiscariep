@@ -6,6 +6,14 @@ function toggleForm() {
     registerForm.classList.toggle('hidden');
 }
 
+function togglePasswordForm() {
+    const loginForm = document.querySelector('.login-form');
+    const forgotPasswordForm = document.querySelector('.forgot-password-form');
+
+    loginForm.classList.toggle('hidden');
+    forgotPasswordForm.classList.toggle('hidden');
+}
+
 function loginUser() {
     var email = document.getElementById('login-email').value;
     var password = document.getElementById('login-password').value;
@@ -46,4 +54,23 @@ function registerUser() {
         }
     }
     xhr.send('username=' + username + '&email=' + email + '&password=' + password + '&confirmPassword=' + confirmPassword);
+}
+
+function forgotPassword() {
+    var email = document.getElementById('forgot-email').value;
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../queries/forgot-password.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                location.reload();
+            } else {
+                var response = JSON.parse(xhr.responseText);
+                showErrorMessage(xhr.status, response.error, 3);
+            }
+        }
+    }
+    xhr.send('email=' + email);
 }
