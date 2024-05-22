@@ -26,7 +26,7 @@ if (empty($userName) || empty($email) || empty($password) || empty($passwordConf
 }
 
 if (strlen($userName) < 3 || strlen($userName) > 15 || !ctype_alnum($userName)) {
-    sendError('De gebruikersnaam moet tussen de 3 en 15 tekens lang zijn en mag alleen letters en cijfers bevatten.');
+    sendError('De gebruikersnaam voldoet niet aan de verplichte criteria.');
 }
 
 $stmt = $pdo->prepare("SELECT username FROM users WHERE username = :username");
@@ -54,7 +54,7 @@ if (strlen($password) > 255) {
 }
 
 if (!preg_match('/^(?=.*[a-z])(?=.*[0-9]).{8,}$/', $password)) {
-    sendError('Het wachtwoord moet minimaal 8 tekens lang zijn en een kleine letter en een cijfer bevatten.');
+    sendError('Het wachtwoord voldoet niet aan de verplichte criteria.');
 }
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);

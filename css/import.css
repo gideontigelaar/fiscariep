@@ -125,12 +125,18 @@ button:hover {
     display: grid;
     color: white;
     margin-left: 10px;
-    align-content: center; }
+    align-content: center;
+    width: 70%; }
     .error-container .error-text .error-text-heading {
       font-size: 14px;
       opacity: 60%; }
     .error-container .error-text .error-text-subtext {
-      font-weight: 600; }
+      font-weight: 600;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 20px;
+      white-space: nowrap; }
 
 .error-icon {
   width: fit-content;

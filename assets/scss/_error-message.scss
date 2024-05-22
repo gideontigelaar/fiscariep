@@ -19,6 +19,7 @@
         color: white;
         margin-left: 10px;
         align-content: center;
+        width: 70%;
 
         .error-text-heading {
             font-size: 14px;
@@ -27,6 +28,11 @@
 
         .error-text-subtext {
             font-weight: 600;
+            max-width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 20px;
+            white-space: nowrap;
         }
     }
 }
