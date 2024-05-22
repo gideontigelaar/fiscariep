@@ -14,7 +14,10 @@ function showErrorMessage(code, text, duration) {
 
             var errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
             
+            
+            
             setTimeout(function() {
+                shakeErrorMessage();
                 errorHeadContainer.style.top = '20px';
             }, 100);
 
@@ -43,4 +46,21 @@ function showErrorMessage(code, text, duration) {
         }
     };
     xhr.send();
+}
+
+function shakeErrorMessage() {
+    var errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
+    errorHeadContainer.style.transform = 'translateX(-10px)';
+    setTimeout(function() {
+        errorHeadContainer.style.transform = 'translateX(10px)';
+        setTimeout(function() {
+            errorHeadContainer.style.transform = 'translateX(-5px)';
+            setTimeout(function() {
+                errorHeadContainer.style.transform = 'translateX(5px)';
+                setTimeout(function() {
+                    errorHeadContainer.style.transform = 'translateX(0)';
+                }, 100);
+            }, 100);
+        }, 100);
+    }, 100);
 }
