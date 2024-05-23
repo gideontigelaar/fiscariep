@@ -46,7 +46,7 @@
             </div>
         <?php
             } else {
-                $stmt = $pdo->prepare("SELECT token, expires_at FROM reset_password WHERE token = :token AND expires_at > NOW()");
+                $stmt = $pdo->prepare("SELECT token, expires_at FROM password_resets WHERE token = :token AND expires_at > NOW()");
                 $stmt->execute(['token' => $_GET['token']]);
                 $resetPassword = $stmt->fetch(PDO::FETCH_ASSOC);
         ?>
