@@ -36,8 +36,18 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
             sidebar
         </div>
         <div class="db_content">
-            <h1>Welkom, <?php echo $userData['username']; ?></h1>
-            <p>Je bent ingelogd als <?php echo $userData['role']; ?></p>
+            <?php
+                if (isset($_GET['p'])) {
+                    $page = $_GET['p'];
+                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php")) {
+                        require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php";
+                    } else {
+                        require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
+                    }
+                } else {
+                    require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
+                }
+            ?>
         </div>
     </div>
 </body>
