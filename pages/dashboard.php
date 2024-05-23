@@ -16,43 +16,28 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     <title>Fiscariep</title>
 
     <link rel="stylesheet" href="../css/import.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="/assets/js/logoutUser.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="card col-12">
-                <div class="card-body">
-                    <h5 class="card-title">Welkom, <?php echo $userData['username']; ?></h5>
-                </div>
+<body style="margin:0;" class="db_body">
+    <div class="db_topbar-container">
+        <div class="db_topbar-logo">
+            <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
+        </div>
+        <div class="db_topbar-logout-container">
+            <span>Goedendag, <b><?php echo $userData['username']; ?></b></span>
+            <div class="db_topbar-logout" onclick="logOutUser()">
+                <img src="../assets/svg/signout.svg" alt="Signout Icon">
             </div>
-
-            <div class="card col-12 col-md-6">
-                <div class="card-body">
-                    <h5 class="card-title">Recent ingeleverd</h5>
-                    <p class="card-text">Er zijn geen recent ingeleverde documenten.</p>
-                </div>
-            </div>
-
-            <div class="card col-12 col-md-6">
-                <div class="card-body">
-                    <h5 class="card-title">Nieuwe opdracht</h5>
-                    <form>
-                        <div class="mb-3">
-                            <label for="opdracht" class="form-label">Opdracht</label>
-                            <input type="text" class="form-control" id="opdracht" name="opdracht">
-                        </div>
-                        <div class="mb-3">
-                            <label for="document" class="form-label">Document</label>
-                            <input type="file" class="form-control" id="document" name="document">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Verstuur</button>
-                    </form>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="db_content-container">
+        <div class="db_sidebar">
+            sidebar
+        </div>
+        <div class="db_content">
+            <h1>Welkom, <?php echo $userData['username']; ?></h1>
+            <p>Je bent ingelogd als <?php echo $userData['role']; ?></p>
         </div>
     </div>
 </body>

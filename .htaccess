@@ -1,12 +1,8 @@
-Options -Indexes
-
-<Files "creds.json">
-    Order allow,deny
-    Deny from all
-</Files>
-
 RewriteEngine On
 RewriteBase /
+
+# Redirect creds.json requests to 404 page
+RewriteRule ^creds\.json$ /pages/errors/404.php [L,R=404]
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

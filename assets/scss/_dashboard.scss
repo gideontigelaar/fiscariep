@@ -1,0 +1,75 @@
+.db_body {
+    background-color: $primary-1;
+}
+
+.db_topbar-container {
+    height: 100px;
+    background-color: $primary-1;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        height: 75px;
+        align-self: center;
+        margin-left: 20px;
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .db_topbar-container {
+        img {
+            height: 50px;
+            margin-left: 30px;
+        }
+    }
+}
+
+.db_content-container {
+    display: flex;
+
+    .db_sidebar {
+        width: 350px;
+        height: 100dvh;
+        background-color: $primary-1;
+        border-radius: 15px;
+        margin-top: 50px;
+        min-width: 190px;
+    }
+
+    .db_content {
+        width: 100%;
+        border-radius: 12px 0px 0px 0px;
+        background-color: white;
+        padding-left: 100px;
+        padding-top: 50px;
+    }
+}
+
+.db_topbar-logout-container {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    margin-right: 40px;
+
+    span {
+        color: white;
+        font-size: 18px;
+    }
+}
+
+.db_topbar-logout {
+    padding: 10px;
+    border-radius: 10000px;
+    background-color: white;
+    cursor: pointer;
+
+    img {
+        height: 25px;
+        margin: 0;
+    }
+}
+
+.db_topbar-logout:hover {
+    opacity: 70%;
+}
