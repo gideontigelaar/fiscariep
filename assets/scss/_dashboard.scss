@@ -28,13 +28,20 @@
 .db_content-container {
     display: flex;
 
-    .db_sidebar {
+    .db_sidebar {    width: 100%;
+    display: block;
         width: 350px;
         height: 100dvh;
         background-color: $primary-1;
         border-radius: 15px;
         margin-top: 50px;
         min-width: 190px;
+
+        a {
+            color: white;
+            width: 100%;
+            display: block;
+        }
     }
 
     .db_content {

@@ -229,12 +229,18 @@ p, span, label, button {
 .db_content-container {
   display: flex; }
   .db_content-container .db_sidebar {
+    width: 100%;
+    display: block;
     width: 350px;
     height: 100dvh;
     background-color: #2E3192;
     border-radius: 15px;
     margin-top: 50px;
     min-width: 190px; }
+    .db_content-container .db_sidebar a {
+      color: white;
+      width: 100%;
+      display: block; }
   .db_content-container .db_content {
     width: 100%;
     border-radius: 12px 0px 0px 0px;
