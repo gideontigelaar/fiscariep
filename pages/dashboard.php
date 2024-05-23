@@ -33,7 +33,14 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
     <div class="db_content-container">
         <div class="db_sidebar">
-            sidebar
+        <?php
+            $sidebarItems = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/assets/json/sidebar-items.json"), true);
+            foreach ($sidebarItems['menu'] as $item) {
+                $link = strtolower($item['title']);
+                echo "<a href='?p={$link}' class='db_sidebar-item'>{$item['title']}</a>";
+            }
+        ?>
+
         </div>
         <div class="db_content">
             <?php
