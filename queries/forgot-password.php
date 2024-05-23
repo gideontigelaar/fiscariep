@@ -32,7 +32,7 @@ if (!$stmt->fetch(PDO::FETCH_ASSOC)) {
 }
 
 $token = bin2hex(random_bytes(32));
-$stmt = $pdo->prepare("INSERT INTO reset_password (user_id, token, expires_at) VALUES ((SELECT user_id FROM users WHERE email = :email), :token, DATE_ADD(NOW(), INTERVAL 1 HOUR))");
+$stmt = $pdo->prepare("INSERT INTO password_resets (user_id, token, expires_at) VALUES ((SELECT user_id FROM users WHERE email = :email), :token, DATE_ADD(NOW(), INTERVAL 1 HOUR))");
 $stmt->execute(['email' => $email, 'token' => $token]);
 
 $to = $email;

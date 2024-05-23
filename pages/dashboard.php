@@ -17,6 +17,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <link rel="stylesheet" href="../css/import.css">
     <script src="/assets/js/logoutUser.js"></script>
+    <script src="/assets/js/dashboard.js"></script>
 </head>
 
 <body style="margin:0;" class="db_body">

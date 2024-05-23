@@ -35,7 +35,7 @@ if (!preg_match('/^(?=.*[a-z])(?=.*[0-9]).{8,}$/', $password)) {
     sendError('Het wachtwoord voldoet niet aan de verplichte criteria.');
 }
 
-$stmt = $pdo->prepare("SELECT token, expires_at FROM reset_password WHERE token = :token AND expires_at > NOW()");
+$stmt = $pdo->prepare("SELECT token, expires_at FROM password_resets WHERE token = :token AND expires_at > NOW()");
 $stmt->execute(['token' => $token]);
 $resetPassword = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -44,10 +44,10 @@ if (!$resetPassword) {
 }
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$stmt = $pdo->prepare("UPDATE users SET password = :password WHERE user_id = (SELECT user_id FROM reset_password WHERE token = :token)");
+$stmt = $pdo->prepare("UPDATE users SET password = :password WHERE user_id = (SELECT user_id FROM password_resets WHERE token = :token)");
 $stmt->execute(['password' => $hashedPassword, 'token' => $token]);
 
-$stmt = $pdo->prepare("DELETE FROM reset_password WHERE token = :token");
+$stmt = $pdo->prepare("DELETE FROM password_resets WHERE token = :token");
 $stmt->execute(['token' => $token]);
 
 sendSuccess();
