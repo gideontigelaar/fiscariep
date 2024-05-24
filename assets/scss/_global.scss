@@ -73,8 +73,23 @@ button:hover {
 }
 
 .but_primary {
-    background-color: #2f3192;
+    background-color: $primary-1;
     color: white;
+}
+
+.but_primary_icon {
+    display: flex;
+    align-items: center;
+    border-radius: 100px !important;
+    column-gap: 10px;
+    color: white;
+    background-color: $secondary-1 !important;
+    height: 45px;
+    padding: 10px !important;
+
+    img {
+        filter: invert(1);
+    }
 }
 
 h1 {
