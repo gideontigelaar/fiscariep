@@ -31,21 +31,26 @@ function nextPopupStep(popupTitle, popupContentPHP) {
 
             // add pages/popups/"popupContentPHP".php to the container right below the title
             fetch('/pages/popups/' + popupContentPHP + '.php')
-                .then(response => response.text())
-                .then(html => {
-                    if (response.status === 404) {
-                        newPopupContainer('An unknown error occurred', '404');
-                        return;
-                    }
-                    document.querySelector('.pp_container-content').innerHTML = html;
-                })
+            .then(response => {
+                if (!response.ok) {
+                    fetch('/pages/popups/404.php')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.querySelector('.pp_container-content').innerHTML = html;
+                    });
+                }
+                return response.text();
+            })
+            .then(html => {
+                document.querySelector('.pp_container-content').innerHTML = html;
+            })
             .catch(error => {
                 console.error('Error loading popup:', error);
                 fetch('/pages/popups/404.php')
                     .then(response => response.text())
                     .then(html => {
                         document.querySelector('.pp_container-content').innerHTML = html;
-                    })
+                    });
             });
         })
     .catch(error => {
