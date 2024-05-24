@@ -28,7 +28,6 @@ if ($newPassword !== $confirmPassword) {
     sendError('De wachtwoorden komen niet overeen.');
 }
 
-
 if (strlen($newPassword) > 255) {
     sendError('Wachtwoord is te lang.');
 }
