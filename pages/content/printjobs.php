@@ -8,8 +8,22 @@ $stmt->execute();
 $openPrints = $stmt->fetchAll();
 ?>
 <div>
-    <h1>Alle printjobs</h1>
-    <p>Er <?= count($openPrints) == 1 ? "is" : "zijn" ?> <?= count($openPrints); ?> openstaande printjob<?= count($openPrints) == 1 ? "" : "s" ?></p>
+    <h1 style="margin-bottom: 0px;">Alle printjobs</h1>
+    <div class="jobs_head-info">
+        <p>Er <?= count($openPrints) == 1 ? "is" : "zijn" ?> <?= count($openPrints); ?> openstaande printjob<?= count($openPrints) == 1 ? "" : "s" ?></p>
+        <button class="but_primary_icon" style="padding-right:20px !important;">
+            <img src="../assets/svg/plus-circle-filled.svg" alt="Nieuwe printjob-icoon">
+            Nieuwe printjob
+        </button>
+    </div>
+</div>
+
+<hr class="jobs_divider">
+
+<div class="jobs_month-picker but_primary_icon" style="padding-right: revert;">
+    <img src="../assets/svg/arrow-circle-filled.svg" style="transform: rotate(270deg)" alt="Vorige maand">
+    Jangustus
+    <img src="../assets/svg/arrow-circle-filled.svg" style="transform: rotate(90deg)" alt="Volgende maand">
 </div>
 
 <div class="jobs_head-container">
@@ -75,11 +89,11 @@ if (count($prints) > 0) {
                     <div class="jobs_item-short-info">
                         <span><?= $print['print_amount'] ?> exemplaar<?= $print['print_amount'] == 1 ? "" : "en" ?></span>
                         <span><?= $print['paper_amount'] ?> papier<?= $print['paper_amount'] == 1 ? "" : "en" ?></span>
-                        <span><?= $print['double_sided'] ? "dubbelzijdig" : "enkelzijdig" ?></span>
-                        <span><?= $print['print_color'] ? "gekleurd" : "zwart-wit" ?></span>
+                        <span><?= $print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig" ?></span>
+                        <span><?= $print['print_color'] ? "Gekleurd" : "Zwart-wit" ?></span>
                         <span><?= $print['paper_color'] ?></span>
                         <span><?= $print['paper_weight'] ?> gram</span>
-                        <span><?= $print['staple'] ? "geniet" : "nietloos" ?></span>
+                        <span><?= $print['staple'] ? "Geniet" : "Niet geniet" ?></span>
                         <span style="font-weight: 600;"><?= $timeAgo ?></span>
                     </div>
                     <button class="jobs_details-button">Details</button>
