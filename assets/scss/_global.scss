@@ -92,6 +92,21 @@ button:hover {
     }
 }
 
+.but_secondary_icon {
+    display: flex;
+    align-items: center;
+    border-radius: 100px !important;
+    column-gap: 10px;
+    color: $primary-1;
+    background-color: $grey !important;
+    height: 45px;
+    padding: 10px !important;
+
+    img {
+        filter: invert(25%) sepia(16%) saturate(5541%) hue-rotate(216deg) brightness(85%) contrast(105%);
+    }
+}
+
 h1 {
     font-size: 36px;
 }
