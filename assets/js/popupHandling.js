@@ -24,9 +24,37 @@ function nextPopupStep(popupTitle, popupContentPHP) {
             document.body.prepend(container);
 
             document.querySelector('.pp_container-title').innerHTML = popupTitle;
+
+            if (!popupContentPHP) {
+                popupContentPHP = '404';
+            }
+
+            // add pages/popups/"popupContentPHP".php to the container right below the title
+            fetch('/pages/popups/' + popupContentPHP + '.php')
+                .then(response => response.text())
+                .then(html => {
+                    if (response.status === 404) {
+                        newPopupContainer('An unknown error occurred', '404');
+                        return;
+                    }
+                    document.querySelector('.pp_container-content').innerHTML = html;
+                })
+            .catch(error => {
+                console.error('Error loading popup:', error);
+                fetch('/pages/popups/404.php')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.querySelector('.pp_container-content').innerHTML = html;
+                    })
+            });
         })
     .catch(error => {
         console.error('Error loading popup:', error);
+        fetch('/pages/popups/404.php')
+            .then(response => response.text())
+            .then(html => {
+                document.querySelector('.pp_container-content').innerHTML = html;
+            })
     });
 }
 
@@ -75,6 +103,38 @@ function newPopupContainer(popupTitle, popupContentPHP) {
     setTimeout(() => {
         newContainer.style.transform = 'scale(1) translateY(0px)';
     }, 1);
+
+    // clear the content
+    newContainer.querySelector('.pp_container-content').innerHTML = '';
+
+    if (!popupContentPHP) {
+        popupContentPHP = '404';
+    }
+
+    // add pages/popups/"popupContentPHP".php to the container right below the title
+    fetch('/pages/popups/' + popupContentPHP + '.php')
+    .then(response => {
+        if (!response.ok) {
+            fetch('/pages/popups/404.php')
+            .then(response => response.text())
+            .then(html => {
+                newContainer.querySelector('.pp_container-content').innerHTML = html;
+            });
+        }
+        return response.text();
+    })
+    .then(html => {
+        newContainer.querySelector('.pp_container-content').innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error loading popup:', error);
+        fetch('/pages/popups/404.php')
+            .then(response => response.text())
+            .then(html => {
+                newContainer.querySelector('.pp_container-content').innerHTML = html;
+            });
+    });
+
 
     // set popup title
     newContainer.querySelector('.pp_container-title').innerHTML = popupTitle;
