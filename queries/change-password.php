@@ -25,18 +25,10 @@ if (empty($oldPassword) || empty($newPassword) || empty($confirmPassword)) {
 }
 
 if ($newPassword !== $confirmPassword) {
-    sendError('Wachtwoorden komen niet overeen.');
+    sendError('De wachtwoorden komen niet overeen.');
 }
 
-if (strlen($newPassword) > 255) {
-    sendError('Wachtwoord is te lang.');
-}
-
-if (!preg_match('/^(?=.*[a-z])(?=.*[0-9]).{8,}$/', $newPassword)) {
-    sendError('Het wachtwoord voldoet niet aan de verplichte criteria.');
-}
-
-$stmt = $pdo->prepare("SELECT password FROM users WHERE user_id = :user_id");
+$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
 $stmt->execute(['user_id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -45,7 +37,9 @@ if (!$user || !password_verify($oldPassword, $user['password'])) {
 }
 
 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+
 $stmt = $pdo->prepare("UPDATE users SET password = :password WHERE user_id = :user_id");
 $stmt->execute(['password' => $hashedPassword, 'user_id' => $_SESSION['user_id']]);
+
 sendSuccess();
 ?>
