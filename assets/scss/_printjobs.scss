@@ -1,0 +1,45 @@
+.jobs_item-container {
+    width: 300px;
+    border-radius: 12px;
+    background-color: $light-blue;
+}
+
+.jobs_head-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.jobs_item-title {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    
+    span {
+        font-weight: 600;
+        font-size: 19px;
+        max-width: 150px;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+
+.jobs_item-content {
+    padding: 20px;
+}
+
+.jobs_item-short-info {
+    display: grid;
+    opacity: 70%;
+    margin-top: 10px;
+}
+
+.jobs_details-button {
+    width: 100%;
+    border-radius: 1000px;
+    background-color: $secondary-1;
+    color: white;
+    margin-top: 20px;
+}
