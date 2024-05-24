@@ -1,10 +1,10 @@
-function nextPopupStep(popupTitle, popupContentPHP) {
+function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
     if (!popupTitle) {
         popupTitle = 'An unknown error occurred';
     }
 
     if (document.querySelector('.pp_head-container')) {
-        newPopupContainer(popupTitle, popupContentPHP);
+        newPopupContainer(popupTitle, popupSubtext, popupContentPHP);
         return;
     }
 
@@ -24,9 +24,10 @@ function nextPopupStep(popupTitle, popupContentPHP) {
             document.body.prepend(container);
 
             document.querySelector('.pp_container-title').innerHTML = popupTitle;
+            document.querySelector('.pp_container-subtext').innerHTML = popupSubtext;
 
             if (!popupContentPHP) {
-                popupContentPHP = '404';
+                return;
             }
 
             // add pages/popups/"popupContentPHP".php to the container right below the title
@@ -63,7 +64,7 @@ function nextPopupStep(popupTitle, popupContentPHP) {
     });
 }
 
-function newPopupContainer(popupTitle, popupContentPHP) {
+function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
     var containers = document.querySelectorAll('.pp_container');
     var headContainer = document.querySelector('.pp_head-container');
 
@@ -112,37 +113,35 @@ function newPopupContainer(popupTitle, popupContentPHP) {
     // clear the content
     newContainer.querySelector('.pp_container-content').innerHTML = '';
 
-    if (!popupContentPHP) {
-        popupContentPHP = '404';
-    }
-
-    // add pages/popups/"popupContentPHP".php to the container right below the title
-    fetch('/pages/popups/' + popupContentPHP + '.php')
-    .then(response => {
-        if (!response.ok) {
+    if (popupContentPHP) {
+        // add pages/popups/"popupContentPHP".php to the container right below the title
+        fetch('/pages/popups/' + popupContentPHP + '.php')
+        .then(response => {
+            if (!response.ok) {
+                fetch('/pages/popups/404.php')
+                .then(response => response.text())
+                .then(html => {
+                    newContainer.querySelector('.pp_container-content').innerHTML = html;
+                });
+            }
+            return response.text();
+        })
+        .then(html => {
+            newContainer.querySelector('.pp_container-content').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading popup:', error);
             fetch('/pages/popups/404.php')
-            .then(response => response.text())
-            .then(html => {
-                newContainer.querySelector('.pp_container-content').innerHTML = html;
-            });
-        }
-        return response.text();
-    })
-    .then(html => {
-        newContainer.querySelector('.pp_container-content').innerHTML = html;
-    })
-    .catch(error => {
-        console.error('Error loading popup:', error);
-        fetch('/pages/popups/404.php')
-            .then(response => response.text())
-            .then(html => {
-                newContainer.querySelector('.pp_container-content').innerHTML = html;
-            });
-    });
-
+                .then(response => response.text())
+                .then(html => {
+                    newContainer.querySelector('.pp_container-content').innerHTML = html;
+                });
+        });
+    }
 
     // set popup title
     newContainer.querySelector('.pp_container-title').innerHTML = popupTitle;
+    newContainer.querySelector('.pp_container-subtext').innerHTML = popupSubtext;
 
     // Append the new container to the headContainer
     headContainer.appendChild(newContainer);

@@ -5,7 +5,10 @@
                 <img src="../assets/svg/arrow-circle-filled.svg" alt="Terugknop" style="transform: rotate(270deg)">
                 Terug
             </button>
-            <span class="pp_container-title"></span>
+            <div style="display:grid;">
+                <span class="pp_container-title"></span>
+                <span class="pp_container-subtext"></span>
+            </div>
             <div class="pp_container-content">
                 <span></span>
             </div>
