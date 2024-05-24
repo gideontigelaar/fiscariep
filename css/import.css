@@ -68,6 +68,18 @@ button:hover {
   .but_primary_icon img {
     filter: invert(1); }
 
+.but_secondary_icon {
+  display: flex;
+  align-items: center;
+  border-radius: 100px !important;
+  column-gap: 10px;
+  color: #2E3192;
+  background-color: #F5F5F5 !important;
+  height: 45px;
+  padding: 10px !important; }
+  .but_secondary_icon img {
+    filter: invert(25%) sepia(16%) saturate(5541%) hue-rotate(216deg) brightness(85%) contrast(105%); }
+
 h1 {
   font-size: 36px; }
 
@@ -359,3 +371,28 @@ p, span, label, button {
   display: flex;
   justify-content: space-between;
   width: 90%; }
+
+.pp_head-container {
+  position: fixed;
+  z-index: 9999;
+  width: -webkit-fill-available;
+  height: 100dvh;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.pp_container {
+  pointer-events: all;
+  height: 50px;
+  background-color: white;
+  min-width: 650px;
+  min-height: 450px;
+  border-radius: 12px;
+  filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.15));
+  position: absolute; }
+  .pp_container .pp_container-contents {
+    padding: 50px; }
+  .pp_container .pp_container-title {
+    font-size: 19px;
+    font-weight: 600; }

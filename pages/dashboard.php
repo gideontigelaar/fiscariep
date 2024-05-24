@@ -17,6 +17,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <link rel="stylesheet" href="../css/import.css">
     <script src="/assets/js/logoutUser.js"></script>
+    <script src="/assets/js/popupHandling.js"></script>
     <script src="/assets/js/dashboard.js"></script>
 </head>
 
@@ -44,18 +45,20 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
         </div>
         <div class="db_content">
-            <?php
-                if (isset($_GET['p'])) {
-                    $page = $_GET['p'];
-                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php")) {
-                        require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php";
+            <div class="db_content-items">
+                <?php
+                    if (isset($_GET['p'])) {
+                        $page = $_GET['p'];
+                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php")) {
+                            require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php";
+                        } else {
+                            require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
+                        }
                     } else {
                         require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
                     }
-                } else {
-                    require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
-                }
-            ?>
+                ?>
+            </div>
         </div>
     </div>
 </body>
