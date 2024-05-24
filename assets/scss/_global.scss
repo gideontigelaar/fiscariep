@@ -1,6 +1,8 @@
 $grey: #F5F5F5;
+$light-blue: #ECECFE;
 $dark-grey: #DADADA;
 $primary-1: #2E3192;
+$secondary-1: #5155C9;
 $primary-2: #C1D72D;
 $error-error-1: #E33232;
 
@@ -99,4 +101,24 @@ p, span, label, button {
     .hide-on-mobile {
         display: none;
     }
+}
+
+.status-indicator {
+    height:20px;
+    width:20px;
+    min-height: 20px;
+    min-width: 20px;
+    border-radius:1000px;
+}
+
+.status-indicator_green {
+    background-color: #00D834;
+}
+
+.status-indicator_orange {
+    background-color: #FF8B00;
+}
+
+.status-indicator_red {
+    background-color: #FF0001;
 }
