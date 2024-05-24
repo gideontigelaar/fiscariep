@@ -11,7 +11,7 @@ $openPrints = $stmt->fetchAll();
     <h1 style="margin-bottom: 0px;">Alle printjobs</h1>
     <div class="jobs_head-info">
         <p>Er <?= count($openPrints) == 1 ? "is" : "zijn" ?> <?= count($openPrints); ?> openstaande printjob<?= count($openPrints) == 1 ? "" : "s" ?></p>
-        <button class="but_primary_icon" style="padding-right:20px !important;" onclick="nextPopupStep('Nieuwe printjob', 'new-printjob')">
+        <button class="but_primary_icon" style="padding-right:20px !important;" onclick="nextPopupStep('Nieuwe printjob', '','new-printjob')">
             <img src="../assets/svg/plus-circle-filled.svg" alt="Nieuwe printjob-icoon">
             Nieuwe printjob
         </button>
