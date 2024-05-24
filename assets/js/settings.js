@@ -2,6 +2,10 @@ function updateSettings() {
     var username = document.getElementById('username').value;
     var email = document.getElementById('email').value;
     var address = document.getElementById('address').value;
+    var postal_code = document.getElementById('postal_code').value;
+    var city = document.getElementById('city').value;
+    var province = document.getElementById('province').value;
+    var country = document.getElementById('country').value;
     var phone_number = document.getElementById('phone_number').value;
 
     var xhr = new XMLHttpRequest();
@@ -17,7 +21,7 @@ function updateSettings() {
             }
         }
     }
-    xhr.send('username=' + username + '&email=' + email + '&address=' + address + '&phone_number=' + phone_number);
+    xhr.send('username=' + username + '&email=' + email + '&address=' + address + '&postal_code=' + postal_code + '&city=' + city + '&province=' + province + '&country=' + country + '&phone_number=' + phone_number);
 }
 
 function changePassword() {

@@ -15,6 +15,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiscariep</title>
 
+    <link rel="icon" href="../assets/svg/logo/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/import.css">
     <script src="/assets/js/logoutUser.js"></script>
     <script src="/assets/js/popupHandling.js"></script>
