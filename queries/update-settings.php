@@ -19,6 +19,10 @@ function sendSuccess() {
 $userName = $_POST['username'] ?? '';
 $email = strtolower($_POST['email']) ?? '';
 $address = $_POST['address'] ?? '';
+$postal_code = $_POST['postal_code'] ?? '';
+$city = $_POST['city'] ?? '';
+$province = $_POST['province'] ?? '';
+$country = $_POST['country'] ?? '';
 $phone_number = $_POST['phone_number'] ?? '';
 
 if (empty($userName) || empty($email)) {
@@ -45,8 +49,8 @@ if ($stmt->fetch(PDO::FETCH_ASSOC)) {
     sendError('Dit e-mailadres is al in gebruik.');
 }
 
-$stmt = $pdo->prepare("UPDATE users SET username = :username, email = :email, address = :address, phone_number = :phone_number WHERE user_id = :user_id");
-$stmt->execute(['username' => $userName, 'email' => $email, 'address' => $address, 'phone_number' => $phone_number, 'user_id' => $_SESSION['user_id']]);
+$stmt = $pdo->prepare("UPDATE users SET username = :username, email = :email, address = :address, postal_code = :postal_code, city = :city, province = :province, country = :country, phone_number = :phone_number WHERE user_id = :user_id");
+$stmt->execute(['username' => $userName, 'email' => $email, 'address' => $address, 'postal_code' => $postal_code, 'city' => $city, 'province' => $province, 'country' => $country, 'phone_number' => $phone_number, 'user_id' => $_SESSION['user_id']]);
 
 sendSuccess();
 ?>

@@ -23,6 +23,26 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
         </div>
 
         <div>
+            <label for="postal_code">Postcode</label>
+            <input type="text" id="postal_code" value="<?php echo $userData['postal_code']; ?>">
+        </div>
+
+        <div>
+            <label for="city">Plaats</label>
+            <input type="text" id="city" value="<?php echo $userData['city']; ?>">
+        </div>
+
+        <div>
+            <label for="province">Provincie</label>
+            <input type="text" id="province" value="<?php echo $userData['province']; ?>">
+        </div>
+
+        <div>
+            <label for="country">Land</label>
+            <input type="text" id="country" value="<?php echo $userData['country']; ?>">
+        </div>
+
+        <div>
             <label for="phone_number">Telefoonnummer</label>
             <input type="text" id="phone_number" value="<?php echo $userData['phone_number']; ?>">
         </div>
