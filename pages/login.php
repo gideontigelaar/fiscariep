@@ -68,12 +68,12 @@
                     <div>
                         <div style="display:inline-grid;width:100%;">
                             <div class="auth_inputfield">
-                                <label for="password">Wachtwoord</label>
+                                <label for="reset-password">Wachtwoord</label>
                                 <input type="password" id="reset-password">
                             </div>
 
                             <div class="auth_inputfield">
-                                <label for="confirm_password">Bevestig <span class="hide-on-mobile">wachtwoord</span></label>
+                                <label for="reset-password-confirm">Bevestig <span class="hide-on-mobile">wachtwoord</span></label>
                                 <input type="password" id="reset-password-confirm">
                             </div>
                         </div>
