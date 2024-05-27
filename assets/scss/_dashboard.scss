@@ -80,35 +80,3 @@
 .db_topbar-logout:hover {
     opacity: 70%;
 }
-
-.db_sidebar-item {
-    background-color: #ffffff0f;
-    width: 90%;
-    height: 50px;
-    border-radius: 0px 1000px 1000px 0px;
-    display: flex;
-    align-items: center;
-    color: white;
-    column-gap: 10px;
-    margin-bottom: 15px;
-    cursor: pointer;
-
-    .db_sidebar-active-symbol {
-        height: 70%;
-        width: 5px;
-        border-radius: 100px;
-        margin-left: 10px;
-    }
-}
-
-.db_sidebar-item:hover {
-    opacity: 70%;
-}
-
-.db_sidebar-item.active {
-    background-color: #ffffff21;
-
-    .db_sidebar-active-symbol {
-        background-color: white;
-    }
-}
