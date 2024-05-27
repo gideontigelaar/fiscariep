@@ -17,7 +17,7 @@ function togglePrintLayout() {
 }
 
 function toggleCoverColor() {
-    let differentCoverColor = document.getElementById('differentCoverColor-checkbox').checked;
+    let differentCoverColor = document.getElementById('differentCoverColor').checked;
     let coverColor = document.getElementById('coverColor');
 
     if (differentCoverColor) {
