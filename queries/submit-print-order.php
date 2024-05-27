@@ -28,7 +28,7 @@ $paperWeight = $_POST['paperWeight'] ?? '';
 $staple = $_POST['staple'] ?? '';
 $additionalWishes = htmlspecialchars($_POST['additionalWishes'] ?? '');
 
-if (empty($printAmount) || empty($paperAmount) || empty($paperWeight) || empty($uploadPrint)) {
+if (empty($printAmount) || empty($paperAmount) || empty($paperWeight)) {
     sendError('Alle velden zijn verplicht.');
 }
 
