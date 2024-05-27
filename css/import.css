@@ -132,11 +132,46 @@ input {
   font-family: 'Montserrat';
   border: none; }
 
+input:focus {
+  outline: none; }
+
+textarea {
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Montserrat';
+  border: none;
+  transition: 0s; }
+
+textarea:focus {
+  outline: none; }
+
 .gl_ordinary-input-field {
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   column-gap: 10px; }
+
+.gl_ordinary-checkbox {
+  background-color: #F5F5F5;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer; }
+  .gl_ordinary-checkbox .gl_ordinary-checkbox-indicator {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(0, 0, 0, 0.151);
+    border-radius: 100px; }
+
+.gl_ordinary-checkbox.active {
+  background-color: #2E3192; }
+  .gl_ordinary-checkbox.active .gl_ordinary-checkbox-indicator {
+    background-color: white; }
 
 .auth_form {
   width: 50rem;

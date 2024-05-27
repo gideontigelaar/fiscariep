@@ -6,44 +6,52 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/showError.js"></script>
 <div>
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="username">Gebruikersnaam</label>
         <input type="text" id="username" value="<?php echo $userData['username']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="email">E-mail</label>
         <input type="email" id="email" value="<?php echo $userData['email']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="address">Adres</label>
         <input type="text" id="address" value="<?php echo $userData['address']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="postal_code">Postcode</label>
         <input type="text" id="postal_code" value="<?php echo $userData['postal_code']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="city">Plaats</label>
         <input type="text" id="city" value="<?php echo $userData['city']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="province">Provincie</label>
         <input type="text" id="province" value="<?php echo $userData['province']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="country">Land</label>
         <input type="text" id="country" value="<?php echo $userData['country']; ?>">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="phone_number">Telefoonnummer</label>
         <input type="text" id="phone_number" value="<?php echo $userData['phone_number']; ?>">
+    </div>
+
+    <div class="gl_ordinary-input-field">
+        <label for="role">Fortnite</label>
+        <div class="gl_ordinary-checkbox" id="fortnite" onclick="toggleCheckbox('fortnite-checkbox', 'fortnite')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="fortnite-checkbox" style="display:none;">
+        </div>
     </div>
 
     <button class="but_primary" type="submit" onclick="updateSettings()">Opslaan</button>
