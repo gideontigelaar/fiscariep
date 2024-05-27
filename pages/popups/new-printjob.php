@@ -59,9 +59,9 @@
         <label for="uploadPrint">Upload PDF</label>
         <button class="but_secondary_icon" style="padding-right:20px !important;" onclick="document.getElementById('uploadPrint').click()">
                 <img src="../assets/svg/arrow-circle-filled.svg" alt="Upload knop">
-                Uploaden
+                <span class="gl_upload-button-text">Upload PDF</span>
+                <input type="file" id="uploadPrint" class="gl_upload-button" style="display:none;" accept=".pdf">
         </button>
-        <input type="file" id="uploadPrint" style="display:none;">
     </div>
 
     <div class="gl_ordinary-input-field">
