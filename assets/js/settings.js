@@ -1,14 +1,14 @@
 function updateSettings() {
-    var username = document.getElementById('username').value;
-    var email = document.getElementById('email').value;
-    var address = document.getElementById('address').value;
-    var postal_code = document.getElementById('postal_code').value;
-    var city = document.getElementById('city').value;
-    var province = document.getElementById('province').value;
-    var country = document.getElementById('country').value;
-    var phone_number = document.getElementById('phone_number').value;
+    let username = document.getElementById('username').value;
+    let email = document.getElementById('email').value;
+    let address = document.getElementById('address').value;
+    let postal_code = document.getElementById('postal_code').value;
+    let city = document.getElementById('city').value;
+    let province = document.getElementById('province').value;
+    let country = document.getElementById('country').value;
+    let phone_number = document.getElementById('phone_number').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/update-settings.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -16,7 +16,7 @@ function updateSettings() {
             if (xhr.status === 200) {
                 location.reload();
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
@@ -25,11 +25,11 @@ function updateSettings() {
 }
 
 function changePassword() {
-    var oldPassword = document.getElementById('oldPassword').value;
-    var newPassword = document.getElementById('newPassword').value;
-    var confirmPassword = document.getElementById('confirmPassword').value;
+    let oldPassword = document.getElementById('oldPassword').value;
+    let newPassword = document.getElementById('newPassword').value;
+    let confirmPassword = document.getElementById('confirmPassword').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/change-password.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -37,7 +37,7 @@ function changePassword() {
             if (xhr.status === 200) {
                 location.reload();
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
