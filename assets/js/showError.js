@@ -3,7 +3,7 @@ function showErrorMessage(code, text, duration) {
         return;
     }
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('GET', '/pages/errors/error-message.php', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -12,26 +12,26 @@ function showErrorMessage(code, text, duration) {
             document.getElementById('error-code').innerHTML = 'Error ' + code;
             document.getElementById('error-description').innerHTML = text;
 
-            var errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
-            
-            
-            
+            let errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
+
+
+
             setTimeout(function() {
                 shakeErrorMessage();
                 errorHeadContainer.style.top = '20px';
             }, 100);
 
-            var countdownElement = document.querySelector('.error-countdown-text');
+            let countdownElement = document.querySelector('.error-countdown-text');
             if (countdownElement) {
-                var countdown = duration;
+                let countdown = duration;
                 countdownElement.innerHTML = countdown;
-                
-                var countdownInterval = setInterval(function() {
+
+                let countdownInterval = setInterval(function() {
                     countdown--;
                     countdownElement.innerHTML = countdown;
                     if (countdown <= 0) {
                         clearInterval(countdownInterval);
-                        var errorMessage = document.getElementById('error-message');
+                        let errorMessage = document.getElementById('error-message');
                         if (errorMessage) {
                             errorMessage.remove();
                         }
@@ -49,9 +49,9 @@ function showErrorMessage(code, text, duration) {
 }
 
 function shakeErrorMessage() {
-    var errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
-    var shakeSequence = [-10, 10, -5, 5, 0];
-    var delay = 100;
+    let errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
+    let shakeSequence = [-10, 10, -5, 5, 0];
+    let delay = 100;
 
     shakeSequence.forEach(function(position, index) {
         setTimeout(function() {
