@@ -152,3 +152,30 @@ p, span, label, button {
 .status-indicator_red {
     background-color: #FF0001;
 }
+
+select {
+    border: none;
+    background-color: $grey;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Montserrat';
+}
+
+input {
+    background-color: $grey;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Montserrat';
+    border: none;
+}
+
+.gl_ordinary-input-field {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+}
