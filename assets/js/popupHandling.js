@@ -9,7 +9,7 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
     }
 
     // set db_content-items to opacity 40% and pointer-events none. this is a container there's only 1
-    var dbContentItems = document.querySelector('.db_content-items');
+    let dbContentItems = document.querySelector('.db_content-items');
     dbContentItems.style.opacity = '0.4';
     dbContentItems.style.pointerEvents = 'none';
 
@@ -17,7 +17,7 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
         .then(response => response.text())
         .then(html => {
             // Create a container for the popup
-            var container = document.createElement('div');
+            let container = document.createElement('div');
             container.innerHTML = html;
 
             // Append the container to the top of the body
@@ -65,8 +65,8 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
 }
 
 function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
-    var containers = document.querySelectorAll('.pp_container');
-    var headContainer = document.querySelector('.pp_head-container');
+    let containers = document.querySelectorAll('.pp_container');
+    let headContainer = document.querySelector('.pp_head-container');
 
     if (!containers || !headContainer) {
         console.error('Container or head container not found');
@@ -80,17 +80,17 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
         }
 
         // Extract current scale and translateY values from the transform style
-        var transform = container.style.transform;
-        var scaleMatch = transform.match(/scale\(([^)]+)\)/);
-        var translateYMatch = transform.match(/translateY\(([^)]+)\)/);
+        let transform = container.style.transform;
+        let scaleMatch = transform.match(/scale\(([^)]+)\)/);
+        let translateYMatch = transform.match(/translateY\(([^)]+)\)/);
 
         if (!scaleMatch || !translateYMatch) {
             console.error('Invalid transform format');
             return;
         }
 
-        var scale = parseFloat(scaleMatch[1]);
-        var translateY = parseFloat(translateYMatch[1]);
+        let scale = parseFloat(scaleMatch[1]);
+        let translateY = parseFloat(translateYMatch[1]);
 
         // Update the container's transform
         container.style.transform = `scale(${scale - 0.1}) translateY(${translateY - 80}px)`;
@@ -102,9 +102,9 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
     });
 
     // Clone the container and reset its transform
-    var container = document.querySelector('.pp_container');
+    let container = document.querySelector('.pp_container');
 
-    var newContainer = container.cloneNode(true);
+    let newContainer = container.cloneNode(true);
     newContainer.style.transform = 'scale(1) translateY(80px)';
     setTimeout(() => {
         newContainer.style.transform = 'scale(1) translateY(0px)';
@@ -150,8 +150,8 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
 
 
 function removePopupContainer() {
-    var containers = document.querySelectorAll('.pp_container');
-    var headContainer = document.querySelector('.pp_head-container');
+    let containers = document.querySelectorAll('.pp_container');
+    let headContainer = document.querySelector('.pp_head-container');
 
     if (!containers || !headContainer) {
         console.error('Container or head container not found');
@@ -165,17 +165,17 @@ function removePopupContainer() {
         }
 
         // Extract current scale and translateY values from the transform style
-        var transform = container.style.transform;
-        var scaleMatch = transform.match(/scale\(([^)]+)\)/);
-        var translateYMatch = transform.match(/translateY\(([^)]+)\)/);
+        let transform = container.style.transform;
+        let scaleMatch = transform.match(/scale\(([^)]+)\)/);
+        let translateYMatch = transform.match(/translateY\(([^)]+)\)/);
 
         if (!scaleMatch || !translateYMatch) {
             console.error('Invalid transform format');
             return;
         }
 
-        var scale = parseFloat(scaleMatch[1]);
-        var translateY = parseFloat(translateYMatch[1]);
+        let scale = parseFloat(scaleMatch[1]);
+        let translateY = parseFloat(translateYMatch[1]);
 
         // Update the container's transform
         container.style.transform = `scale(${scale + 0.1}) translateY(${translateY + 80}px)`;
@@ -192,7 +192,7 @@ function removePopupContainer() {
     // if this is the last one, yeet the head container
     if (headContainer.children.length === 0) {
         document.querySelector('.pp_head-container').remove();
-        var dbContentItems = document.querySelector('.db_content-items');
+        let dbContentItems = document.querySelector('.db_content-items');
         dbContentItems.style.opacity = '1';
         dbContentItems.style.pointerEvents = 'all';
     }

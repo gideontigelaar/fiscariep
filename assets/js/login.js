@@ -15,10 +15,10 @@ function togglePasswordForm() {
 }
 
 function loginUser() {
-    var email = document.getElementById('login-email').value;
-    var password = document.getElementById('login-password').value;
+    let email = document.getElementById('login-email').value;
+    let password = document.getElementById('login-password').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/login-user.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -26,7 +26,7 @@ function loginUser() {
             if (xhr.status === 200) {
                 location.reload();
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
@@ -35,12 +35,12 @@ function loginUser() {
 }
 
 function registerUser() {
-    var username = document.getElementById('register-username').value;
-    var email = document.getElementById('register-email').value;
-    var password = document.getElementById('register-password').value;
-    var confirmPassword = document.getElementById('register-password-confirm').value;
+    let username = document.getElementById('register-username').value;
+    let email = document.getElementById('register-email').value;
+    let password = document.getElementById('register-password').value;
+    let confirmPassword = document.getElementById('register-password-confirm').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/register-user.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -48,7 +48,7 @@ function registerUser() {
             if (xhr.status === 200) {
                 location.reload();
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
@@ -57,9 +57,9 @@ function registerUser() {
 }
 
 function forgotPassword() {
-    var email = document.getElementById('forgot-email').value;
+    let email = document.getElementById('forgot-email').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/forgot-password.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -67,7 +67,7 @@ function forgotPassword() {
             if (xhr.status === 200) {
                 location.reload();
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
@@ -76,10 +76,10 @@ function forgotPassword() {
 }
 
 function resetPassword(token) {
-    var password = document.getElementById('reset-password').value;
-    var confirmPassword = document.getElementById('reset-password-confirm').value;
+    let password = document.getElementById('reset-password').value;
+    let confirmPassword = document.getElementById('reset-password-confirm').value;
 
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/reset-password.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
@@ -87,7 +87,7 @@ function resetPassword(token) {
             if (xhr.status === 200) {
                 window.location.href = '/login';
             } else {
-                var response = JSON.parse(xhr.responseText);
+                let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
             }
         }
