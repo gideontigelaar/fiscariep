@@ -80,6 +80,12 @@ button:hover {
   .but_secondary_icon img {
     filter: invert(25%) sepia(16%) saturate(5541%) hue-rotate(216deg) brightness(85%) contrast(105%); }
 
+.but_disabled {
+  background-color: #DADADA;
+  color: white;
+  pointer-events: none;
+  opacity: 40%; }
+
 h1 {
   font-size: 36px; }
 
@@ -262,7 +268,8 @@ textarea:focus {
   display: flex;
   width: 100%;
   place-content: center;
-  top: -100px; }
+  top: -100px;
+  z-index: 9999; }
 
 .error-container {
   background-color: #E33232;
@@ -270,7 +277,8 @@ textarea:focus {
   width: 50%;
   height: 60px;
   border-radius: 12px;
-  display: flex; }
+  display: flex;
+  z-index: 9999; }
   .error-container .error-text {
     display: grid;
     color: white;

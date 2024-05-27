@@ -107,6 +107,13 @@ button:hover {
     }
 }
 
+.but_disabled {
+    background-color: $dark-grey;
+    color: white;
+    pointer-events: none;
+    opacity: 40%;
+}
+
 h1 {
     font-size: 36px;
 }
