@@ -9,7 +9,7 @@ $openPrints = $stmt->fetchAll();
 ?>
 <div>
     <h1 style="margin-bottom: 0px;">Alle printjobs</h1>
-    <div class="jobs_head-info">
+    <div class="gl_head-info">
         <p>Er <?= count($openPrints) == 1 ? "is" : "zijn" ?> <?= count($openPrints); ?> openstaande printjob<?= count($openPrints) == 1 ? "" : "s" ?></p>
         <button class="but_primary_icon" style="padding-right:20px !important;" onclick="nextPopupStep('Nieuwe printjob', '','new-printjob')">
             <img src="../assets/svg/plus-circle-filled.svg" alt="Nieuwe printjob-icoon">
@@ -18,7 +18,7 @@ $openPrints = $stmt->fetchAll();
     </div>
 </div>
 
-<hr class="jobs_divider">
+<hr class="gl_top-divider">
 
 <div class="jobs_month-picker but_primary_icon" style="padding-right: revert;">
     <img src="../assets/svg/arrow-circle-filled.svg" style="transform: rotate(270deg)" alt="Vorige maand">
@@ -87,7 +87,7 @@ if (count($prints) > 0) {
                         "></div>
                     </div>
                     <div class="jobs_item-short-info">
-                        <span><?= $print['print_amount'] ?> exemplaar<?= $print['print_amount'] == 1 ? "" : "en" ?></span>
+                        <span><?= $print['print_amount'] ?> exempla<?= $print['print_amount'] == 1 ? "ar" : "ren" ?></span>
                         <span><?= $print['paper_amount'] ?> papier<?= $print['paper_amount'] == 1 ? "" : "en" ?></span>
                         <span><?= $print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig" ?></span>
                         <span><?= $print['print_color'] ? "Gekleurd" : "Zwart-wit" ?></span>
