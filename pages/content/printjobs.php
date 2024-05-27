@@ -1,9 +1,9 @@
 <?php
-$stmt = $pdo->prepare("SELECT * FROM prints");
+$stmt = $pdo->prepare("SELECT * FROM prints ORDER BY created_at DESC");
 $stmt->execute();
 $prints = $stmt->fetchAll();
 
-$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand'");
+$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' ORDER BY created_at DESC");
 $stmt->execute();
 $openPrints = $stmt->fetchAll();
 ?>
