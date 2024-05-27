@@ -25,23 +25,39 @@
         <div class="gl_ordinary-checkbox" id="doubleSided" onclick="toggleCheckbox('doubleSided-checkbox', 'doubleSided')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="doubleSided-checkbox" style="display:none;">
-        </div>      
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printColor">Gekleurd afdrukken</label>
+        <label for="printColor">Gekleurde inkt</label>
         <div class="gl_ordinary-checkbox" id="printColor" onclick="toggleCheckbox('printColor-checkbox', 'printColor')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="printColor-checkbox" style="display:none;">
-        </div>      
+        </div>
+    </div>
+
+    <div class="gl_ordinary-input-field" style="display:none;">
+        <label for="coverPrintColor">Gekleurde inkt kaft</label>
+        <div class="gl_ordinary-checkbox" id="coverPrintColor" onclick="toggleCheckbox('coverPrintColor-checkbox', 'coverPrintColor')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="coverPrintColor-checkbox" style="display:none;">
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
-        <div class="gl_ordinary-checkbox" id="paperColor" onclick="toggleCheckbox('paperColor-checkbox', 'paperColor')">
-            <div class="gl_ordinary-checkbox-indicator"></div>
-            <input type="checkbox" id="paperColor-checkbox" style="display:none;">
-        </div>      
+        <select id="paperColor">
+            <option value="white">Wit</option>
+            <option value="black">Zwart</option>
+            <option value="red">Rood</option>
+            <option value="blue">Blauw</option>
+            <option value="green">Groen</option>
+            <option value="yellow">Geel</option>
+            <option value="purple">Paars</option>
+            <option value="orange">Oranje</option>
+            <option value="brown">Bruin</option>
+            <option value="grey">Grijs</option>
+        </select>
     </div>
 
     <div class="gl_ordinary-input-field">
@@ -54,7 +70,18 @@
 
     <div class="gl_ordinary-input-field" style="display:none;">
         <label for="coverColor">Kaftkleur</label>
-        <input type="text" id="coverColor">
+        <select id="coverColor">
+            <option value="white">Wit</option>
+            <option value="black">Zwart</option>
+            <option value="red">Rood</option>
+            <option value="blue">Blauw</option>
+            <option value="green">Groen</option>
+            <option value="yellow">Geel</option>
+            <option value="purple">Paars</option>
+            <option value="orange">Oranje</option>
+            <option value="brown">Bruin</option>
+            <option value="grey">Grijs</option>
+        </select>
     </div>
 
     <div class="gl_ordinary-input-field">
@@ -81,7 +108,7 @@
 
     <div class="gl_ordinary-input-field">
         <label for="additionalWishes">Aanvullende wensen/opmerkingen</label>
-        <textarea id="additionalWishes"></textarea>
+        <textarea id="additionalWishes" maxlength="200"></textarea>
     </div>
 
     <!-- Voeg prijsindicatie toe bij button, samen met nieuwe page voor prijslijst -->
