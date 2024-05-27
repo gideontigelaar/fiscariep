@@ -22,22 +22,34 @@
 
     <div class="gl_ordinary-input-field">
         <label for="doubleSided">Dubbelzijdig afdrukken</label>
-        <input type="checkbox" id="doubleSided">
+        <div class="gl_ordinary-checkbox" id="doubleSided" onclick="toggleCheckbox('doubleSided-checkbox', 'doubleSided')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="doubleSided-checkbox" style="display:none;">
+        </div>      
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="printColor">Gekleurd afdrukken</label>
-        <input type="checkbox" id="printColor">
+        <div class="gl_ordinary-checkbox" id="printColor" onclick="toggleCheckbox('printColor-checkbox', 'printColor')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="printColor-checkbox" style="display:none;">
+        </div>      
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
-        <input type="text" id="paperColor">
+        <div class="gl_ordinary-checkbox" id="paperColor" onclick="toggleCheckbox('paperColor-checkbox', 'paperColor')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="paperColor-checkbox" style="display:none;">
+        </div>      
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="differentCoverColor">Andere kaftkleur</label>
-        <input type="checkbox" id="differentCoverColor" onchange="toggleCoverColor()">
+        <div class="gl_ordinary-checkbox" id="differentCoverColor" onclick="toggleCheckbox('differentCoverColor-checkbox', 'differentCoverColor'); toggleCoverColor()">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="differentCoverColor-checkbox" style="display:none;">
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field" style="display:none;">
@@ -52,7 +64,10 @@
 
     <div class="gl_ordinary-input-field">
         <label for="staple">Geniette afdruk</label>
-        <input type="checkbox" id="staple">
+        <div class="gl_ordinary-checkbox" id="staple" onclick="toggleCheckbox('staple-checkbox', 'staple')">
+            <div class="gl_ordinary-checkbox-indicator"></div>
+            <input type="checkbox" id="staple-checkbox" style="display:none;">
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field">
