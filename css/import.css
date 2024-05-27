@@ -309,6 +309,31 @@ p, span, label, button {
 .db_topbar-logout:hover {
   opacity: 70%; }
 
+.db_sidebar-item {
+  background-color: #ffffff0f;
+  width: 90%;
+  height: 50px;
+  border-radius: 0px 1000px 1000px 0px;
+  display: flex;
+  align-items: center;
+  color: white;
+  column-gap: 10px;
+  margin-bottom: 15px;
+  cursor: pointer; }
+  .db_sidebar-item .db_sidebar-active-symbol {
+    height: 70%;
+    width: 5px;
+    border-radius: 100px;
+    margin-left: 10px; }
+
+.db_sidebar-item:hover {
+  opacity: 70%; }
+
+.db_sidebar-item.active {
+  background-color: #ffffff21; }
+  .db_sidebar-item.active .db_sidebar-active-symbol {
+    background-color: white; }
+
 .jobs_month-picker {
   border: none;
   padding: 14px;
@@ -384,7 +409,7 @@ p, span, label, button {
 
 .pp_container {
   pointer-events: all;
-  height: 50px;
+  min-height: 50px;
   background-color: white;
   min-width: 650px;
   min-height: 450px;
