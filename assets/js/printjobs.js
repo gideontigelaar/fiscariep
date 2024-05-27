@@ -22,7 +22,7 @@ function toggleCoverColor() {
 
     if (differentCoverColor) {
         coverColor.parentElement.style.display = 'flex';
-        coverColor.value = 'wit';
+        coverColor.value = 'Wit';
     } else {
         coverColor.parentElement.style.display = 'none';
         coverColor.value = '';
