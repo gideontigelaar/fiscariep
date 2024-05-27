@@ -28,12 +28,24 @@ if ($newPassword !== $confirmPassword) {
     sendError('De wachtwoorden komen niet overeen.');
 }
 
+if (strlen($newPassword) > 255) {
+    sendError('Wachtwoord is te lang.');
+}
+
+if (!preg_match('/^(?=.*[a-z])(?=.*[0-9]).{8,}$/', $newPassword)) {
+    sendError('Het wachtwoord voldoet niet aan de verplichte criteria.');
+}
+
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
 $stmt->execute(['user_id' => $_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$user || !password_verify($oldPassword, $user['password'])) {
     sendError('Huidig wachtwoord is onjuist.');
+}
+
+if (password_verify($newPassword, $user['password'])) {
+    sendError('Nieuwe wachtwoord mag niet hetzelfde zijn als het huidige wachtwoord.');
 }
 
 $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
