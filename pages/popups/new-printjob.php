@@ -20,7 +20,6 @@
         <input type="number" id="paperAmount">
     </div>
 
-    <!-- Dubbezijdig afdrukken verbergen en aanzetten als er gekozen is voor papieren boekje -->
     <div class="gl_ordinary-input-field">
         <label for="doubleSided">Dubbelzijdig afdrukken</label>
         <input type="checkbox" id="doubleSided">
@@ -41,19 +40,16 @@
         <input type="checkbox" id="differentCoverColor" onchange="toggleCoverColor()">
     </div>
 
-    <div class="gl_ordinary-input-field">
+    <div class="gl_ordinary-input-field" style="display:none;">
         <label for="coverColor">Kaftkleur</label>
         <input type="text" id="coverColor">
     </div>
-
-    <!-- Checkbox voor andere kaftkleur, als deze aangevinkt is, nieuwe input field voor kaftkleur, anders wordt dit hetzelfde als papierkleur -->
 
     <div class="gl_ordinary-input-field">
         <label for="paperWeight">Gewicht papier</label>
         <input type="number" id="paperWeight">
     </div>
 
-    <!-- Geniette afdruk verbergen en aanzetten als er gekozen is voor papieren boekje -->
     <div class="gl_ordinary-input-field">
         <label for="staple">Geniette afdruk</label>
         <input type="checkbox" id="staple">
