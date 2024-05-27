@@ -1,7 +1,7 @@
 <div>
-<div class="gl_ordinary-input-field">
+    <div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
-        <select id="printLayout">
+        <select id="printLayout" onchange="togglePrintLayout()">
             <option value="A3">A3</option>
             <option value="A4">A4</option>
             <option value="A5">A5</option>
@@ -34,6 +34,16 @@
     <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
         <input type="text" id="paperColor">
+    </div>
+
+    <div class="gl_ordinary-input-field">
+        <label for="differentCoverColor">Andere kaftkleur</label>
+        <input type="checkbox" id="differentCoverColor" onchange="toggleCoverColor()">
+    </div>
+
+    <div class="gl_ordinary-input-field">
+        <label for="coverColor">Kaftkleur</label>
+        <input type="text" id="coverColor">
     </div>
 
     <!-- Checkbox voor andere kaftkleur, als deze aangevinkt is, nieuwe input field voor kaftkleur, anders wordt dit hetzelfde als papierkleur -->
