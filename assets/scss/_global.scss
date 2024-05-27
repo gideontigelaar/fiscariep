@@ -223,3 +223,16 @@ textarea:focus {
         background-color: white;
     }
 }
+
+.gl_head-info {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.gl_top-divider {
+    width: 90%;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
