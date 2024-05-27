@@ -44,6 +44,10 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
             })
             .then(html => {
                 document.querySelector('.pp_container-content').innerHTML = html;
+                var scripts = document.querySelectorAll('.pp_container-content script');
+                scripts.forEach(script => {
+                    eval(script.innerHTML);
+                });
             })
             .catch(error => {
                 console.error('Error loading popup:', error);
@@ -128,6 +132,10 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
         })
         .then(html => {
             newContainer.querySelector('.pp_container-content').innerHTML = html;
+            var scripts = document.querySelectorAll('.pp_container-content script');
+            scripts.forEach(script => {
+                eval(script.innerHTML);
+            });
         })
         .catch(error => {
             console.error('Error loading popup:', error);
