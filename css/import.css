@@ -173,6 +173,17 @@ textarea:focus {
   .gl_ordinary-checkbox.active .gl_ordinary-checkbox-indicator {
     background-color: white; }
 
+.gl_head-info {
+  display: flex;
+  justify-content: space-between;
+  width: 90%; }
+
+.gl_top-divider {
+  width: 90%;
+  margin: 0;
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
 .auth_form {
   width: 50rem;
   margin: 0 auto;
@@ -444,17 +455,6 @@ textarea:focus {
   background-color: #5155C9;
   color: white;
   margin-top: 20px; }
-
-.jobs_divider {
-  width: 90%;
-  margin: 0;
-  margin-bottom: 20px;
-  margin-top: 20px; }
-
-.jobs_head-info {
-  display: flex;
-  justify-content: space-between;
-  width: 90%; }
 
 .pp_head-container {
   position: fixed;

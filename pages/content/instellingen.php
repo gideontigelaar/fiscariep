@@ -5,6 +5,17 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <script src="/assets/js/settings.js"></script>
 <script src="/assets/js/showError.js"></script>
+
+<div>
+    <h1 style="margin-bottom: 0px;">Instellingen</h1>
+    <div class="gl_head-info">
+        <p>Wijzig gebruikersinstellingen</p>
+    </div>
+</div>
+
+<hr class="gl_top-divider">
+
+
 <div>
     <div class="gl_ordinary-input-field">
         <label for="username">Gebruikersnaam</label>
