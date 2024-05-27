@@ -7,6 +7,7 @@ function submitPrintOrder(event) {
     let doubleSided = document.getElementById('doubleSided').checked ? 'true' : 'false';
     let printColor = document.getElementById('printColor').checked ? 'true' : 'false';
     let paperColor = document.getElementById('paperColor').value;
+    let coverColor = document.getElementById('coverColor').value;
     let paperWeight = document.getElementById('paperWeight').value;
     let staple = document.getElementById('staple').checked ? 'true' : 'false';
     let uploadPrint = document.getElementById('uploadPrint').files[0];
@@ -19,6 +20,7 @@ function submitPrintOrder(event) {
     formData.append('doubleSided', doubleSided);
     formData.append('printColor', printColor);
     formData.append('paperColor', paperColor);
+    formData.append('coverColor', coverColor);
     formData.append('paperWeight', paperWeight);
     formData.append('staple', staple);
     formData.append('uploadPrint', uploadPrint);
