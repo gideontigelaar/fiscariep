@@ -1,7 +1,7 @@
 <div>
-<div class="gl_ordinary-input-field">
+    <div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
-        <select id="printLayout">
+        <select id="printLayout" onchange="togglePrintLayout()">
             <option value="A3">A3</option>
             <option value="A4">A4</option>
             <option value="A5">A5</option>
@@ -20,7 +20,6 @@
         <input type="number" id="paperAmount">
     </div>
 
-    <!-- Dubbezijdig afdrukken verbergen en aanzetten als er gekozen is voor papieren boekje -->
     <div class="gl_ordinary-input-field">
         <label for="doubleSided">Dubbelzijdig afdrukken</label>
         <input type="checkbox" id="doubleSided">
@@ -36,14 +35,21 @@
         <input type="text" id="paperColor">
     </div>
 
-    <!-- Checkbox voor andere kaftkleur, als deze aangevinkt is, nieuwe input field voor kaftkleur, anders wordt dit hetzelfde als papierkleur -->
+    <div class="gl_ordinary-input-field">
+        <label for="differentCoverColor">Andere kaftkleur</label>
+        <input type="checkbox" id="differentCoverColor" onchange="toggleCoverColor()">
+    </div>
+
+    <div class="gl_ordinary-input-field" style="display:none;">
+        <label for="coverColor">Kaftkleur</label>
+        <input type="text" id="coverColor">
+    </div>
 
     <div class="gl_ordinary-input-field">
         <label for="paperWeight">Gewicht papier</label>
         <input type="number" id="paperWeight">
     </div>
 
-    <!-- Geniette afdruk verbergen en aanzetten als er gekozen is voor papieren boekje -->
     <div class="gl_ordinary-input-field">
         <label for="staple">Geniette afdruk</label>
         <input type="checkbox" id="staple">
