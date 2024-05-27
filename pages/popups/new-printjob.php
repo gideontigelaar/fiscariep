@@ -32,7 +32,7 @@
 
     <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
-        <input type="text" id="paperColor">
+        <input type="text" id="paperColor" value="Wit">
     </div>
 
     <div class="gl_ordinary-input-field">

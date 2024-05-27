@@ -57,4 +57,6 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     <button class="but_primary" type="submit" onclick="updateSettings()">Opslaan</button>
 
     <button onclick="nextPopupStep('Wijzig wachtwoord', '','change-password')">Wijzig wachtwoord</button>
+
+    <button onclick="nextPopupStep('Wijzig prijslijst', '','change-pricelist')">Wijzig prijslijst</button>
 </div>
