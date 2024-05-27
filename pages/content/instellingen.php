@@ -45,15 +45,6 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
         <label for="phone_number">Telefoonnummer</label>
         <input type="text" id="phone_number" value="<?php echo $userData['phone_number']; ?>">
     </div>
-
-    <div class="gl_ordinary-input-field">
-        <label for="role">Fortnite</label>
-        <div class="gl_ordinary-checkbox" id="fortnite" onclick="toggleCheckbox('fortnite-checkbox', 'fortnite')">
-            <div class="gl_ordinary-checkbox-indicator"></div>
-            <input type="checkbox" id="fortnite-checkbox" style="display:none;">
-        </div>
-    </div>
-
     <button class="but_primary" type="submit" onclick="updateSettings()">Opslaan</button>
 
     <button onclick="nextPopupStep('Wijzig wachtwoord', '','change-password')">Wijzig wachtwoord</button>
