@@ -1,5 +1,5 @@
 <div>
-    <div>
+<div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
         <select id="printLayout">
             <option value="A3">A3</option>
@@ -10,51 +10,55 @@
         </select>
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="printAmount">Aantal exemplaren</label>
         <input type="number" id="printAmount">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="paperAmount">Aantal papieren per exemplaar</label>
         <input type="number" id="paperAmount">
     </div>
 
     <!-- Dubbezijdig afdrukken verbergen en aanzetten als er gekozen is voor papieren boekje -->
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="doubleSided">Dubbelzijdig afdrukken</label>
         <input type="checkbox" id="doubleSided">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="printColor">Gekleurd afdrukken</label>
         <input type="checkbox" id="printColor">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
         <input type="text" id="paperColor">
     </div>
 
     <!-- Checkbox voor andere kaftkleur, als deze aangevinkt is, nieuwe input field voor kaftkleur, anders wordt dit hetzelfde als papierkleur -->
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="paperWeight">Gewicht papier</label>
         <input type="number" id="paperWeight">
     </div>
 
     <!-- Geniette afdruk verbergen en aanzetten als er gekozen is voor papieren boekje -->
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="staple">Geniette afdruk</label>
         <input type="checkbox" id="staple">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="uploadPrint">Upload PDF</label>
-        <input type="file" id="uploadPrint">
+        <button class="but_secondary_icon" style="padding-right:20px !important;" onclick="document.getElementById('uploadPrint').click()">
+                <img src="../assets/svg/arrow-circle-filled.svg" alt="Upload knop">
+                Uploaden
+        </button>
+        <input type="file" id="uploadPrint" style="display:none;">
     </div>
 
-    <div>
+    <div class="gl_ordinary-input-field">
         <label for="additionalWishes">Aanvullende wensen/opmerkingen</label>
         <textarea id="additionalWishes"></textarea>
     </div>
