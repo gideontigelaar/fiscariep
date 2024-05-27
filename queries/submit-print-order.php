@@ -22,6 +22,7 @@ $paperAmount = $_POST['paperAmount'] ?? '';
 $doubleSided = $_POST['doubleSided'] ?? '';
 $printColor = $_POST['printColor'] ?? '';
 $paperColor = $_POST['paperColor'] ?? '';
+$coverColor = $_POST['coverColor'] ?? '';
 $paperWeight = $_POST['paperWeight'] ?? '';
 $staple = $_POST['staple'] ?? '';
 $additionalWishes = $_POST['additionalWishes'] ?? '';
@@ -68,8 +69,8 @@ if ($_FILES['uploadPrint']['size'] > 2097152) {
     sendError('Bestand is te groot.');
 }
 
-$stmt = $pdo->prepare("INSERT INTO prints (user_id, print_layout, print_amount, paper_amount, double_sided, print_color, paper_color, paper_weight, staple, upload_print, additional_wishes) VALUES (:user_id, :print_layout, :print_amount, :paper_amount, :double_sided, :print_color, :paper_color, :paper_weight, :staple, :upload_print, :additional_wishes)");
-$stmt->execute([ 'user_id' => $_SESSION['user_id'], 'print_layout' => $printLayout, 'print_amount' => $printAmount, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'paper_color' => $paperColor, 'paper_weight' => $paperWeight, 'staple' => $staple, 'upload_print' => $uploadPrint, 'additional_wishes' => $additionalWishes
+$stmt = $pdo->prepare("INSERT INTO prints (user_id, print_layout, print_amount, paper_amount, double_sided, print_color, paper_color, cover_color, paper_weight, staple, upload_print, additional_wishes) VALUES (:user_id, :print_layout, :print_amount, :paper_amount, :double_sided, :print_color, :paper_color, :cover_color, :paper_weight, :staple, :upload_print, :additional_wishes)");
+$stmt->execute([ 'user_id' => $_SESSION['user_id'], 'print_layout' => $printLayout, 'print_amount' => $printAmount, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'paper_color' => $paperColor, 'cover_color' => $coverColor, 'paper_weight' => $paperWeight, 'staple' => $staple, 'upload_print' => $uploadPrint, 'additional_wishes' => $additionalWishes
 ]);
 
 sendSuccess();
