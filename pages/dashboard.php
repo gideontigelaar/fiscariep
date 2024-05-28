@@ -18,6 +18,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     <link rel="icon" href="../assets/svg/logo/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../css/import.css">
     <script src="/assets/js/logoutUser.js"></script>
+    <script src="/assets/js/detailViewHandling.js"></script>
     <script src="/assets/js/popupHandling.js"></script>
     <script src="/assets/js/dashboard.js"></script>
     <script src="/assets/js/showError.js"></script>
