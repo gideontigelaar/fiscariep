@@ -160,7 +160,8 @@ textarea:focus {
     width: 50%; }
   .gl_ordinary-input-field textarea {
     resize: vertical;
-    max-height: 200px; }
+    max-height: 200px;
+    min-height: 60px; }
   .gl_ordinary-input-field label {
     transform: translateY(5px); }
 
