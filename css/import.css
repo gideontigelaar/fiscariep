@@ -398,6 +398,10 @@ textarea:focus {
     padding-left: 100px;
     padding-top: 50px; }
 
+@media (max-width: 590px) {
+  .db_content-container .db_content {
+    padding-left: 15px; } }
+
 .db_topbar-logout-container {
   display: flex;
   align-items: center;
