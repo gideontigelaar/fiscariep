@@ -155,9 +155,14 @@ textarea:focus {
 
 .gl_ordinary-input-field {
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  column-gap: 10px; }
+  display: flex; }
+  .gl_ordinary-input-field label, .gl_ordinary-input-field select, .gl_ordinary-input-field input, .gl_ordinary-input-field button, .gl_ordinary-input-field textarea {
+    width: 50%; }
+  .gl_ordinary-input-field textarea {
+    resize: vertical;
+    max-height: 200px; }
+  .gl_ordinary-input-field label {
+    transform: translateY(5px); }
 
 .gl_ordinary-checkbox {
   background-color: #F5F5F5;
