@@ -47,16 +47,16 @@
     <div class="gl_ordinary-input-field">
         <label for="paperColor">Papierkleur</label>
         <select id="paperColor">
-            <option value="white">Wit</option>
-            <option value="black">Zwart</option>
-            <option value="red">Rood</option>
-            <option value="blue">Blauw</option>
-            <option value="green">Groen</option>
-            <option value="yellow">Geel</option>
-            <option value="purple">Paars</option>
-            <option value="orange">Oranje</option>
-            <option value="brown">Bruin</option>
-            <option value="grey">Grijs</option>
+            <option value="wit">Wit</option>
+            <option value="zwart">Zwart</option>
+            <option value="rood">Rood</option>
+            <option value="blauw">Blauw</option>
+            <option value="groen">Groen</option>
+            <option value="geel">Geel</option>
+            <option value="paars">Paars</option>
+            <option value="oranje">Oranje</option>
+            <option value="bruin">Bruin</option>
+            <option value="grijs">Grijs</option>
         </select>
     </div>
 
@@ -71,16 +71,16 @@
     <div class="gl_ordinary-input-field" style="display:none;">
         <label for="coverColor">Kaftkleur</label>
         <select id="coverColor">
-            <option value="white">Wit</option>
-            <option value="black">Zwart</option>
-            <option value="red">Rood</option>
-            <option value="blue">Blauw</option>
-            <option value="green">Groen</option>
-            <option value="yellow">Geel</option>
-            <option value="purple">Paars</option>
-            <option value="orange">Oranje</option>
-            <option value="brown">Bruin</option>
-            <option value="grey">Grijs</option>
+            <option value="wit">Wit</option>
+            <option value="zwart">Zwart</option>
+            <option value="rood">Rood</option>
+            <option value="blauw">Blauw</option>
+            <option value="groen">Groen</option>
+            <option value="geel">Geel</option>
+            <option value="paars">Paars</option>
+            <option value="oranje">Oranje</option>
+            <option value="bruin">Bruin</option>
+            <option value="grijs">Grijs</option>
         </select>
     </div>
 
