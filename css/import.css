@@ -70,6 +70,20 @@ button:hover {
     user-select: none;
     -webkit-user-drag: none; }
 
+.but_negative_icon {
+  display: flex;
+  align-items: center;
+  border-radius: 100px !important;
+  column-gap: 10px;
+  color: white;
+  background-color: #E33232 !important;
+  height: 45px;
+  padding: 10px !important; }
+  .but_negative_icon img {
+    filter: invert(1);
+    user-select: none;
+    -webkit-user-drag: none; }
+
 .but_secondary_icon {
   display: flex;
   align-items: center;
@@ -197,6 +211,16 @@ textarea:focus {
   margin: 0;
   margin-bottom: 20px;
   margin-top: 20px; }
+
+.gl_circle-icon-primary {
+  width: 30px;
+  height: 30px;
+  background-color: #2E3192;
+  display: flex;
+  padding: 5px;
+  border-radius: 1000px; }
+  .gl_circle-icon-primary img {
+    filter: invert(1); }
 
 .auth_form {
   width: 50rem;
@@ -428,7 +452,9 @@ textarea:focus {
   border-radius: 10px;
   background-color: #F5F5F5;
   width: fit-content;
-  height: 30px; }
+  height: 30px;
+  width: 165px;
+  justify-content: space-between; }
   .jobs_month-picker img:hover {
     opacity: 70%;
     cursor: pointer; }
@@ -526,3 +552,19 @@ textarea:focus {
     font-weight: 600; }
   .dv_container .dv_container-subtext {
     opacity: 50%; }
+
+.dv_item-container {
+  border-radius: 7px;
+  min-height: 60px;
+  background-color: #F5F5F5;
+  padding: 20px;
+  display: flex;
+  column-gap: 20px;
+  max-height: 235px; }
+  .dv_item-container span {
+    width: 100%;
+    display: block; }
+
+.dv_item-head-container {
+  display: flex;
+  column-gap: 20px; }
