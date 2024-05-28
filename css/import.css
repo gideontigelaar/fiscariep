@@ -66,7 +66,9 @@ button:hover {
   height: 45px;
   padding: 10px !important; }
   .but_primary_icon img {
-    filter: invert(1); }
+    filter: invert(1);
+    user-select: none;
+    -webkit-user-drag: none; }
 
 .but_secondary_icon {
   display: flex;
@@ -81,10 +83,10 @@ button:hover {
     filter: invert(25%) sepia(16%) saturate(5541%) hue-rotate(216deg) brightness(85%) contrast(105%); }
 
 .but_disabled {
-  background-color: #DADADA;
   color: white;
   pointer-events: none;
-  opacity: 40%; }
+  opacity: 30%;
+  filter: grayscale(1); }
 
 h1 {
   font-size: 36px; }
@@ -495,3 +497,32 @@ textarea:focus {
   .pp_container .pp_container-title {
     font-size: 19px;
     font-weight: 600; }
+
+.dv_head-container {
+  position: fixed;
+  z-index: 9999;
+  width: -webkit-fill-available;
+  height: 100dvh;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.dv_container {
+  pointer-events: all;
+  min-height: 750px !important;
+  background-color: white;
+  min-width: 750px;
+  min-height: 450px;
+  border-radius: 12px 12px 0px 0px;
+  filter: drop-shadow(0px 0px 25px rgba(0, 0, 0, 0.15));
+  position: absolute;
+  max-width: 450px;
+  bottom: 0; }
+  .dv_container .dv_container-contents {
+    padding: 50px; }
+  .dv_container .dv_container-title {
+    font-size: 32px;
+    font-weight: 600; }
+  .dv_container .dv_container-subtext {
+    opacity: 50%; }
