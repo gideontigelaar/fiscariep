@@ -201,8 +201,20 @@ textarea:focus {
 .gl_ordinary-input-field {
     margin-bottom: 10px;
     display: flex;
-    align-items: center;
-    column-gap: 10px;
+
+    label, select, input, button, textarea {
+        width: 50%;
+    }
+
+    textarea {
+        resize: vertical;
+        max-height: 200px;
+    }
+
+    label {
+        transform: translateY(5px);
+    }
+
 }
 
 .gl_ordinary-checkbox {
