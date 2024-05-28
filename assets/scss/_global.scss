@@ -209,6 +209,7 @@ textarea:focus {
     textarea {
         resize: vertical;
         max-height: 200px;
+        min-height: 60px;
     }
 
     label {
