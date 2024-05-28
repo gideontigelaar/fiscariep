@@ -16,7 +16,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 <hr class="gl_top-divider">
 
 
-<div>
+<div style="max-width:90%;">
     <div class="gl_ordinary-input-field">
         <label for="username">Gebruikersnaam</label>
         <input type="text" id="username" value="<?php echo $userData['username']; ?>">
