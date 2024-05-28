@@ -87,7 +87,7 @@ if (count($prints) > 0) {
                         "></div>
                     </div>
                     <div class="jobs_item-short-info">
-                        <span><?= $print['print_amount'] ?> exemplaar<?= $print['print_amount'] == 1 ? "" : "en" ?></span>
+                        <span><?= $print['print_amount'] ?> exempl<?= $print['print_amount'] == 1 ? "aar" : "aren" ?></span>
                         <span><?= $print['paper_amount'] ?> papier<?= $print['paper_amount'] == 1 ? "" : "en" ?></span>
                         <span><?= $print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig" ?></span>
                         <span><?= $print['print_color'] ? "Gekleurd" : "Zwart-wit" ?></span>
@@ -96,7 +96,7 @@ if (count($prints) > 0) {
                         <span><?= $print['staple'] ? "Geniet" : "Niet geniet" ?></span>
                         <span style="font-weight: 600;"><?= $timeAgo ?></span>
                     </div>
-                    <button class="jobs_details-button">Details</button>
+                    <button class="jobs_details-button" onclick="showDetailView(<?php echo $print['order_id']; ?>)">Details</button>
                 </div>
             </div>
         <?php

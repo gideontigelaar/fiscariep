@@ -89,6 +89,8 @@ button:hover {
 
     img {
         filter: invert(1);
+        user-select: none;
+        -webkit-user-drag: none;
     }
 }
 
@@ -108,10 +110,10 @@ button:hover {
 }
 
 .but_disabled {
-    background-color: $dark-grey;
     color: white;
     pointer-events: none;
-    opacity: 40%;
+    opacity: 30%;
+    filter: grayscale(1);
 }
 
 h1 {
