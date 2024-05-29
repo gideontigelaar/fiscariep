@@ -528,6 +528,19 @@ textarea:focus {
     font-size: 19px;
     font-weight: 600; }
 
+.pp-npj_price-indication {
+  display: grid;
+  background-color: #5155C9;
+  color: white;
+  padding: 10px;
+  border-radius: 7px;
+  margin: 20px 0px 20px 00px; }
+  .pp-npj_price-indication .pp-npj_price-indication-heading {
+    font-size: 13px;
+    opacity: 70%; }
+  .pp-npj_price-indication .pp-npj_price-indication-numbers {
+    font-weight: 600; }
+
 .dv_head-container {
   position: fixed;
   z-index: 9999;
