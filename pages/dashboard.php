@@ -34,7 +34,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
             <img src="../assets/svg/logo/fiscariep-logo-white-rgb.svg" alt="Fiscariep Logo">
         </div>
         <div class="db_topbar-logout-container">
-            <span><?= date("H") >= 0 && date("H") < 6 ? "Goedenacht" : (date("H") >= 6 && date("H") < 12 ? "Goedemorgen" : (date("H") >= 12 && date("H") < 18 ? "Goedemiddag" : "Goedenavond")) ?>, <b><?php echo $userData['username']; ?></b></span>
+            <span><?= date("H") >= 0 && date("H") < 6 ? "Goedenacht" : (date("H") >= 6 && date("H") < 12 ? "Goedemorgen" : (date("H") >= 12 && date("H") < 18 ? "Goedemiddag" : "Goedenavond")) ?>, <b><?= $userData['username']; ?></b></span>
             <div class="db_topbar-logout" onclick="logOutUser()">
                 <img src="../assets/svg/signout.svg" alt="Signout Icon">
             </div>

@@ -4,13 +4,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$difference = $_POST['difference'] ?? 0;
+$difference = abs($_POST['difference'] ?? 0);
 $response = [
     'difference' => $difference,
     'content' => '',
 ];
 
-$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' AND MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC");
+$stmt = $pdo->prepare("SELECT * FROM prints WHERE MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC");
 $stmt->execute(['difference' => $difference]);
 $prints = $stmt->fetchAll();
 
@@ -63,7 +63,7 @@ if (count($prints) > 0) {
                     <span><?= $print['staple'] ? "Geniet" : "Niet geniet" ?></span>
                     <span style="font-weight: 600;"><?= $timeAgo ?></span>
                 </div>
-                <button class="jobs_details-button" onclick="showDetailView(<?php echo $print['order_id']; ?>)">Details</button>
+                <button class="jobs_details-button" onclick="showDetailView(<?= $print['order_id']; ?>)">Details</button>
             </div>
         </div>
         <?php
