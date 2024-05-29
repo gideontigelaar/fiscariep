@@ -19,42 +19,42 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 <div style="max-width:90%;">
     <div class="gl_ordinary-input-field">
         <label for="username">Gebruikersnaam</label>
-        <input type="text" id="username" value="<?php echo $userData['username']; ?>">
+        <input type="text" id="username" value="<?= $userData['username']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="email">E-mail</label>
-        <input type="email" id="email" value="<?php echo $userData['email']; ?>">
+        <input type="email" id="email" value="<?= $userData['email']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="address">Adres</label>
-        <input type="text" id="address" value="<?php echo $userData['address']; ?>">
+        <input type="text" id="address" value="<?= $userData['address']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="postal_code">Postcode</label>
-        <input type="text" id="postal_code" value="<?php echo $userData['postal_code']; ?>">
+        <input type="text" id="postal_code" value="<?= $userData['postal_code']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="city">Plaats</label>
-        <input type="text" id="city" value="<?php echo $userData['city']; ?>">
+        <input type="text" id="city" value="<?= $userData['city']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="province">Provincie</label>
-        <input type="text" id="province" value="<?php echo $userData['province']; ?>">
+        <input type="text" id="province" value="<?= $userData['province']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="country">Land</label>
-        <input type="text" id="country" value="<?php echo $userData['country']; ?>">
+        <input type="text" id="country" value="<?= $userData['country']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="phone_number">Telefoonnummer</label>
-        <input type="text" id="phone_number" value="<?php echo $userData['phone_number']; ?>">
+        <input type="text" id="phone_number" value="<?= $userData['phone_number']; ?>" required>
     </div>
     <button class="but_primary" type="submit" onclick="updateSettings()">Opslaan</button>
 
@@ -62,3 +62,25 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <button onclick="nextPopupStep('Wijzig prijslijst', '','change-pricelist')">Wijzig prijslijst</button>
 </div>
+
+<script>
+    document.querySelector('.but_primary').classList.add('but_disabled');
+    for (let i = 0; i < document.querySelectorAll('.gl_ordinary-input-field input').length; i++) {
+        document.querySelectorAll('.gl_ordinary-input-field input')[i].addEventListener('input', function() {
+            let requiredFields = document.querySelectorAll('.gl_ordinary-input-field input[required]');
+            let filledInFields = 0;
+
+            for (let j = 0; j < requiredFields.length; j++) {
+                if (requiredFields[j].value !== '') {
+                    filledInFields++;
+                }
+            }
+
+            if (filledInFields === requiredFields.length) {
+                document.querySelector('.but_primary').classList.remove('but_disabled');
+            } else {
+                document.querySelector('.but_primary').classList.add('but_disabled');
+            }
+        });
+    }
+</script>
