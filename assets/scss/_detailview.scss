@@ -34,3 +34,23 @@
         opacity: 50%;
     }
 }
+
+.dv_item-container {
+    border-radius: 7px;
+    min-height: 60px;
+    background-color: $grey;
+    padding: 20px;
+    display: flex;
+    column-gap: 20px;
+    max-height: 235px;
+
+    span {
+        width: 100%;
+        display: block;
+    }
+}
+
+.dv_item-head-container {
+    display: flex;
+    column-gap: 20px;
+}

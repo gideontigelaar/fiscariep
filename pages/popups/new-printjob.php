@@ -1,4 +1,10 @@
 <div>
+    <div class="pp-npj_price-indication">
+        <span class="pp-npj_price-indication-heading">Prijsindicatie</span>
+        <span class="pp-npj_price-indication-numbers">4.950€ - 5.050€</span>
+    </div>
+
+
     <div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
         <select id="printLayout" onchange="togglePrintLayout()">
@@ -12,12 +18,12 @@
 
     <div class="gl_ordinary-input-field">
         <label for="printAmount">Aantal exemplaren</label>
-        <input type="number" id="printAmount">
+        <input type="number" id="printAmount" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="paperAmount">Aantal papieren per exemplaar</label>
-        <input type="number" id="paperAmount">
+        <input type="number" id="paperAmount" required>
     </div>
 
     <div class="gl_ordinary-input-field">
@@ -86,7 +92,7 @@
 
     <div class="gl_ordinary-input-field">
         <label for="paperWeight">Gewicht papier</label>
-        <input type="number" id="paperWeight">
+        <input type="number" id="paperWeight" required>
     </div>
 
     <div class="gl_ordinary-input-field">
@@ -102,7 +108,7 @@
         <button class="but_secondary_icon" style="padding-right:20px !important;" onclick="document.getElementById('uploadPrint').click()">
                 <img src="../assets/svg/arrow-circle-filled.svg" alt="Upload knop">
                 <span class="gl_upload-button-text">Upload PDF</span>
-                <input type="file" id="uploadPrint" class="gl_upload-button" style="display:none;" accept=".pdf">
+                <input type="file" id="uploadPrint" class="gl_upload-button" style="display:none;" accept=".pdf" required>
         </button>
     </div>
 
@@ -114,3 +120,25 @@
     <!-- Voeg prijsindicatie toe bij button, samen met nieuwe page voor prijslijst -->
     <button class="but_primary" type="submit" onclick="submitPrintOrder(event)">Verstuur</button>
 </div>
+
+<script>
+    document.querySelector('.but_primary').classList.add('but_disabled');
+    for (let i = 0; i < document.querySelectorAll('.gl_ordinary-input-field input').length; i++) {
+        document.querySelectorAll('.gl_ordinary-input-field input')[i].addEventListener('input', function() {
+            let requiredFields = document.querySelectorAll('.gl_ordinary-input-field input[required]');
+            let filledInFields = 0;
+
+            for (let j = 0; j < requiredFields.length; j++) {
+                if (requiredFields[j].value !== '') {
+                    filledInFields++;
+                }
+            }
+
+            if (filledInFields === requiredFields.length) {
+                document.querySelector('.but_primary').classList.remove('but_disabled');
+            } else {
+                document.querySelector('.but_primary').classList.add('but_disabled');
+            }
+        });
+    }
+</script>
