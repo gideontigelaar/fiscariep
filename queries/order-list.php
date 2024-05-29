@@ -1,30 +1,16 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
 
-function sendError($message) {
-    header('Content-Type: application/json');
-    http_response_code(400);
-    echo json_encode(['error' => $message]);
-    exit();
-}
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-function sendSuccess() {
-    header('Content-Type: application/json');
-    http_response_code(200);
-    echo json_encode(['success' => true]);
-    exit();
-}
-
-$delta = $_POST['delta'] ?? 0;
-echo $delta;
+$difference = $_POST['difference'] ?? 0;
+echo $difference;
+echo $_POST['difference'];
 
 $stmt = $pdo->prepare("SELECT * FROM prints ORDER BY created_at DESC");
 $stmt->execute();
 $prints = $stmt->fetchAll();
-
-$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' ORDER BY created_at DESC");
-$stmt->execute();
-$openPrints = $stmt->fetchAll();
 
 if (count($prints) > 0) {
     foreach ($prints as $print) {
