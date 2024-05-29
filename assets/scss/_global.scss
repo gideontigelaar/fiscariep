@@ -85,6 +85,23 @@ button:hover {
     color: white;
     background-color: $secondary-1 !important;
     height: 45px;
+    padding: 6px !important;
+
+    img {
+        filter: invert(1);
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+}
+
+.but_negative_icon {
+    display: flex;
+    align-items: center;
+    border-radius: 100px !important;
+    column-gap: 10px;
+    color: white;
+    background-color: $error-error-1 !important;
+    height: 45px;
     padding: 10px !important;
 
     img {
@@ -257,4 +274,17 @@ textarea:focus {
     margin: 0;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+.gl_circle-icon-primary {
+    width: 30px;
+    height: 30px;
+    background-color: $primary-1;
+    display: flex;
+    padding: 5px;
+    border-radius: 1000px;
+
+    img {
+        filter: invert(1);
+    }
 }
