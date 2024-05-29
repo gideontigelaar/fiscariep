@@ -64,7 +64,7 @@ button:hover {
   color: white;
   background-color: #5155C9 !important;
   height: 45px;
-  padding: 10px !important; }
+  padding: 6px !important; }
   .but_primary_icon img {
     filter: invert(1);
     user-select: none;
