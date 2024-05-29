@@ -1,3 +1,8 @@
+<?php
+$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' ORDER BY created_at DESC");
+$stmt->execute();
+$openPrints = $stmt->fetchAll();
+?>
 <div>
     <h1 style="margin-bottom: 0px;">Alle printjobs</h1>
     <div class="gl_head-info">
@@ -12,59 +17,42 @@
 <hr class="gl_top-divider">
 
 <div class="jobs_month-picker but_primary_icon" style="padding-right: revert;">
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Vorige maand" onclick="changeMonth(-1)">
-    <span id="monthYearDisplay">Jangustus</span>
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Volgende maand" onclick="changeMonth(1)">
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Vorige maand" onclick="loadMonth(`${monthDifference - 1}`)">
+    <span id="monthYearDisplay"></span>
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Volgende maand" onclick="loadMonth(`${monthDifference + 1}`)">
 
     <script>
-        var currentDate = new Date();
-        var currentMonth = currentDate.getMonth();
-        var currentYear = currentDate.getFullYear();
+        let currentMonth = new Date().getMonth();
+        let currentYear = new Date().getFullYear();
+        let monthDifference = 0;
         var months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
 
-        function updateMonthYearDisplay() {
-            var monthYearDisplay = document.getElementById("monthYearDisplay");
-            monthYearDisplay.textContent = months[currentMonth] + ' ' + currentYear;
+        function changeMonth(difference) {
+            monthDifference += difference;
 
-            var nextArrow = document.getElementById("nextArrow");
-            if (currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()) {
-                nextArrow.classList.add("but_disabled");
+            if (monthDifference > 0) {
+                monthDifference = 0;
+            }
+
+            let newDate = new Date();
+            newDate.setMonth(currentMonth + monthDifference);
+
+            let year = newDate.getFullYear();
+            let month = newDate.getMonth();
+
+            document.getElementById('monthYearDisplay').innerText = months[month] + " " + year;
+
+            if (monthDifference === 0) {
+                document.getElementById('nextArrow').classList.add('but_disabled');
             } else {
-                nextArrow.classList.remove("but_disabled");
+                document.getElementById('nextArrow').classList.remove('but_disabled');
             }
         }
 
-        function changeMonth(delta) {
-            var newMonth = currentMonth + delta;
-            var newYear = currentYear;
+        document.getElementById('prevArrow').addEventListener('click', () => changeMonth(-1));
+        document.getElementById('nextArrow').addEventListener('click', () => changeMonth(1));
 
-            if (newMonth < 0) {
-                newMonth = 11;
-                newYear--;
-            } else if (newMonth > 11) {
-                newMonth = 0;
-                newYear++;
-            }
-
-            var futureDate = new Date(newYear, newMonth);
-            var today = new Date();
-
-            if (futureDate <= today) {
-                currentMonth = newMonth;
-                currentYear = newYear;
-                updateMonthYearDisplay();
-            }
-        }
-
-        document.getElementById("prevArrow").onclick = function() {
-            changeMonth(-1);
-        };
-
-        document.getElementById("nextArrow").onclick = function() {
-            changeMonth(1);
-        };
-
-        updateMonthYearDisplay();
+        changeMonth(0);
     </script>
 </div>
 
