@@ -2,10 +2,10 @@ function showDetailView(orderID) {
     console.log('showDetailView() called of orderID:', orderID);
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/pages/detailview.php', true);
+    xhr.open('POST', '/pages/detailview.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-
             document.body.innerHTML = xhr.responseText + document.body.innerHTML;
             var dvContainer = document.querySelector('.dv_container');
             dvContainer.style.transform = 'translateY(800px)';
@@ -22,11 +22,10 @@ function showDetailView(orderID) {
             });
         }
     };
-    xhr.send();
+    xhr.send('orderID=' + encodeURIComponent(orderID));
 }
 
 function removeDetailViewContainer() {
-    
     var dvContainer = document.querySelector('.dv_container');
     dvContainer.style.transform = 'translateY(800px)';
 

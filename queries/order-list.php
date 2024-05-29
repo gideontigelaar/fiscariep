@@ -40,7 +40,7 @@ if (count($prints) > 0) {
             <div class="jobs_item-content">
                 <div class="jobs_item-title">
                     <img src="../assets/svg/images-filled.svg" alt="Images Icon">
-                    <span>Order #<?= $print['order_id'] ?>, <?= $print['print_layout'] ?></span>
+                    <span>Order <?= $print['order_id'] ?>, <?= $print['print_layout'] ?></span>
                     <div class="status-indicator
                     <?php
                         if ($print['status'] == "openstaand" && $interval->m > 1) {
@@ -58,7 +58,7 @@ if (count($prints) > 0) {
                     <span><?= $print['paper_amount'] ?> papier<?= $print['paper_amount'] == 1 ? "" : "en" ?></span>
                     <span><?= $print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig" ?></span>
                     <span><?= $print['print_color'] ? "Gekleurd" : "Zwart-wit" ?></span>
-                    <span><?= $print['paper_color'] ?></span>
+                    <span><?= ucfirst($print['paper_color']) ?></span>
                     <span><?= $print['paper_weight'] ?> gram</span>
                     <span><?= $print['staple'] ? "Geniet" : "Niet geniet" ?></span>
                     <span style="font-weight: 600;"><?= $timeAgo ?></span>
