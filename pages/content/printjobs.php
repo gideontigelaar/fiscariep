@@ -17,9 +17,9 @@ $openPrints = $stmt->fetchAll();
 <hr class="gl_top-divider">
 
 <div class="jobs_month-picker but_primary_icon" style="padding-right: revert;">
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Vorige maand" onclick="loadMonth(`${monthDifference - 1}`)">
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Vorige maand">
     <span id="monthYearDisplay"></span>
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Volgende maand" onclick="loadMonth(`${monthDifference + 1}`)">
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Volgende maand">
 
     <script>
         let currentMonth = new Date().getMonth();
@@ -47,6 +47,8 @@ $openPrints = $stmt->fetchAll();
             } else {
                 document.getElementById('nextArrow').classList.remove('but_disabled');
             }
+
+            loadMonth(monthDifference);
         }
 
         document.getElementById('prevArrow').addEventListener('click', () => changeMonth(-1));
