@@ -7,14 +7,11 @@ function showErrorMessage(code, text, duration) {
     xhr.open('GET', '/pages/errors/error-message.php', true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // add the error message to the body
-            document.body.innerHTML += xhr.responseText;
+            document.body.insertAdjacentHTML('beforeend', xhr.responseText);
             document.getElementById('error-code').innerHTML = 'Error ' + code;
             document.getElementById('error-description').innerHTML = text;
 
             let errorHeadContainer = document.getElementsByClassName('error_head-container')[0];
-
-
 
             setTimeout(function() {
                 shakeErrorMessage();
