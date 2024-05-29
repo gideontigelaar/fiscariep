@@ -76,3 +76,12 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 </body>
 </html>
+
+
+<script>
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'u') {
+            nextPopupStep('<div style="margin-bottom:20px;" class="gl_circle-icon-primary"><img src="../assets/svg/happy-smile-filled.svg" alt="Happy icon"></div> Welkom bij de online omgeving van Fiscariep.', '', 'onboarding');
+        }
+    });
+</script>
