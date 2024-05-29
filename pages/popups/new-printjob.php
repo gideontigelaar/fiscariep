@@ -1,4 +1,10 @@
 <div>
+    <div class="pp-npj_price-indication">
+        <span class="pp-npj_price-indication-heading">Prijsindicatie</span>
+        <span class="pp-npj_price-indication-numbers">4.950€ - 5.050€</span>
+    </div>
+
+
     <div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
         <select id="printLayout" onchange="togglePrintLayout()">
