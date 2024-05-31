@@ -60,3 +60,23 @@ function deletePrintJob(orderID) {
     };
     xhr.send('orderID=' + encodeURIComponent(orderID));
 }
+
+function downloadPDF(orderID) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/queries/download-pdf.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.responseType = 'blob';  // Important to handle binary data in response
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var filename = "order_" + orderID + ".pdf";
+            var blob = new Blob([xhr.response], { type: 'application/pdf' });
+            var link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        } else if (xhr.readyState == 4) {
+            console.error('Error downloading PDF');
+        }
+    };
+    xhr.send('orderID=' + encodeURIComponent(orderID));
+}

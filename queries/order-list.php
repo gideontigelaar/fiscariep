@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
 
 error_reporting(E_ALL);
@@ -10,9 +11,19 @@ $response = [
     'content' => '',
 ];
 
-$stmt = $pdo->prepare("SELECT * FROM prints WHERE MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC");
-$stmt->execute(['difference' => $difference]);
-$prints = $stmt->fetchAll();
+$stmt = $pdo->prepare("SELECT role FROM users WHERE user_id = :userID");
+$stmt->execute(['userID' => $_SESSION['user_id']]);
+$user = $stmt->fetch();
+
+if ($user['role'] == "admin") {
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC, status ASC");
+    $stmt->execute(['difference' => $difference]);
+    $prints = $stmt->fetchAll();
+} else {
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE user_id = :userID AND MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC, status ASC");
+    $stmt->execute(['userID' => $_SESSION['user_id'], 'difference' => $difference]);
+    $prints = $stmt->fetchAll();
+}
 
 ob_start();
 

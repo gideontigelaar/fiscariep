@@ -74,7 +74,7 @@ $user = $stmt->fetch();
                 <?php } ?>
 
                 <div style="display:flex;column-gap:10px;margin-top:20px;">
-                    <button class="but_primary_icon" style="padding-right:20px !important;">
+                    <button class="but_primary_icon" style="padding-right:20px !important;" onclick="downloadPDF(<?= $print['order_id'] ?>)">
                         <img src="../assets/svg/check-circle-filled.svg" alt="Download als PDF">
                         Download als PDF
                     </button>
