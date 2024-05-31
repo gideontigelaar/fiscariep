@@ -2,30 +2,22 @@
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-$difference = abs($_POST['difference'] ?? 0);
-$response = [
-    'difference' => $difference,
-    'content' => '',
-];
+$month = isset($_GET['mo']) ? $_GET['mo'] : date('m');
+$year = isset($_GET['yr']) ? $_GET['yr'] : date('Y');
 
 $stmt = $pdo->prepare("SELECT role FROM users WHERE user_id = :userID");
 $stmt->execute(['userID' => $_SESSION['user_id']]);
 $user = $stmt->fetch();
 
 if ($user['role'] == "admin") {
-    $stmt = $pdo->prepare("SELECT * FROM prints WHERE MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC, status ASC");
-    $stmt->execute(['difference' => $difference]);
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE MONTH(created_at) = :month AND YEAR(created_at) = :year ORDER BY created_at DESC, status ASC");
+    $stmt->execute(['month' => $month, 'year' => $year]);
     $prints = $stmt->fetchAll();
 } else {
-    $stmt = $pdo->prepare("SELECT * FROM prints WHERE user_id = :userID AND MONTH(created_at) = MONTH(CURRENT_DATE - INTERVAL :difference MONTH) AND YEAR(created_at) = YEAR(CURRENT_DATE - INTERVAL :difference MONTH) ORDER BY created_at DESC, status ASC");
-    $stmt->execute(['userID' => $_SESSION['user_id'], 'difference' => $difference]);
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE user_id = :userID AND MONTH(created_at) = :month AND YEAR(created_at) = :year ORDER BY created_at DESC, status ASC");
+    $stmt->execute(['userID' => $_SESSION['user_id'], 'month' => $month, 'year' => $year]);
     $prints = $stmt->fetchAll();
 }
-
-ob_start();
 
 if (count($prints) > 0) {
     foreach ($prints as $print) {
@@ -82,7 +74,4 @@ if (count($prints) > 0) {
 } else {
     echo "<p>Er zijn geen openstaande printjobs.</p>";
 }
-
-$response['content'] = ob_get_clean();
-echo json_encode($response);
 ?>

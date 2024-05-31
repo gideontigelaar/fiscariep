@@ -17,44 +17,51 @@ $openPrints = $stmt->fetchAll();
 <hr class="gl_top-divider">
 
 <div class="jobs_month-picker but_primary_icon" style="padding-right: revert;">
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Vorige maand">
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="prevArrow" style="transform: rotate(270deg)" alt="Previous month" onclick="showMonth('previous')">
     <span id="monthYearDisplay"></span>
-    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Volgende maand">
+    <img src="../assets/svg/arrow-circle-filled.svg" role="button" id="nextArrow" style="transform: rotate(90deg)" alt="Next month" onclick="showMonth('next')">
 
     <script>
-        let currentMonth = new Date().getMonth();
-        let currentYear = new Date().getFullYear();
-        let monthDifference = 0;
-        var months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
+        function showMonth(previousOrNext) {
+            var url = new URL(window.location.href);
+            var monthParam = parseInt(url.searchParams.get('mo'));
+            var yearParam = parseInt(url.searchParams.get('yr'));
+            var currentMonth = new Date().getMonth() + 1; // 1-12
+            var currentYear = new Date().getFullYear();
+            var fancyMonths = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
 
-        function changeMonth(difference) {
-            monthDifference += difference;
+            var monthIndex = monthParam ? monthParam : currentMonth;
+            var newYear = yearParam || currentYear;
 
-            if (monthDifference > 0) {
-                monthDifference = 0;
-            }
-
-            let newDate = new Date();
-            newDate.setMonth(currentMonth + monthDifference);
-
-            let year = newDate.getFullYear();
-            let month = newDate.getMonth();
-
-            document.getElementById('monthYearDisplay').innerText = months[month] + " " + year;
-
-            if (monthDifference === 0) {
-                document.getElementById('nextArrow').classList.add('but_disabled');
+            if (previousOrNext === 'previous') {
+                monthIndex = (monthIndex === 1) ? 12 : monthIndex - 1;
+                if (monthIndex === 12) newYear -= 1;
             } else {
-                document.getElementById('nextArrow').classList.remove('but_disabled');
+                monthIndex = (monthIndex === 12) ? 1 : monthIndex + 1;
+                if (monthIndex === 1) newYear += 1;
             }
 
-            loadMonth(monthDifference);
+            url.searchParams.set('mo', monthIndex);
+            url.searchParams.set('yr', newYear);
+
+            document.getElementById('monthYearDisplay').textContent = fancyMonths[monthIndex - 1] + " " + newYear;
+
+            window.location.href = url;
         }
 
-        document.getElementById('prevArrow').addEventListener('click', () => changeMonth(-1));
-        document.getElementById('nextArrow').addEventListener('click', () => changeMonth(1));
+        window.onload = function() {
+            var url = new URL(window.location.href);
+            var monthParam = parseInt(url.searchParams.get('mo'));
+            var yearParam = parseInt(url.searchParams.get('yr'));
+            var currentMonth = new Date().getMonth() + 1; // 1-12
+            var currentYear = new Date().getFullYear();
+            var fancyMonths = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
 
-        changeMonth(0);
+            var monthIndex = monthParam ? monthParam : currentMonth;
+            var newYear = yearParam || currentYear;
+
+            document.getElementById('monthYearDisplay').textContent = fancyMonths[monthIndex - 1] + " " + newYear;
+        }
     </script>
 </div>
 
