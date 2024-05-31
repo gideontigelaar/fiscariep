@@ -26,6 +26,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     <script src="/assets/js/checkboxToggler.js"></script>
     <script src="/assets/js/uploadBtnListener.js"></script>
     <script src="/assets/js/loadOrders.js"></script>
+    <script src="/assets/js/onboarding.js"></script>
 </head>
 
 <body style="margin:0;" class="db_body">
