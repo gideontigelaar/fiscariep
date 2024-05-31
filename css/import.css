@@ -583,7 +583,7 @@ textarea:focus {
 
 .pp_head-container {
   position: fixed;
-  z-index: 9999;
+  z-index: 99999;
   width: -webkit-fill-available;
   height: 100dvh;
   pointer-events: none;
@@ -627,6 +627,13 @@ textarea:focus {
     max-height: 100%; }
   .pp_container-title {
     font-size: 17px !important; } }
+
+.pp_button-container {
+  width: 85%;
+  bottom: 30;
+  position: absolute; }
+  .pp_button-container button {
+    width: 50%; }
 
 .dv_head-container {
   position: fixed;
@@ -677,9 +684,7 @@ textarea:focus {
   .dv_container {
     min-width: 100%;
     min-height: 100dvh;
-    border-radius: 0px;
-    bottom: initial;
-    top: 0; }
+    border-radius: 0px; }
   .dv_container-title {
     font-size: 17px !important; }
   .dv_container-subtext {

@@ -4,7 +4,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/validate-session.php";
 
 $_SESSION['user_id'];
 
-$stmt = $pdo->prepare("SELECT username, role FROM users WHERE user_id = :user_id");
+$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
 $stmt->execute(['user_id' => $_SESSION['user_id']]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
@@ -62,15 +62,17 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
         <div class="db_content">
             <div class="db_content-items">
                 <?php
-                    if (isset($_GET['p'])) {
-                        $page = $_GET['p'];
-                        if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php")) {
-                            require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php";
+                    if (!(empty($userData['address']) || empty($userData['postal_code']) || empty($userData['city']) || empty($userData['province']) || empty($userData['country']) || empty($userData['phone_number']))) {
+                        if (isset($_GET['p'])) {
+                            $page = $_GET['p'];
+                            if (file_exists($_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php")) {
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/$page.php";
+                            } else {
+                                require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
+                            }
                         } else {
                             require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
                         }
-                    } else {
-                        require_once $_SERVER['DOCUMENT_ROOT'] . "/pages/content/404.php";
                     }
                 ?>
             </div>
@@ -79,11 +81,10 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 </body>
 </html>
 
-
-<script>
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'u') {
+<?php if (empty($userData['address']) || empty($userData['postal_code']) || empty($userData['city']) || empty($userData['province']) || empty($userData['country']) || empty($userData['phone_number'])) { ?>
+    <script>
+        window.onload = function() {
             nextPopupStep('<div style="margin-bottom:20px;" class="gl_circle-icon-primary"><img src="../assets/svg/happy-smile-filled.svg" alt="Happy icon"></div> Welkom bij de online omgeving van Fiscariep.', '', 'onboarding');
         }
-    });
-</script>
+    </script>
+<?php } ?>
