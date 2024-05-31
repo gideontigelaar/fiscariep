@@ -98,6 +98,8 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
 
         // Update the container's transform
         container.style.transform = `scale(${scale - 0.1}) translateY(${translateY - 80}px)`;
+        container.style.height = '450px';
+        container.style.overflow = 'hidden';
 
         // if there are more than 10 containers, remove the oldest one
         if (headContainer.children.length > 5) {
@@ -185,6 +187,8 @@ function removePopupContainer() {
 
         // Update the container's transform
         container.style.transform = `scale(${scale + 0.1}) translateY(${translateY + 80}px)`;
+        container.style.height = '';
+        container.style.overflow = '';
 
         // if there are more than 10 containers, remove the oldest one
         if (headContainer.children.length > 5) {
