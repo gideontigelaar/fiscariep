@@ -8,40 +8,6 @@ $print = $stmt->fetch();
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :userID");
 $stmt->execute(['userID' => $print['user_id']]);
 $user = $stmt->fetch();
-
-// PRINTS TABLE
-// order id
-// user id
-// print_layout
-// print_amount
-// paper amount
-// double sided
-// print_color
-// cover print_color
-// paper color
-// cover color
-// paper weight
-// staple
-// upload_print
-// additional wishes
-// created at
-// status
-
-
-
-// USERS TABLE
-// user id
-// username
-// email
-// password
-// created at
-// role
-// address
-// phone_numbe
-// postal_code
-// city
-// province
-// country
 ?>
 <div class="dv_head-container">
     <div class="dv_container">
@@ -56,10 +22,12 @@ $user = $stmt->fetch();
                     <span class="dv_container-subtext">Aangevraagd op <?= date("d-m-Y", strtotime($print['created_at'])) ?> door <?= $user['username'] ?></span>
                 </div>
                 <div>
-                    <button class="but_primary_icon" style="padding-right:20px !important;">
-                        <img src="../assets/svg/check-circle-filled.svg" alt="Nieuwe printjob-icoon">
-                        Markeer als gereed
-                    </button>
+                    <?php if ($print['status'] == "openstaand" && $user['role'] == "admin") { ?>
+                        <button class="but_primary_icon" style="padding-right:20px !important;" onclick="markPrintJob(<?= $print['order_id'] ?>)">
+                            <img src="../assets/svg/check-circle-filled.svg" alt="Nieuwe printjob-icoon">
+                            Markeer als gereed
+                        </button>
+                    <?php } ?>
                 </div>
             </div>
             <div class="dv_container-content">
@@ -99,7 +67,7 @@ $user = $stmt->fetch();
                         <div class="gl_circle-icon-primary">
                             <img src="../assets/svg/note-filled.svg" alt="Grid icon">
                         </div>
-                        <div style="overflow: scroll;">
+                        <div style="overflow-y: auto;">
                             <span><?= $print['additional_wishes'] ?></span>
                         </div>
                     </div>
@@ -110,10 +78,12 @@ $user = $stmt->fetch();
                         <img src="../assets/svg/check-circle-filled.svg" alt="Download als PDF">
                         Download als PDF
                     </button>
-                    <button class="but_negative_icon" style="padding-right:20px !important;">
-                        <img src="../assets/svg/trash-circle-filled.svg" alt="Verwijderen" style="width:30px;">
-                        Verwijderen
-                    </button>
+                    <?php if ($user['role'] == "admin") { ?>
+                        <button class="but_negative_icon" style="padding-right:20px !important;" onclick="deletePrintJob(<?= $print['order_id'] ?>)">
+                            <img src="../assets/svg/trash-circle-filled.svg" alt="Verwijderen" style="width:30px;">
+                            Verwijderen
+                        </button>
+                    <?php } ?>
                 </div>
             </div>
         </div>

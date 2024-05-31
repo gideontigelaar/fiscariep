@@ -36,3 +36,27 @@ function removeDetailViewContainer() {
         dvContainer.remove();
     }, 200);
 }
+
+function markPrintJob(orderID) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/queries/mark-printjob.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            location.reload();
+        }
+    };
+    xhr.send('orderID=' + encodeURIComponent(orderID));
+}
+
+function deletePrintJob(orderID) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/queries/delete-printjob.php', true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            location.reload();
+        }
+    };
+    xhr.send('orderID=' + encodeURIComponent(orderID));
+}
