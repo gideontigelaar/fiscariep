@@ -1,36 +1,45 @@
+<?php
+session_start();
+require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/pdo-connect.php";
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
+$stmt->execute(['user_id' => $_SESSION['user_id']]);
+$userData = $stmt->fetch(PDO::FETCH_ASSOC);
+?>
+
 <span>Om aan de slag te gaan is het verplicht om jouw gegevens in te vullen. Dit is nodig om jouw account te beveiligen en om jouw gegevens te kunnen verwerken.</span>
 
 <div style="margin-top:20px;">
     <div class="gl_ordinary-input-field">
         <label for="address">Adres</label>
-        <input type="text" id="address" value="<?php echo $userData['address']; ?>">
+        <input type="text" id="address" value="<?= $userData['address']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="postal_code">Postcode</label>
-        <input type="text" id="postal_code" value="<?php echo $userData['postal_code']; ?>">
+        <input type="text" id="postal_code" value="<?= $userData['postal_code']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="city">Plaats</label>
-        <input type="text" id="city" value="<?php echo $userData['city']; ?>">
+        <input type="text" id="city" value="<?= $userData['city']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="province">Provincie</label>
-        <input type="text" id="province" value="<?php echo $userData['province']; ?>">
+        <input type="text" id="province" value="<?= $userData['province']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="country">Land</label>
-        <input type="text" id="country" value="<?php echo $userData['country']; ?>">
+        <input type="text" id="country" value="<?= $userData['country']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field">
         <label for="phone_number">Telefoonnummer</label>
-        <input type="text" id="phone_number" value="<?php echo $userData['phone_number']; ?>">
+        <input type="text" id="phone_number" value="<?= $userData['phone_number']; ?>" required>
     </div>
-    <button class="but_primary" type="submit" style="width:100%;margin-top:20px;">Opslaan</button>
+    <button class="but_primary" type="submit" style="width:100%;margin-top:20px;" onclick="submitOnboardingForm()">Opslaan</button>
 </div>
 
 <script>
@@ -45,14 +54,9 @@
 </script>
 
 <script>
-    // if gl_circle-icon-primary is clicked on, change the scale of the img inside of it with 5% each time its clicked. so 5% + 5% + 5% etc.
-
-    // set initial scale to 1
     document.querySelectorAll('.gl_circle-icon-primary img').forEach(img => {
         img.style.transform = 'scale(1)';
     });
-
-    // after 14 clicks, change ALL text on the page to comic sans
 
     var clicks = 0;
 
@@ -90,7 +94,7 @@
                 }, 200);
             }, 200);
         }
-        
+
         if (clicks === 25) {
             rotate();
 
@@ -126,5 +130,25 @@
                 element.innerText = memeText[Math.floor(Math.random() * memeText.length)];
             });
         }
+    }
+
+    document.querySelector('.but_primary').classList.add('but_disabled');
+    for (let i = 0; i < document.querySelectorAll('.gl_ordinary-input-field input').length; i++) {
+        document.querySelectorAll('.gl_ordinary-input-field input')[i].addEventListener('input', function() {
+            let requiredFields = document.querySelectorAll('.gl_ordinary-input-field input[required]');
+            let filledInFields = 0;
+
+            for (let j = 0; j < requiredFields.length; j++) {
+                if (requiredFields[j].value !== '') {
+                    filledInFields++;
+                }
+            }
+
+            if (filledInFields === requiredFields.length) {
+                document.querySelector('.but_primary').classList.remove('but_disabled');
+            } else {
+                document.querySelector('.but_primary').classList.add('but_disabled');
+            }
+        });
     }
 </script>
