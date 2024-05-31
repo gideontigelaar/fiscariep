@@ -155,8 +155,6 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
     headContainer.appendChild(newContainer);
 }
 
-
-
 function removePopupContainer() {
     let containers = document.querySelectorAll('.pp_container');
     let headContainer = document.querySelector('.pp_head-container');
