@@ -13,6 +13,11 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP, confirmFunctio
     dbContentItems.style.opacity = '0.4';
     dbContentItems.style.pointerEvents = 'none';
 
+    if (document.querySelector('.dv_container-contents')) {
+        document.querySelector('.dv_container-contents').style.opacity = '0.4';
+        document.querySelector('.dv_container-contents').style.pointerEvents = 'none';
+    }
+
     fetch('/pages/popup.php')
         .then(response => response.text())
         .then(html => {
@@ -22,6 +27,12 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP, confirmFunctio
 
             // Append the container to the top of the body
             document.body.prepend(container);
+
+            // set new container transform to translateY(-200px) and then after 200ms to 0
+            document.querySelector('.pp_container').style.transform = 'scale(1) translateY(100px)';
+            setTimeout(() => {
+                document.querySelector('.pp_container').style.transform = 'scale(1) translateY(0)';
+            }, 7);
 
             document.querySelector('.pp_container-title').innerHTML = popupTitle;
             document.querySelector('.pp_container-subtext').innerHTML = popupSubtext;
@@ -217,5 +228,10 @@ function removePopupContainer() {
         let dbContentItems = document.querySelector('.db_content-items');
         dbContentItems.style.opacity = '1';
         dbContentItems.style.pointerEvents = 'all';
+
+        if (document.querySelector('.dv_container-contents')) {
+            document.querySelector('.dv_container-contents').style.opacity = '1';
+            document.querySelector('.dv_container-contents').style.pointerEvents = 'all';
+        }
     }
 }

@@ -33,7 +33,7 @@ function submitPrintOrder(event) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                nextPopupStep('Gelukt!', 'Je hebt met succes een nieuwe printjob toegevoegd.', 'add-printjob-popup');
+                nextPopupStep('Gelukt!', 'Je hebt met succes een nieuwe printjob toegevoegd.', 'printjob-success');
             } else {
                 let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);

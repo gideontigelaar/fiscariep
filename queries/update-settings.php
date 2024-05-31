@@ -16,14 +16,14 @@ function sendSuccess() {
     exit();
 }
 
-$userName = $_POST['username'] ?? '';
+$userName = htmlspecialchars($_POST['username']) ?? '';
 $email = strtolower($_POST['email']) ?? '';
-$address = $_POST['address'] ?? '';
-$postal_code = $_POST['postal_code'] ?? '';
-$city = $_POST['city'] ?? '';
-$province = $_POST['province'] ?? '';
-$country = $_POST['country'] ?? '';
-$phone_number = $_POST['phone_number'] ?? '';
+$address = htmlspecialchars($_POST['address']) ?? '';
+$postal_code = htmlspecialchars($_POST['postal_code']) ?? '';
+$city = htmlspecialchars($_POST['city']) ?? '';
+$province = htmlspecialchars($_POST['province']) ?? '';
+$country = htmlspecialchars($_POST['country']) ?? '';
+$phone_number = htmlspecialchars($_POST['phone_number']) ?? '';
 
 if (empty($userName) || empty($email)) {
     sendError('Gebruikersnaam en e-mailadres zijn verplicht.');

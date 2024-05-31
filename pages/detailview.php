@@ -53,7 +53,7 @@ $user = $stmt->fetch();
                         </div>
                         <div>
                             <span style="font-weight:600;"><?= $user['username'] ?></span>
-                            <span><?= $user['address'] . ", " . $user['city'] . ", " . $user['postal_code'] ?></span>
+                            <span><?= $user['address'] ?>, <?= $user['city'] ?>, <?= $user['postal_code'] ?></span>
                             <br>
                             <span><?= $user['phone_number'] ?></span>
                             <br>
@@ -79,7 +79,7 @@ $user = $stmt->fetch();
                         Download als PDF
                     </button>
                     <?php if ($user['role'] == "admin") { ?>
-                        <button class="but_negative_icon" style="padding-right:20px !important;" onclick="deletePrintJob(<?= $print['order_id'] ?>)">
+                        <button class="but_negative_icon" style="padding-right:20px !important;" onclick="nextPopupStep('Weet je het zeker dat je deze printjob wilt verwijderen?', 'Je kan dit niet ongedaan maken', '', 'deletePrintJob(<?= $print['order_id'] ?>)')">
                             <img src="../assets/svg/trash-circle-filled.svg" alt="Verwijderen" style="width:30px;">
                             Verwijderen
                         </button>

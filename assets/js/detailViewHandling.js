@@ -8,7 +8,11 @@ function showDetailView(orderID) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var scrollTop = document.querySelector('.db_content').scrollTop;
             document.body.innerHTML = xhr.responseText + document.body.innerHTML;
-            document.querySelector('.db_content').scrollTop = scrollTop;
+
+            setTimeout(function() {
+                document.querySelector('.db_content').scrollTop = scrollTop;
+            }, 1);
+
             var dvContainer = document.querySelector('.dv_container');
             dvContainer.style.transform = 'translateY(800px)';
             setTimeout(function() {

@@ -1,6 +1,6 @@
 .pp_head-container {
     position: fixed;
-    z-index: 9999;
+    z-index: 99999;
     width: -webkit-fill-available;
     height: 100dvh;
     pointer-events: none;
@@ -57,5 +57,15 @@
 
     .pp_container-title {
         font-size: 17px!important;
+    }
+}
+
+.pp_button-container {
+    width: 85%;
+    bottom: 30;
+    position: absolute;
+
+    button {
+        width: 50%;
     }
 }
