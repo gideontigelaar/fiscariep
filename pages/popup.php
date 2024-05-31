@@ -12,6 +12,10 @@
             <div class="pp_container-content">
                 <span></span>
             </div>
+            <div class="pp_button-container" style="column-gap:20px;display:none;">
+                <button onclick="removePopupContainer()">Nee, ga terug</button>
+                <button class="but_primary button-confirm">Ja, ga verder</button>
+            </div>
         </div>
     </div>
 </div>
