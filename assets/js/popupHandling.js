@@ -1,10 +1,10 @@
-function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
+function nextPopupStep(popupTitle, popupSubtext, popupContentPHP, confirmFunction) {
     if (!popupTitle) {
         popupTitle = 'An unknown error occurred';
     }
 
     if (document.querySelector('.pp_head-container')) {
-        newPopupContainer(popupTitle, popupSubtext, popupContentPHP);
+        newPopupContainer(popupTitle, popupSubtext, popupContentPHP, confirmFunction);
         return;
     }
 
@@ -25,6 +25,12 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
 
             document.querySelector('.pp_container-title').innerHTML = popupTitle;
             document.querySelector('.pp_container-subtext').innerHTML = popupSubtext;
+
+            if (confirmFunction) {
+                document.querySelector('.pp_button-container').style.display = 'flex';
+                document.querySelector('.pp_button-container').style.marginTop = '20px';
+                document.querySelector('.button-confirm').setAttribute('onclick', confirmFunction);
+            }
 
             if (!popupContentPHP) {
                 return;
@@ -68,7 +74,7 @@ function nextPopupStep(popupTitle, popupSubtext, popupContentPHP) {
     });
 }
 
-function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
+function newPopupContainer(popupTitle, popupSubtext, popupContentPHP, confirmFunction) {
     let containers = document.querySelectorAll('.pp_container');
     let headContainer = document.querySelector('.pp_head-container');
 
@@ -147,6 +153,12 @@ function newPopupContainer(popupTitle, popupSubtext, popupContentPHP) {
                     newContainer.querySelector('.pp_container-content').innerHTML = html;
                 });
         });
+    }
+
+    if (confirmFunction) {
+        newContainer.querySelector('.pp_button-container').style.display = 'flex';
+        newContainer.querySelector('.pp_button-container').style.marginTop = '20px';
+        newContainer.querySelector('.button-confirm').setAttribute('onclick', confirmFunction);
     }
 
     // set popup title
