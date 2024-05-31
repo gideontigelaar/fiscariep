@@ -6,7 +6,9 @@ function showDetailView(orderID) {
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
+            var scrollTop = document.querySelector('.db_content').scrollTop;
             document.body.innerHTML = xhr.responseText + document.body.innerHTML;
+            document.querySelector('.db_content').scrollTop = scrollTop;
             var dvContainer = document.querySelector('.dv_container');
             dvContainer.style.transform = 'translateY(800px)';
             setTimeout(function() {
