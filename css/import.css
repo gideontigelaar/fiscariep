@@ -372,9 +372,12 @@ textarea:focus {
     margin-top: 50px; }
 
 @media (max-width: 768px) {
-  .db_topbar-container img {
-    height: 50px;
-    margin-left: 30px; } }
+  .db_topbar-container {
+    height: 50px; }
+    .db_topbar-container img {
+      height: 25px;
+      margin-left: 40px;
+      margin-top: 0px; } }
 
 .db_content-container {
   display: flex; }
@@ -382,7 +385,7 @@ textarea:focus {
     width: 100%;
     display: block;
     width: 350px;
-    height: 100dvh;
+    height: 79dvh;
     background-color: #2E3192;
     border-radius: 15px;
     margin-top: 50px;
@@ -396,11 +399,27 @@ textarea:focus {
     border-radius: 12px 0px 0px 0px;
     background-color: white;
     padding-left: 100px;
-    padding-top: 50px; }
+    padding-top: 50px;
+    max-height: 79dvh;
+    overflow-y: auto;
+    height: 79dvh; }
 
 @media (max-width: 590px) {
   .db_content-container .db_content {
-    padding-left: 15px; } }
+    padding-left: 15px;
+    border-radius: 12px; } }
+
+@media (max-width: 790px) {
+  .db_content-container .db_sidebar {
+    width: calc(100% - 40px);
+    position: fixed;
+    z-index: 999;
+    height: fit-content;
+    bottom: 0;
+    border-radius: 15px 15px 0px 0px;
+    display: flex;
+    column-gap: 20px;
+    padding: 20px; } }
 
 .db_topbar-logout-container {
   display: flex;
@@ -411,6 +430,10 @@ textarea:focus {
     color: white;
     font-size: 18px; }
 
+@media (max-width: 790px) {
+  .db_topbar-logout-container span:first-child {
+    display: none; } }
+
 .db_topbar-logout {
   padding: 10px;
   border-radius: 10000px;
@@ -419,6 +442,12 @@ textarea:focus {
   .db_topbar-logout img {
     height: 25px;
     margin: 0; }
+
+@media (max-width: 790px) {
+  .db_topbar-logout {
+    padding: 5px; }
+    .db_topbar-logout img {
+      height: 15px; } }
 
 .db_topbar-logout:hover {
   opacity: 70%; }
@@ -440,6 +469,11 @@ textarea:focus {
     border-radius: 100px;
     margin-left: 10px; }
 
+@media (max-width: 790px) {
+  .db_sidebar-item {
+    border-radius: 10000px;
+    margin-bottom: 0px; } }
+
 .db_sidebar-item:hover {
   opacity: 70%; }
 
@@ -447,6 +481,22 @@ textarea:focus {
   background-color: #ffffff21; }
   .db_sidebar-item.active .db_sidebar-active-symbol {
     background-color: white; }
+
+@media (max-width: 790px) {
+  .db_sidebar-item.active .db_sidebar-active-symbol {
+    height: 10px;
+    width: 10px;
+    border-radius: 100px;
+    margin-left: 15px; } }
+
+@media (max-width: 790px) {
+  .db_topbar-logo {
+    align-self: center; } }
+
+@media (max-width: 790px) {
+  .db_content-items {
+    margin-bottom: 100px;
+    margin-top: -20px; } }
 
 .jobs_month-picker {
   border: none;
@@ -468,6 +518,10 @@ textarea:focus {
   border-radius: 12px;
   background-color: #ECECFE; }
 
+@media (max-width: 790px) {
+  .jobs_item-container {
+    width: calc(100% / 2.2); } }
+
 .jobs_head-container {
   display: flex;
   flex-wrap: wrap;
@@ -487,6 +541,10 @@ textarea:focus {
     text-overflow: ellipsis;
     overflow: hidden; }
 
+@media (max-width: 790px) {
+  .jobs_item-title img {
+    display: none; } }
+
 .jobs_item-content {
   padding: 20px; }
 
@@ -501,6 +559,12 @@ textarea:focus {
   background-color: #5155C9;
   color: white;
   margin-top: 20px; }
+
+@media (max-width: 790px) {
+  #new-printjob-btn {
+    position: fixed;
+    bottom: 120;
+    right: 30; } }
 
 .pp_head-container {
   position: fixed;
