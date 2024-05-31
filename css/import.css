@@ -400,14 +400,16 @@ textarea:focus {
     background-color: white;
     padding-left: 100px;
     padding-top: 50px;
-    max-height: 79dvh;
+    max-height: 100dvh;
     overflow-y: auto;
-    height: 79dvh; }
+    height: 100dvh; }
 
 @media (max-width: 590px) {
   .db_content-container .db_content {
     padding-left: 15px;
-    border-radius: 12px; } }
+    border-radius: 12px;
+    max-height: 79dvh;
+    height: 79dvh; } }
 
 @media (max-width: 790px) {
   .db_content-container .db_sidebar {
@@ -564,7 +566,8 @@ textarea:focus {
   #new-printjob-btn {
     position: fixed;
     bottom: 120;
-    right: 30; } }
+    right: 30;
+    z-index: 999; } }
 
 .pp_head-container {
   position: fixed;
