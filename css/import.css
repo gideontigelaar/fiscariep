@@ -181,6 +181,15 @@ textarea:focus {
   .gl_ordinary-input-field label {
     transform: translateY(5px); }
 
+@media (max-width: 790px) {
+  .gl_ordinary-input-field {
+    flex-direction: column; }
+    .gl_ordinary-input-field label, .gl_ordinary-input-field select, .gl_ordinary-input-field input, .gl_ordinary-input-field button, .gl_ordinary-input-field textarea {
+      width: 100%; }
+    .gl_ordinary-input-field label {
+      transform: translateY(0px);
+      padding-bottom: 5px; } }
+
 .gl_ordinary-checkbox {
   background-color: #F5F5F5;
   width: 20px;
@@ -402,7 +411,8 @@ textarea:focus {
     padding-top: 50px;
     max-height: 100dvh;
     overflow-y: auto;
-    height: 100dvh; }
+    height: 85dvh;
+    max-height: 85dvh; }
 
 @media (max-width: 590px) {
   .db_content-container .db_content {
@@ -495,9 +505,11 @@ textarea:focus {
   .db_topbar-logo {
     align-self: center; } }
 
+.db_content-items {
+  margin-bottom: 100px; }
+
 @media (max-width: 790px) {
   .db_content-items {
-    margin-bottom: 100px;
     margin-top: -20px; } }
 
 .jobs_month-picker {
@@ -608,6 +620,14 @@ textarea:focus {
   .pp-npj_price-indication .pp-npj_price-indication-numbers {
     font-weight: 600; }
 
+@media (max-width: 790px) {
+  .pp_container {
+    overflow-y: auto;
+    min-width: 100%;
+    max-height: 100%; }
+  .pp_container-title {
+    font-size: 17px !important; } }
+
 .dv_head-container {
   position: fixed;
   z-index: 9999;
@@ -652,3 +672,33 @@ textarea:focus {
 .dv_item-head-container {
   display: flex;
   column-gap: 20px; }
+
+@media (max-width: 790px) {
+  .dv_container {
+    min-width: 100%;
+    min-height: 100dvh;
+    border-radius: 0px;
+    bottom: initial;
+    top: 0; }
+  .dv_container-title {
+    font-size: 17px !important; }
+  .dv_container-subtext {
+    font-size: 12px !important; }
+  .gl_top-divider {
+    width: 100%; }
+  .dv_item-info-container {
+    align-items: flex-start !important; }
+  .dv_item-head-container, .dv_item-info-container {
+    flex-direction: column;
+    gap: 20px; }
+  .dv_item-container {
+    width: auto !important; }
+  .dv_container {
+    overflow-y: auto;
+    max-height: 100dvh;
+    height: 100dvh; }
+  .dv_container-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%; } }
