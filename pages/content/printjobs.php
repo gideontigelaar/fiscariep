@@ -42,7 +42,12 @@ $openPrints = $stmt->fetchAll();
             }
 
             url.searchParams.set('mo', monthIndex);
-            url.searchParams.set('yr', newYear);
+
+            if (newYear !== currentYear) {
+                url.searchParams.set('yr', newYear);
+            } else {
+                url.searchParams.delete('yr');
+            }
 
             document.getElementById('monthYearDisplay').textContent = fancyMonths[monthIndex - 1] + " " + newYear;
 
@@ -61,6 +66,12 @@ $openPrints = $stmt->fetchAll();
             var newYear = yearParam || currentYear;
 
             document.getElementById('monthYearDisplay').textContent = fancyMonths[monthIndex - 1] + " " + newYear;
+
+            if (monthIndex === currentMonth && newYear === currentYear) {
+                document.getElementById('nextArrow').classList.add('but_disabled');
+            } else {
+                document.getElementById('nextArrow').classList.remove('but_disabled');
+            }
         }
     </script>
 </div>

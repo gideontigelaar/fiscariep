@@ -16,7 +16,7 @@ $user = $stmt->fetch();
                 <img src="../assets/svg/arrow-circle-filled.svg" alt="Terugknop" style="transform: rotate(270deg)">
                 Terug naar overzicht
             </button>
-            <div style="justify-content: space-between;align-items:center;display:flex;">
+            <div class="dv_item-info-container" style="justify-content: space-between;align-items:center;display:flex;">
                 <div style="display:grid;">
                     <span class="dv_container-title">Order <?= $print['order_id'] ?>, <?= $print['print_layout'] ?></span>
                     <span class="dv_container-subtext">Aangevraagd op <?= date("d-m-Y", strtotime($print['created_at'])) ?> door <?= $user['username'] ?></span>
@@ -73,7 +73,7 @@ $user = $stmt->fetch();
                     </div>
                 <?php } ?>
 
-                <div style="display:flex;column-gap:10px;margin-top:20px;">
+                <div class="dv_container-buttons" style="display:flex;column-gap:10px;margin-top:20px;">
                     <button class="but_primary_icon" style="padding-right:20px !important;" onclick="downloadPDF(<?= $print['order_id'] ?>)">
                         <img src="../assets/svg/check-circle-filled.svg" alt="Download als PDF">
                         Download als PDF

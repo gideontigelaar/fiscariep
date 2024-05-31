@@ -237,6 +237,21 @@ textarea:focus {
 
 }
 
+@media (max-width: 790px) {
+    .gl_ordinary-input-field {
+        flex-direction: column;
+
+        label, select, input, button, textarea {
+            width: 100%;
+        }
+
+        label {
+            transform: translateY(0px);
+            padding-bottom: 5px;
+        }
+    }
+}
+
 .gl_ordinary-checkbox {
     background-color: $grey;
     width: 20px;

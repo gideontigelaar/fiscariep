@@ -56,7 +56,8 @@
         padding-top: 50px;
         max-height: 100dvh;
         overflow-y: auto;
-        height: 100dvh;
+        height: 85dvh;
+        max-height: 85dvh;
     }
 }
 
@@ -190,9 +191,12 @@
     }
 }
 
+.db_content-items {
+    margin-bottom: 100px;
+}
+
 @media (max-width: 790px) {
     .db_content-items {
-        margin-bottom: 100px;
         margin-top: -20px;
     }
 }
