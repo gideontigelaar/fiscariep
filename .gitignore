@@ -2,9 +2,8 @@
 *.css.map
 *.sass.map
 *.scss.map
-node_modules/
 .DS_Store
 .vscode
-package.json
-package-lock.json
+/vendor
+/node_modules
 creds.json
