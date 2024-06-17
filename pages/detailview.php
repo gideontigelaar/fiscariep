@@ -24,7 +24,7 @@ $user = $stmt->fetch();
                 <div>
                     <?php if ($print['status'] == "openstaand" && $user['role'] == "admin") { ?>
                         <button class="but_primary_icon" style="padding-right:20px !important;"
-                        onclick="nextPopupStep('Weet je het zeker dat je deze printjob wilt markeren?', 'Je kan dit niet ongedaan maken', '', 'markPrintJob(<?= $print['order_id'] ?>)')">
+                        onclick="nextPopupStep('Weet je het zeker dat je deze printjob als gereed wil markeren?', 'Je kan dit niet ongedaan maken', '', 'markPrintJob(<?= $print['order_id'] ?>)')">
                             <img src="../assets/svg/check-circle-filled.svg" alt="Nieuwe printjob-icoon">
                             Markeer als gereed
                         </button>
