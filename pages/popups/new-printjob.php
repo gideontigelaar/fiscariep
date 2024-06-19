@@ -4,28 +4,16 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/validate-session.php";
 $stmt = $pdo->prepare("SELECT * FROM pricelist ORDER BY created_at DESC LIMIT 1");
 $stmt->execute();
 $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// $printLayout = $pricelistData['print_layout'];
-// $printAmount = $pricelistData['print_amount'];
-// $paperAmount = $pricelistData['paper_amount'];
-// $doubleSided = $pricelistData['double_sided'];
-// $printColor = $pricelistData['print_color'];
-// $coverPrintColor = $pricelistData['cover_print_color'];
-// $paperColor = $pricelistData['paper_color'];
-// $coverColor = $pricelistData['cover_color'];
-// $paperWeight = $pricelistData['paper_weight'];
-// $stapledPrint = $pricelistData['staple'];
-// $additionalWishes = $pricelistData['additional_wishes'];
 ?>
 <div>
     <div class="pp-npj_price-indication">
         <span class="pp-npj_price-indication-heading">Prijsindicatie</span>
-        <span class="pp-npj_price-indication-numbers">4.950€ - 5.050€</span>
+        <span>€ <span class="pp-npj_price-indication-numbers" id="priceAmountTotal">0</span></span>
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printLayout">Drukwerk layout</label>
-        <select id="printLayout" onchange="togglePrintLayout()">
+        <label for="printLayout">Drukwerk layout <span id="printLayoutPrice">(+ €<span id="priceAmount">1</span>)</span></label>
+        <select id="printLayout" onchange="updatePrintLayoutPrice(<?= $pricelistData['print_layout_1']; ?>, <?= $pricelistData['print_layout_2']; ?>, <?= $pricelistData['print_layout_3']; ?>, <?= $pricelistData['print_layout_4']; ?>, <?= $pricelistData['print_layout_5']; ?>)">
             <option value="A3">A3</option>
             <option value="A4">A4</option>
             <option value="A5">A5</option>
@@ -34,18 +22,20 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
         </select>
     </div>
 
+    <!-- I was here, everything under here still needs to be changed, add relevant functions and make sure the prices get updated according to whats stored in the database for each value. Also look at toggleCoverColor, because I haven't changed that yet because idk in what div the function needs to come -->
+
     <div class="gl_ordinary-input-field">
-        <label for="printAmount">Aantal exemplaren</label>
-        <input type="number" id="printAmount" required>
+        <label for="printAmount">Aantal exemplaren <span id="printAmountPrice">(+ €<span id="priceAmount">1</span>)</span></label>
+        <input type="number" id="printAmount" required onchange="updatePrintAmountPrice(<?= $pricelistData['print_amount']; ?>)">
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperAmount">Aantal papieren per exemplaar</label>
+        <label for="paperAmount">Aantal papieren per exemplaar <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <input type="number" id="paperAmount" required>
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="doubleSided">Dubbelzijdig afdrukken</label>
+        <label for="doubleSided">Dubbelzijdig afdrukken <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <div class="gl_ordinary-checkbox" id="doubleSided" onclick="toggleCheckbox('doubleSided-checkbox', 'doubleSided')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="doubleSided-checkbox" style="display:none;">
@@ -53,7 +43,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printColor">Gekleurde inkt</label>
+        <label for="printColor">Gekleurde inkt <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <div class="gl_ordinary-checkbox" id="printColor" onclick="toggleCheckbox('printColor-checkbox', 'printColor')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="printColor-checkbox" style="display:none;">
@@ -61,7 +51,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field" style="display:none;">
-        <label for="coverPrintColor">Gekleurde inkt kaft</label>
+        <label for="coverPrintColor">Gekleurde inkt kaft <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <div class="gl_ordinary-checkbox" id="coverPrintColor" onclick="toggleCheckbox('coverPrintColor-checkbox', 'coverPrintColor')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="coverPrintColor-checkbox" style="display:none;">
@@ -69,7 +59,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperColor">Papierkleur</label>
+        <label for="paperColor">Papierkleur <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <select id="paperColor">
             <option value="wit">Wit</option>
             <option value="zwart">Zwart</option>
@@ -85,7 +75,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="differentCoverColor">Andere kaftkleur</label>
+        <label for="differentCoverColor">Andere kaftkleur <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <div class="gl_ordinary-checkbox" id="differentCoverColor" onclick="toggleCheckbox('differentCoverColor-checkbox', 'differentCoverColor'); toggleCoverColor()">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="differentCoverColor-checkbox" style="display:none;">
@@ -93,7 +83,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field" style="display:none;">
-        <label for="coverColor">Kaftkleur</label>
+        <label for="coverColor">Kaftkleur <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <select id="coverColor">
             <option value="wit">Wit</option>
             <option value="zwart">Zwart</option>
@@ -109,12 +99,12 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperWeight">Gewicht papier</label>
+        <label for="paperWeight">Gewicht papier <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <input type="number" id="paperWeight" required>
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="staple">Geniette afdruk</label>
+        <label for="staple">Geniette afdruk <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <div class="gl_ordinary-checkbox" id="staple" onclick="toggleCheckbox('staple-checkbox', 'staple')">
             <div class="gl_ordinary-checkbox-indicator"></div>
             <input type="checkbox" id="staple-checkbox" style="display:none;">
@@ -131,7 +121,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="additionalWishes">Aanvullende wensen/opmerkingen</label>
+        <label for="additionalWishes">Aanvullende wensen/opmerkingen <span>(+ €<span id="priceAmount">1</span>)</span></label>
         <textarea id="additionalWishes" maxlength="200"></textarea>
     </div>
 

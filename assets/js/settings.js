@@ -46,7 +46,11 @@ function changePassword() {
 }
 
 function updatePricelist() {
-    let printLayout = document.getElementById('printLayout').value;
+    let printLayout1 = document.getElementById('printLayout1').value;
+    let printLayout2 = document.getElementById('printLayout2').value;
+    let printLayout3 = document.getElementById('printLayout3').value;
+    let printLayout4 = document.getElementById('printLayout4').value;
+    let printLayout5 = document.getElementById('printLayout5').value;
     let printAmount = document.getElementById('printAmount').value;
     let paperAmount = document.getElementById('paperAmount').value;
     let doubleSided = document.getElementById('doubleSided').value;
@@ -71,5 +75,5 @@ function updatePricelist() {
             }
         }
     }
-    xhr.send('printLayout=' + printLayout + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint + '&additionalWishes=' + additionalWishes);
+    xhr.send('printLayout1=' + printLayout1 + '&printLayout2=' + printLayout2 + '&printLayout3=' + printLayout3 + '&printLayout4=' + printLayout4 + '&printLayout5=' + printLayout5 + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint + '&additionalWishes=' + additionalWishes);
 }

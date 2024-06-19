@@ -7,19 +7,43 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
 <div id="pricelist-container">
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="printLayout">Drukwerk layout</label>
+        <label for="printLayout1">A3 layout</label>
         <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout" value="<?= $pricelistData['print_layout']; ?>" required>
+        <input type="number" id="printLayout1" value="<?= $pricelistData['print_layout_1']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="printAmount">Aantal exemplaren</label>
+        <label for="printLayout2">A4 layout</label>
+        <span class="pp_input-label">€</span>
+        <input type="number" id="printLayout2" value="<?= $pricelistData['print_layout_2']; ?>" required>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="printLayout3">A5 layout</label>
+        <span class="pp_input-label">€</span>
+        <input type="number" id="printLayout3" value="<?= $pricelistData['print_layout_3']; ?>" required>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="printLayout4">Boekje A4 layout</label>
+        <span class="pp_input-label">€</span>
+        <input type="number" id="printLayout4" value="<?= $pricelistData['print_layout_4']; ?>" required>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="printLayout5">Boekje A5 layout</label>
+        <span class="pp_input-label">€</span>
+        <input type="number" id="printLayout5" value="<?= $pricelistData['print_layout_5']; ?>" required>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="printAmount">Per exemplaar</label>
         <span class="pp_input-label">€</span>
         <input type="number" id="printAmount" value="<?= $pricelistData['print_amount']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="paperAmount">Aantal papieren per exemplaar</label>
+        <label for="paperAmount">Papieren per exemplaar</label>
         <span class="pp_input-label">€</span>
         <input type="number" id="paperAmount" value="<?= $pricelistData['paper_amount']; ?>" required>
     </div>
@@ -43,13 +67,13 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="paperColor">Papierkleur</label>
+        <label for="paperColor">Papierkleur (anders dan wit)</label>
         <span class="pp_input-label">€</span>
         <input type="number" id="paperColor" value="<?= $pricelistData['paper_color']; ?>" required>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="coverColor">Kaftkleur</label>
+        <label for="coverColor">Kaftkleur (anders dan wit)</label>
         <span class="pp_input-label">€</span>
         <input type="number" id="coverColor" value="<?= $pricelistData['cover_color']; ?>" required>
     </div>
