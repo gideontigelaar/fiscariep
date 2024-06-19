@@ -1,9 +1,27 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/validate-session.php";
+
+$stmt = $pdo->prepare("SELECT * FROM pricelist ORDER BY created_at DESC LIMIT 1");
+$stmt->execute();
+$pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// $printLayout = $pricelistData['print_layout'];
+// $printAmount = $pricelistData['print_amount'];
+// $paperAmount = $pricelistData['paper_amount'];
+// $doubleSided = $pricelistData['double_sided'];
+// $printColor = $pricelistData['print_color'];
+// $coverPrintColor = $pricelistData['cover_print_color'];
+// $paperColor = $pricelistData['paper_color'];
+// $coverColor = $pricelistData['cover_color'];
+// $paperWeight = $pricelistData['paper_weight'];
+// $stapledPrint = $pricelistData['staple'];
+// $additionalWishes = $pricelistData['additional_wishes'];
+?>
 <div>
     <div class="pp-npj_price-indication">
         <span class="pp-npj_price-indication-heading">Prijsindicatie</span>
         <span class="pp-npj_price-indication-numbers">4.950€ - 5.050€</span>
     </div>
-
 
     <div class="gl_ordinary-input-field">
         <label for="printLayout">Drukwerk layout</label>
@@ -117,7 +135,6 @@
         <textarea id="additionalWishes" maxlength="200"></textarea>
     </div>
 
-    <!-- Voeg prijsindicatie toe bij button, samen met nieuwe page voor prijslijst -->
     <button class="but_primary" type="submit" onclick="submitPrintOrder(event)" style="width:100%;margin-top:10px;">Toevoegen</button>
 </div>
 

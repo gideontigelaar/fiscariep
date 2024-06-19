@@ -44,3 +44,32 @@ function changePassword() {
     }
     xhr.send('oldPassword=' + oldPassword + '&newPassword=' + newPassword + '&confirmPassword=' + confirmPassword);
 }
+
+function updatePricelist() {
+    let printLayout = document.getElementById('printLayout').value;
+    let printAmount = document.getElementById('printAmount').value;
+    let paperAmount = document.getElementById('paperAmount').value;
+    let doubleSided = document.getElementById('doubleSided').value;
+    let printColor = document.getElementById('printColor').value;
+    let coverPrintColor = document.getElementById('coverPrintColor').value;
+    let paperColor = document.getElementById('paperColor').value;
+    let coverColor = document.getElementById('coverColor').value;
+    let paperWeight = document.getElementById('paperWeight').value;
+    let stapledPrint = document.getElementById('stapledPrint').value;
+    let additionalWishes = document.getElementById('additionalWishes').value;
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', '../../queries/update-pricelist.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                location.reload();
+            } else {
+                let response = JSON.parse(xhr.responseText);
+                showErrorMessage(xhr.status, response.error, 3);
+            }
+        }
+    }
+    xhr.send('printLayout=' + printLayout + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint + '&additionalWishes=' + additionalWishes);
+}
