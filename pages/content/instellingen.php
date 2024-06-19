@@ -60,7 +60,9 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
     <button onclick="nextPopupStep('Wijzig wachtwoord', '','change-password')">Wijzig wachtwoord</button>
 
-    <button onclick="nextPopupStep('Wijzig prijslijst', '','change-pricelist')">Wijzig prijslijst</button>
+    <?php if ($userData['role'] == 'admin') { ?>
+        <button onclick="nextPopupStep('Wijzig prijslijst', '','change-pricelist')">Wijzig prijslijst</button>
+    <?php } ?>
 </div>
 
 <script>
