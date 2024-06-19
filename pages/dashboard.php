@@ -2,10 +2,13 @@
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . "/queries/validate-session.php";
 
+$_SESSION['user_id'];
+
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id");
 $stmt->execute(['user_id' => $_SESSION['user_id']]);
 $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 ?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,7 +47,7 @@ $userData = $stmt->fetch(PDO::FETCH_ASSOC);
         <?php
             $sidebarItems = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/assets/json/sidebar-items.json"), true);
             foreach ($sidebarItems['menu'] as $item) {
-                if (isset($_GET['p']) && strtolower($item['title']) == $_GET['p']) {
+                if (isset($_GET['p']) && strtolower($item['title']) == $_GET['p'] || (!isset($_GET['p']) && strtolower($item['title']) == "printjobs")) {
                     echo "<div class='db_sidebar-item active' onclick='window.location.href=\"?p=" . strtolower($item['title']) . "\"'>";
                 } else {
                     echo "<div class='db_sidebar-item' onclick='window.location.href=\"?p=" . strtolower($item['title']) . "\"'>";

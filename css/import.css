@@ -231,6 +231,12 @@ textarea:focus {
   .gl_circle-icon-primary img {
     filter: invert(1); }
 
+.gl_input-small input {
+  width: 25% !important; }
+
+.gl_input-small label {
+  width: 75% !important; }
+
 .auth_form {
   width: 50rem;
   margin: 0 auto;
@@ -310,7 +316,7 @@ textarea:focus {
   width: 100%;
   place-content: center;
   top: -100px;
-  z-index: 9999; }
+  z-index: 99999; }
 
 .error-container {
   background-color: #E33232;
@@ -634,6 +640,24 @@ textarea:focus {
   position: absolute; }
   .pp_button-container button {
     width: 50%; }
+
+.pp_input-label {
+  background-color: #2E3192;
+  border-radius: 5px;
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: 'Montserrat';
+  border: none;
+  margin-right: 10px;
+  align-content: center;
+  color: white;
+  user-select: none;
+  opacity: 60%; }
+
+@media (max-width: 790px) {
+  .pp_input-label {
+    width: fit-content; } }
 
 .dv_head-container {
   position: fixed;

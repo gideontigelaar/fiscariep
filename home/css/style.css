@@ -1,0 +1,58 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        /* CSS for the navbar */
+        .navprofile{
+            float: right;
+            font-size: 30px;
+        }
+
+        .navbar {
+            background-color: #2E3192;
+            overflow: hidden;
+    
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #636fb5;
+        }
+
+        .form {
+            margin: auto;
+            width: 50%;
+            border: 3px;
+            padding: 10px;
+        }
+
+        .begroeting {
+            text-align: center;
+            font-size: 30px;
+            text-align: center;
+            color: #2E3192;
+        }
+        .text1 {
+            text-align: center;
+            font-size: 20px;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .openingstijden {
+            text-align: center;
+            width: 300px;
+            border: 5px solid #2E3192;
+            padding: 25px;
+            margin: auto;
+            
+        }
