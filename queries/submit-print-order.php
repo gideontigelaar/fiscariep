@@ -27,6 +27,7 @@ $coverColor = $_POST['coverColor'] ?? '';
 $paperWeight = $_POST['paperWeight'] ?? '';
 $staple = $_POST['staple'] ?? '';
 $additionalWishes = htmlspecialchars($_POST['additionalWishes'] ?? '');
+$totalPrice = $_POST['totalPrice'] ?? '';
 
 if (empty($printAmount) || empty($paperAmount) || empty($paperWeight)) {
     sendError('Alle velden zijn verplicht.');
@@ -58,8 +59,8 @@ if ($_FILES['uploadPrint']['size'] > 2097152) {
     sendError('Bestand is te groot.');
 }
 
-$stmt = $pdo->prepare("INSERT INTO prints (user_id, print_layout, print_amount, paper_amount, double_sided, print_color, cover_print_color, paper_color, cover_color, paper_weight, staple, upload_print, additional_wishes) VALUES (:user_id, :print_layout, :print_amount, :paper_amount, :double_sided, :print_color, :cover_print_color, :paper_color, :cover_color, :paper_weight, :staple, :upload_print, :additional_wishes)");
-$stmt->execute([ 'user_id' => $_SESSION['user_id'], 'print_layout' => $printLayout, 'print_amount' => $printAmount, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'cover_print_color' => $coverPrintColor, 'paper_color' => $paperColor, 'cover_color' => $coverColor, 'paper_weight' => $paperWeight, 'staple' => $staple, 'upload_print' => $uploadPrint, 'additional_wishes' => $additionalWishes
+$stmt = $pdo->prepare("INSERT INTO prints (user_id, print_layout, print_amount, paper_amount, double_sided, print_color, cover_print_color, paper_color, cover_color, paper_weight, staple, upload_print, additional_wishes, total_price) VALUES (:user_id, :print_layout, :print_amount, :paper_amount, :double_sided, :print_color, :cover_print_color, :paper_color, :cover_color, :paper_weight, :staple, :upload_print, :additional_wishes, :total_price)");
+$stmt->execute([ 'user_id' => $_SESSION['user_id'], 'print_layout' => $printLayout, 'print_amount' => $printAmount, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'cover_print_color' => $coverPrintColor, 'paper_color' => $paperColor, 'cover_color' => $coverColor, 'paper_weight' => $paperWeight, 'staple' => $staple, 'upload_print' => $uploadPrint, 'additional_wishes' => $additionalWishes, 'total_price' => $totalPrice
 ]);
 
 sendSuccess();

@@ -1,5 +1,6 @@
 function submitPrintOrder(event) {
     event.preventDefault();
+    let priceAmounts = document.querySelectorAll('#priceAmount');
 
     let printLayout = document.getElementById('printLayout').value;
     let printAmount = document.getElementById('printAmount').value;
@@ -13,6 +14,11 @@ function submitPrintOrder(event) {
     let staple = document.getElementById('staple').checked ? 'true' : 'false';
     let uploadPrint = document.getElementById('uploadPrint').files[0];
     let additionalWishes = document.getElementById('additionalWishes').value;
+    let totalPrice = 0;
+
+    for (let i = 0; i < priceAmounts.length; i++) {
+        totalPrice += parseInt(priceAmounts[i].textContent);
+    }
 
     let formData = new FormData();
     formData.append('printLayout', printLayout);
@@ -27,6 +33,7 @@ function submitPrintOrder(event) {
     formData.append('staple', staple);
     formData.append('uploadPrint', uploadPrint);
     formData.append('additionalWishes', additionalWishes);
+    formData.append('totalPrice', totalPrice);
 
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/submit-print-order.php', true);

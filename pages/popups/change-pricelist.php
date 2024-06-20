@@ -8,86 +8,106 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
 <div id="pricelist-container">
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printLayout1">A3 layout</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout1" value="<?= $pricelistData['print_layout_1']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printLayout1" value="<?= $pricelistData['print_layout_1']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printLayout2">A4 layout</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout2" value="<?= $pricelistData['print_layout_2']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printLayout2" value="<?= $pricelistData['print_layout_2']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printLayout3">A5 layout</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout3" value="<?= $pricelistData['print_layout_3']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printLayout3" value="<?= $pricelistData['print_layout_3']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printLayout4">Boekje A4 layout</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout4" value="<?= $pricelistData['print_layout_4']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printLayout4" value="<?= $pricelistData['print_layout_4']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printLayout5">Boekje A5 layout</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printLayout5" value="<?= $pricelistData['print_layout_5']; ?>" required>
-    </div>
-
-    <div class="gl_ordinary-input-field gl_input-small">
-        <label for="printAmount">Per exemplaar</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printAmount" value="<?= $pricelistData['print_amount']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printLayout5" value="<?= $pricelistData['print_layout_5']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="paperAmount">Papieren per exemplaar</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="paperAmount" value="<?= $pricelistData['paper_amount']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperAmount" value="<?= $pricelistData['paper_amount']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="doubleSided">Dubbelzijdig afdrukken</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="doubleSided" value="<?= $pricelistData['double_sided']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="doubleSided" value="<?= $pricelistData['double_sided']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="printColor">Gekleurde inkt</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="printColor" value="<?= $pricelistData['print_color']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="printColor" value="<?= $pricelistData['print_color']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="coverPrintColor">Gekleurde inkt kaft</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="coverPrintColor" value="<?= $pricelistData['cover_print_color']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="coverPrintColor" value="<?= $pricelistData['cover_print_color']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="paperColor">Papierkleur (anders dan wit)</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="paperColor" value="<?= $pricelistData['paper_color']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperColor" value="<?= $pricelistData['paper_color']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="coverColor">Kaftkleur (anders dan wit)</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="coverColor" value="<?= $pricelistData['cover_color']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="coverColor" value="<?= $pricelistData['cover_color']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="paperWeight">Gewicht papier</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="paperWeight" value="<?= $pricelistData['paper_weight']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperWeight" value="<?= $pricelistData['paper_weight']; ?>" required>
+        </div>
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="stapledPrint">Geniette afdruk</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="stapledPrint" value="<?= $pricelistData['staple']; ?>" required>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="stapledPrint" value="<?= $pricelistData['staple']; ?>" required>
+        </div>
     </div>
 </div>
 
