@@ -45,13 +45,9 @@ function updatePrintLayoutPrice(price1, price2, price3, price4, price5) {
     updateTotalPrice();
 }
 
-function updatePrintAmountPrice(price) {
+function updatePrintAmountPrice() {
     let printAmount = document.getElementById('printAmount').value;
-    let printAmountPrice = document.getElementById('printAmountPrice').children[0];
-    let priceAmount = printAmount * price;
-    printAmountPrice.textContent = priceAmount;
-
-    updateTotalPrice();
+    updateTotalPrice(printAmount);
 }
 
 function updatePaperAmountPrice(price) {
@@ -147,12 +143,16 @@ function updateStaplePrice(price) {
     updateTotalPrice();
 }
 
-function updateTotalPrice() {
+function updateTotalPrice(printAmount) {
     let priceAmounts = document.querySelectorAll('#priceAmount');
     let totalAmount = 0;
 
     for (let i = 0; i < priceAmounts.length; i++) {
         totalAmount += parseInt(priceAmounts[i].textContent);
+    }
+
+    if (printAmount) {
+        totalAmount *= printAmount;
     }
 
     let minus10Percent = totalAmount * 0.9;

@@ -43,8 +43,8 @@ if ($printLayout1 < 0 || $printLayout2 < 0 || $printLayout3 < 0 || $printLayout4
     sendError('Alle velden moeten positief zijn.');
 }
 
-$stmt = $pdo->prepare("INSERT INTO pricelist (print_layout_1, print_layout_2, print_layout_3, print_layout_4, print_layout_5, print_amount, paper_amount, double_sided, print_color, cover_print_color, paper_color, cover_color, paper_weight, staple) VALUES (:print_layout_1, :print_layout_2, :print_layout_3, :print_layout_4, :print_layout_5, :print_amount, :paper_amount, :double_sided, :print_color, :cover_print_color, :paper_color, :cover_color, :paper_weight, :staple)");
-$stmt->execute([ 'print_layout_1' => $printLayout1, 'print_layout_2' => $printLayout2, 'print_layout_3' => $printLayout3, 'print_layout_4' => $printLayout4, 'print_layout_5' => $printLayout5, 'print_amount' => $printAmount, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'cover_print_color' => $coverPrintColor, 'paper_color' => $paperColor, 'cover_color' => $coverColor, 'paper_weight' => $paperWeight, 'staple' => $stapledPrint
+$stmt = $pdo->prepare("INSERT INTO pricelist (print_layout_1, print_layout_2, print_layout_3, print_layout_4, print_layout_5, paper_amount, double_sided, print_color, cover_print_color, paper_color, cover_color, paper_weight, staple) VALUES (:print_layout_1, :print_layout_2, :print_layout_3, :print_layout_4, :print_layout_5, :paper_amount, :double_sided, :print_color, :cover_print_color, :paper_color, :cover_color, :paper_weight, :staple)");
+$stmt->execute([ 'print_layout_1' => $printLayout1, 'print_layout_2' => $printLayout2, 'print_layout_3' => $printLayout3, 'print_layout_4' => $printLayout4, 'print_layout_5' => $printLayout5, 'paper_amount' => $paperAmount, 'double_sided' => $doubleSided, 'print_color' => $printColor, 'cover_print_color' => $coverPrintColor, 'paper_color' => $paperColor, 'cover_color' => $coverColor, 'paper_weight' => $paperWeight, 'staple' => $stapledPrint
 ]);
 
 sendSuccess();
