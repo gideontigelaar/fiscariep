@@ -35,7 +35,8 @@ function changePassword() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                location.reload();
+                removePopupContainer();
+                nextPopupStep('Gelukt!', 'Je wachtwoord is succesvol gewijzigd.', 'general-success');
             } else {
                 let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
@@ -67,7 +68,8 @@ function updatePricelist() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                location.reload();
+                removePopupContainer()
+                nextPopupStep('Gelukt!', 'De prijslijst is nu gewijzigd.', 'general-success');
             } else {
                 let response = JSON.parse(xhr.responseText);
                 showErrorMessage(xhr.status, response.error, 3);
