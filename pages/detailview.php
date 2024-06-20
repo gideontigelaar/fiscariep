@@ -33,6 +33,15 @@ $user = $stmt->fetch();
             </div>
             <div class="dv_container-content">
                 <hr class="gl_top-divider">
+                <div class="dv_item-container" style="margin-top:20px;margin-bottom:20px;">
+                    <div class="gl_circle-icon-primary" style="justify-content: center;">
+                        <img src="../assets/svg/coins.svg" alt="Coins icon" style="width: 27px;">
+                    </div>
+                    <div>
+                        <span class="dv_price">€0,00</span>
+                        <span class="dv_price-disclaimer">Deze prijs is een indicatie en kan afwijken van de werkelijke prijs.</span>
+                    </div>
+                </div>
                 <div class="dv_item-head-container">
                     <div class="dv_item-container" style="width:40%;">
                         <div class="gl_circle-icon-primary">
@@ -64,7 +73,7 @@ $user = $stmt->fetch();
                 </div>
 
                 <?php if (!empty($print['additional_wishes'])) { ?>
-                    <div class="dv_item-container" style="width:60%;margin-top:20px;">
+                    <div class="dv_item-container" style="margin-top:20px;">
                         <div class="gl_circle-icon-primary">
                             <img src="../assets/svg/note-filled.svg" alt="Grid icon">
                         </div>

@@ -69,3 +69,24 @@
         width: 50%;
     }
 }
+
+.pp_input-label {
+    background-color: #2E3192;
+    border-radius: 5px;
+    height: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Montserrat';
+    border: none;
+    margin-right: 10px;
+    align-content: center;
+    color: white;
+    user-select: none;
+    opacity: 60%; 
+}
+
+@media (max-width: 790px) {
+    .pp_input-label {
+        width: fit-content;
+    }
+}
