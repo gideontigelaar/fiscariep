@@ -89,12 +89,6 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
         <span class="pp_input-label">€</span>
         <input type="number" id="stapledPrint" value="<?= $pricelistData['staple']; ?>" required>
     </div>
-
-    <div class="gl_ordinary-input-field gl_input-small">
-        <label for="additionalWishes">Aanvullende wensen/opmerkingen</label>
-        <span class="pp_input-label">€</span>
-        <input type="number" id="additionalWishes" value="<?= $pricelistData['additional_wishes']; ?>" required>
-    </div>
 </div>
 
 <button class="but_primary" type="submit" onclick="updatePricelist()">Opslaan</button>

@@ -60,7 +60,6 @@ function updatePricelist() {
     let coverColor = document.getElementById('coverColor').value;
     let paperWeight = document.getElementById('paperWeight').value;
     let stapledPrint = document.getElementById('stapledPrint').value;
-    let additionalWishes = document.getElementById('additionalWishes').value;
 
     let xhr = new XMLHttpRequest();
     xhr.open('POST', '../../queries/update-pricelist.php', true);
@@ -75,5 +74,5 @@ function updatePricelist() {
             }
         }
     }
-    xhr.send('printLayout1=' + printLayout1 + '&printLayout2=' + printLayout2 + '&printLayout3=' + printLayout3 + '&printLayout4=' + printLayout4 + '&printLayout5=' + printLayout5 + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint + '&additionalWishes=' + additionalWishes);
+    xhr.send('printLayout1=' + printLayout1 + '&printLayout2=' + printLayout2 + '&printLayout3=' + printLayout3 + '&printLayout4=' + printLayout4 + '&printLayout5=' + printLayout5 + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint);
 }
