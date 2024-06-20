@@ -305,9 +305,30 @@ textarea:focus {
 }
 
 .gl_input-small input {
-    width: 25% !important;
+    width: 50% !important;
+}
+
+@media (max-width: 790px) {
+    .gl_input-small input {
+        width: 50% !important;
+    }
 }
 
 .gl_input-small label {
     width: 75% !important;
+}
+
+.gl_input-icon {
+    span {
+        padding: 6px 10px 6px 10px;
+        margin-right: 0px;
+    }
+
+    text-align: right;
+}
+
+@media (max-width: 790px) {
+    .gl_input-icon {
+        text-align: left;
+    }
 }
