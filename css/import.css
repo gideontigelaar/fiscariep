@@ -325,7 +325,7 @@ textarea:focus {
   height: 60px;
   border-radius: 12px;
   display: flex;
-  z-index: 9999; }
+  z-index: 99999; }
   .error-container .error-text {
     display: grid;
     color: white;
@@ -690,7 +690,6 @@ textarea:focus {
 
 .dv_item-container {
   border-radius: 7px;
-  min-height: 60px;
   background-color: #F5F5F5;
   padding: 20px;
   display: flex;
@@ -699,6 +698,11 @@ textarea:focus {
   .dv_item-container span {
     width: 100%;
     display: block; }
+  .dv_item-container .dv_price {
+    font-size: 18px;
+    font-weight: 600; }
+  .dv_item-container .dv_price-disclaimer {
+    opacity: 50%; }
 
 .dv_item-head-container {
   display: flex;

@@ -37,7 +37,6 @@
 
 .dv_item-container {
     border-radius: 7px;
-    min-height: 60px;
     background-color: $grey;
     padding: 20px;
     display: flex;
@@ -47,6 +46,15 @@
     span {
         width: 100%;
         display: block;
+    }
+
+    .dv_price {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .dv_price-disclaimer {
+        opacity: 50%;
     }
 }
 

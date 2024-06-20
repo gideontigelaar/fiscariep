@@ -303,3 +303,11 @@ textarea:focus {
         filter: invert(1);
     }
 }
+
+.gl_input-small input {
+    width: 25% !important;
+}
+
+.gl_input-small label {
+    width: 75% !important;
+}

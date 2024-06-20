@@ -4,7 +4,7 @@
     width: 100%;
     place-content: center;
     top: -100px;
-    z-index: 9999;
+    z-index: 99999;
 
 }
 
@@ -15,7 +15,7 @@
     height: 60px;
     border-radius: 12px;
     display: flex;
-    z-index: 9999;
+    z-index: 99999;
 
     .error-text {
         display: grid;
