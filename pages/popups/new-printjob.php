@@ -105,10 +105,8 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
         </select>
     </div>
 
-    <!-- Add function for paper weight, also add select input here, to choose from specific entries, make sure that these are dynamicly obtained from db, so that you can add or remove specific weights. Also keep in mind that there needs to be a price value assigned to each weight, and it must also be shown in the change pricelist popup. -->
     <div class="gl_ordinary-input-field">
         <label for="paperWeight">Gewicht papier <span style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
-        <!-- <input type="number" placeholder="0" id="paperWeight" required> -->
          <select id="paperWeight" onchange="updatePaperWeightPrice(<?= $pricelistData['paper_weight_1']; ?>, <?= $pricelistData['paper_weight_2']; ?>, <?= $pricelistData['paper_weight_3']; ?>, <?= $pricelistData['paper_weight_4']; ?>)">
             <option value="80">80 gram</option>
             <option value="100">100 gram</option>
