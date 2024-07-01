@@ -63,7 +63,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="printColor">Gekleurde inkt</label>
+        <label for="printColor">Kleurprint</label>
         <div class="gl_input-icon">
             <span class="pp_input-label">€</span>
             <input type="number" id="printColor" value="<?= $pricelistData['print_color']; ?>" required>
@@ -71,7 +71,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="coverPrintColor">Gekleurde inkt kaft</label>
+        <label for="coverPrintColor">Kleurprint kaft</label>
         <div class="gl_input-icon">
             <span class="pp_input-label">€</span>
             <input type="number" id="coverPrintColor" value="<?= $pricelistData['cover_print_color']; ?>" required>
@@ -95,13 +95,36 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field gl_input-small">
-        <label for="paperWeight">Gewicht papier</label>
+        <label for="paperWeight1">80 grams papier</label>
         <div class="gl_input-icon">
             <span class="pp_input-label">€</span>
-            <input type="number" id="paperWeight" value="<?= $pricelistData['paper_weight']; ?>" required>
+            <input type="number" id="paperWeight1" value="<?= $pricelistData['paper_weight_1']; ?>" required>
         </div>
     </div>
 
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="paperWeight2">100 grams papier</label>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperWeight2" value="<?= $pricelistData['paper_weight_2']; ?>" required>
+        </div>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="paperWeight3">120 grams papier</label>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperWeight3" value="<?= $pricelistData['paper_weight_3']; ?>" required>
+        </div>
+    </div>
+
+    <div class="gl_ordinary-input-field gl_input-small">
+        <label for="paperWeight4">160 grams papier</label>
+        <div class="gl_input-icon">
+            <span class="pp_input-label">€</span>
+            <input type="number" id="paperWeight4" value="<?= $pricelistData['paper_weight_4']; ?>" required>
+        </div>
+    </div>
     <div class="gl_ordinary-input-field gl_input-small">
         <label for="stapledPrint">Geniette afdruk</label>
         <div class="gl_input-icon">

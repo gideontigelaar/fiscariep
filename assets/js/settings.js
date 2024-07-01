@@ -35,7 +35,6 @@ function changePassword() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                removePopupContainer();
                 nextPopupStep('Gelukt!', 'Je wachtwoord is succesvol gewijzigd.', 'general-success');
             } else {
                 let response = JSON.parse(xhr.responseText);
@@ -52,14 +51,16 @@ function updatePricelist() {
     let printLayout3 = document.getElementById('printLayout3').value;
     let printLayout4 = document.getElementById('printLayout4').value;
     let printLayout5 = document.getElementById('printLayout5').value;
-    let printAmount = document.getElementById('printAmount').value;
     let paperAmount = document.getElementById('paperAmount').value;
     let doubleSided = document.getElementById('doubleSided').value;
     let printColor = document.getElementById('printColor').value;
     let coverPrintColor = document.getElementById('coverPrintColor').value;
     let paperColor = document.getElementById('paperColor').value;
     let coverColor = document.getElementById('coverColor').value;
-    let paperWeight = document.getElementById('paperWeight').value;
+    let paperWeight1 = document.getElementById('paperWeight1').value;
+    let paperWeight2 = document.getElementById('paperWeight2').value;
+    let paperWeight3 = document.getElementById('paperWeight3').value;
+    let paperWeight4 = document.getElementById('paperWeight4').value;
     let stapledPrint = document.getElementById('stapledPrint').value;
 
     let xhr = new XMLHttpRequest();
@@ -68,7 +69,6 @@ function updatePricelist() {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                removePopupContainer()
                 nextPopupStep('Gelukt!', 'De prijslijst is nu gewijzigd.', 'general-success');
             } else {
                 let response = JSON.parse(xhr.responseText);
@@ -76,5 +76,5 @@ function updatePricelist() {
             }
         }
     }
-    xhr.send('printLayout1=' + printLayout1 + '&printLayout2=' + printLayout2 + '&printLayout3=' + printLayout3 + '&printLayout4=' + printLayout4 + '&printLayout5=' + printLayout5 + '&printAmount=' + printAmount + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight=' + paperWeight + '&stapledPrint=' + stapledPrint);
+    xhr.send('printLayout1=' + printLayout1 + '&printLayout2=' + printLayout2 + '&printLayout3=' + printLayout3 + '&printLayout4=' + printLayout4 + '&printLayout5=' + printLayout5 + '&paperAmount=' + paperAmount + '&doubleSided=' + doubleSided + '&printColor=' + printColor + '&coverPrintColor=' + coverPrintColor + '&paperColor=' + paperColor + '&coverColor=' + coverColor + '&paperWeight1=' + paperWeight1 + '&paperWeight2=' + paperWeight2 + '&paperWeight3=' + paperWeight3 + '&paperWeight4=' + paperWeight4 + '&stapledPrint=' + stapledPrint);
 }
