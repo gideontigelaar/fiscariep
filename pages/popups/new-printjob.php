@@ -9,10 +9,11 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="pp-npj_price-indication">
         <span class="pp-npj_price-indication-heading">Prijsindicatie</span>
         <span>€ <span class="pp-npj_price-indication-numbers" id="priceAmountTotal">0</span></span>
+        <span id="priceAmount" style="display:none;">0</span>
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printLayout">Drukwerk layout <span id="printLayoutPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="printLayout">Drukwerk layout</label>
         <select id="printLayout" onchange="updatePrintLayoutPrice(<?= $pricelistData['print_layout_1']; ?>, <?= $pricelistData['print_layout_2']; ?>, <?= $pricelistData['print_layout_3']; ?>, <?= $pricelistData['print_layout_4']; ?>, <?= $pricelistData['print_layout_5']; ?>)">
             <option value="" disabled selected>-- Selecteer een optie --</option>
             <option value="A3">A3</option>
@@ -24,17 +25,17 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printAmount">Aantal exemplaren <span id="printAmountPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="printAmount">Aantal exemplaren</label>
         <input type="number" placeholder="0" id="printAmount" required onchange="updatePrintAmountPrice()">
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperAmount">Aantal papieren per exemplaar <span id="paperAmountPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="paperAmount">Aantal papieren per exemplaar</label>
         <input type="number" placeholder="0" id="paperAmount" required onchange="updatePaperAmountPrice(<?= $pricelistData['paper_amount']; ?>)">
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="doubleSided">Dubbelzijdig afdrukken <span id="doubleSidedPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="doubleSided">Dubbelzijdig afdrukken</label>
         <div onclick="updateDoubleSidedPrice(<?= $pricelistData['double_sided']; ?>)">
             <div class="gl_ordinary-checkbox" id="doubleSided" onclick="toggleCheckbox('doubleSided-checkbox', 'doubleSided')">
                 <div class="gl_ordinary-checkbox-indicator"></div>
@@ -44,7 +45,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="printColor">Kleurprint <span id="printColorPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="printColor">Kleurprint</label>
         <div onclick="updatePrintColorPrice(<?= $pricelistData['print_color']; ?>)">
             <div class="gl_ordinary-checkbox" id="printColor" onclick="toggleCheckbox('printColor-checkbox', 'printColor')">
                 <div class="gl_ordinary-checkbox-indicator"></div>
@@ -54,7 +55,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field" style="display:none;">
-        <label for="coverPrintColor">Kleurprint kaft <span id="coverPrintColorPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="coverPrintColor">Kleurprint kaft</label>
         <div onclick="updateCoverPrintColorPrice(<?= $pricelistData['cover_print_color']; ?>)">
             <div class="gl_ordinary-checkbox" id="coverPrintColor" onclick="toggleCheckbox('coverPrintColor-checkbox', 'coverPrintColor')">
                 <div class="gl_ordinary-checkbox-indicator"></div>
@@ -64,7 +65,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperColor">Papierkleur <span id="paperColorPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="paperColor">Papierkleur</label>
         <select id="paperColor" onchange="updatePaperColorPrice(<?= $pricelistData['paper_color']; ?>)">
             <option value="wit">Wit</option>
             <option value="zwart">Zwart</option>
@@ -80,7 +81,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="differentCoverColor">Andere kaftkleur <span id="differentCoverColorPrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="differentCoverColor">Andere kaftkleur</label>
         <div onclick="updateDifferentCoverColorPrice(<?= $pricelistData['cover_color']; ?>)">
             <div class="gl_ordinary-checkbox" id="differentCoverColor" onclick="toggleCheckbox('differentCoverColor-checkbox', 'differentCoverColor')">
                 <div class="gl_ordinary-checkbox-indicator"></div>
@@ -106,8 +107,9 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="paperWeight">Gewicht papier <span style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="paperWeight">Gewicht papier</label>
          <select id="paperWeight" onchange="updatePaperWeightPrice(<?= $pricelistData['paper_weight_1']; ?>, <?= $pricelistData['paper_weight_2']; ?>, <?= $pricelistData['paper_weight_3']; ?>, <?= $pricelistData['paper_weight_4']; ?>)">
+            <option value="" disabled selected>-- Selecteer een optie --</option>
             <option value="80">80 gram</option>
             <option value="100">100 gram</option>
             <option value="120">120 gram</option>
@@ -116,7 +118,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     </div>
 
     <div class="gl_ordinary-input-field">
-        <label for="staple">Nietstatus <span id="staplePrice" style="display:none;">(+ €<span id="priceAmount">0</span>)</span></label>
+        <label for="staple">Nietstatus</label>
         <select id="staple" onchange="updateStaplePrice(<?= $pricelistData['staple']; ?>)">
             <option value="geen">Geen nietjes</option>
             <option value="linksboven">Nietje linksboven</option>
@@ -129,9 +131,9 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
     <div class="gl_ordinary-input-field">
         <label for="uploadPrint">Upload PDF</label>
         <button class="but_secondary_icon" style="padding-right:20px !important;" onclick="document.getElementById('uploadPrint').click()">
-                <img src="../assets/svg/arrow-circle-filled.svg" alt="Upload knop">
-                <span class="gl_upload-button-text">Upload PDF</span>
-                <input type="file" id="uploadPrint" class="gl_upload-button" style="display:none;" accept=".pdf" required>
+            <img src="../assets/svg/arrow-circle-filled.svg" alt="Upload knop">
+            <span class="gl_upload-button-text">Upload PDF</span>
+            <input type="file" id="uploadPrint" class="gl_upload-button" style="display:none;" accept=".pdf" required>
         </button>
     </div>
 
@@ -166,7 +168,7 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
         });
     });
 
-    document.getElementById('printLayout').addEventListener('change', function() {
+    function updateButtonState() {
         let requiredFields = document.querySelectorAll('.gl_ordinary-input-field input[required]');
         let filledInFields = 0;
 
@@ -177,10 +179,17 @@ $pricelistData = $stmt->fetch(PDO::FETCH_ASSOC);
         });
 
         let printLayoutSelect = document.getElementById('printLayout');
-        if (filledInFields === requiredFields.length && printLayoutSelect.value !== '') {
+        let paperWeightSelect = document.getElementById('paperWeight');
+
+        if ((filledInFields === requiredFields.length && printLayoutSelect.value !== '') ||
+            (filledInFields === requiredFields.length && paperWeightSelect.value !== '')) {
             document.querySelector('.but_primary').classList.remove('but_disabled');
         } else {
             document.querySelector('.but_primary').classList.add('but_disabled');
         }
-    });
+    }
+
+    document.getElementById('printLayout').addEventListener('change', updateButtonState);
+
+    document.getElementById('paperWeight').addEventListener('change', updateButtonState);
 </script>

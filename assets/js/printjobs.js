@@ -144,4 +144,5 @@ function updateTotalPrice() {
 
     let priceAmountTotalExpectation = minus10Percent + ' - ' + plus10Percent;
     document.getElementById('priceAmountTotal').textContent = priceAmountTotalExpectation;
+    document.getElementById('priceAmount').textContent = totalAmount;
 }

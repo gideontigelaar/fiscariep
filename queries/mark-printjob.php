@@ -62,39 +62,40 @@ try {
 
             <p style="color:black;margin-left:50px;margin-right:50px;font-family: sans-serif;">Je printopdracht (#' . $orderID . ') is afgerond en klaar om opgehaald te worden. Kom langs bij de balie om je printopdracht op te halen!</p>
 
-            <p style="color:black;margin-left:50px;margin-right:50px;font-family: sans-serif;">Dit zijn de gegevens van je printopdracht:</p>
-            <table style="margin-left:50px;margin-right:50px;font-family: sans-serif;">
+            <p style="color:black;margin-left:50px;margin-right:50px;font-family: sans-serif;"><b>Ggegevens van de printopdracht:</b></p>
+
+            <table style="margin:0 auto;font-family:sans-serif;">
                 <tr>
-                    <td style="padding:5px;">Aantal exemplaren:</td>
-                    <td style="padding:5px;">' . $print['print_amount'] . ' exempla' . ($print['print_amount'] == 1 ? "ar" : "ren") . '</td>
+                    <td style="padding:5px;text-align:left;">Aantal exemplaren:</td>
+                    <td style="padding:5px;text-align:left;">' . $print['print_amount'] . ' exempla' . ($print['print_amount'] == 1 ? "ar" : "ren") . '</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Aantal pagina\'s:</td>
-                    <td style="padding:5px;">' . $print['paper_amount'] . ' papier' . ($print['paper_amount'] == 1 ? "" : "en") . '</td>
+                    <td style="padding:5px;text-align:left;">Aantal pagina\'s:</td>
+                    <td style="padding:5px;text-align:left;">' . $print['paper_amount'] . ' papier' . ($print['paper_amount'] == 1 ? "" : "en") . '</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Dubbelzijdig/enkelzijdig:</td>
-                    <td style="padding:5px;">' . ($print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig") . '</td>
+                    <td style="padding:5px;text-align:left;">Dubbelzijdig/enkelzijdig:</td>
+                    <td style="padding:5px;text-align:left;">' . ($print['double_sided'] ? "Dubbelzijdig" : "Enkelzijdig") . '</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Inktkleur:</td>
-                    <td style="padding:5px;">' . ($print['print_color'] ? "Gekleurd" : "Zwart-wit") . '</td>
+                    <td style="padding:5px;text-align:left;">Inktkleur:</td>
+                    <td style="padding:5px;text-align:left;">' . ($print['print_color'] ? "Gekleurd" : "Zwart-wit") . '</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Papierkleur:</td>
-                    <td style="padding:5px;">' . ucfirst($print['paper_color']) . '</td>
+                    <td style="padding:5px;text-align:left;">Papierkleur:</td>
+                    <td style="padding:5px;text-align:left;">' . ucfirst($print['paper_color']) . '</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Gewicht papier:</td>
-                    <td style="padding:5px;">' . $print['paper_weight'] . ' gram</td>
+                    <td style="padding:5px;text-align:left;">Gewicht papier:</td>
+                    <td style="padding:5px;text-align:left;">' . $print['paper_weight'] . ' gram</td>
                 </tr>
                 <tr>
-                    <td style="padding:5px;">Nietstatus:</td>
-                    <td style="padding:5px;">' . ($print['staple'] == "geen" ? "Geen nietjes" : "Nietje " . $print['staple']) . '</td>
+                    <td style="padding:5px;text-align:left;">Nietstatus:</td>
+                    <td style="padding:5px;text-align:left;">' . ($print['staple'] == "geen" ? "Geen nietjes" : "Nietje " . $print['staple']) . '</td>
                 </tr>
             </table>
 
-            <a href="' . $_SERVER['HTTP_HOST'] .'" style="background-color: #4CAF50;border: none;color: white;padding: 15px 32px;text-align: center;text-decoration: none;display: inline-block;font-size: 16px;margin-top: 20px;border-radius: 5px;">Bekijk printopdracht</a>
+            <a href="' . $_SERVER['HTTP_HOST'] . '/dashboard" style="text-decoration:none;"><button style="cursor:pointer;background-color: #2E3192;border: none;color: white;padding: 15px 32px;font-size: 16px;margin: 4px 2px;cursor: pointer;border-radius: 10px;">Bekijk printjob</button></a>
 
             <p style="font-family:sans-serif;width:100%;text-align:center;opacity:40%;color: black;margin-top: 30px;margin-bottom:-10px;">Verstuurd door Fiscariep.</p>
         </body>
