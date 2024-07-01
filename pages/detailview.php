@@ -8,6 +8,9 @@ $print = $stmt->fetch();
 $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :userID");
 $stmt->execute(['userID' => $print['user_id']]);
 $user = $stmt->fetch();
+
+$minus10Percent = number_format($print['total_price'] * 0.9, 2, ',', '');
+$plus10Percent = number_format($print['total_price'] * 1.1, 2, ',', '');
 ?>
 <div class="dv_head-container">
     <div class="dv_container">
@@ -38,7 +41,7 @@ $user = $stmt->fetch();
                         <img src="../assets/svg/coins.svg" alt="Coins icon" style="width: 27px;">
                     </div>
                     <div>
-                        <span class="dv_price">€0,00</span>
+                        <span class="dv_price">€ <?= $minus10Percent ?> - € <?= $plus10Percent ?></span>
                         <span class="dv_price-disclaimer">Deze prijs is een indicatie en kan afwijken van de werkelijke prijs.</span>
                     </div>
                 </div>
@@ -54,7 +57,7 @@ $user = $stmt->fetch();
                             <span><?= $print['print_color'] ? "Gekleurd" : "Zwart-wit" ?></span>
                             <span><?= ucfirst($print['paper_color']) ?></span>
                             <span><?= $print['paper_weight'] ?> gram</span>
-                            <span><?= $print['staple'] ? "Geniet" : "Niet geniet" ?></span>
+                            <span><?= $print['staple'] == "geen" ? "Geen nietjes" : "Nietje " . $print['staple'] ?></span>
                         </div>
                     </div>
                     <div class="dv_item-container" style="width:60%;">

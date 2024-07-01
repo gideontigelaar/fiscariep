@@ -11,7 +11,7 @@ function submitPrintOrder(event) {
     let paperColor = document.getElementById('paperColor').value;
     let coverColor = document.getElementById('coverColor').value;
     let paperWeight = document.getElementById('paperWeight').value;
-    let staple = document.getElementById('staple').checked ? 'true' : 'false';
+    let staple = document.getElementById('staple').value;
     let uploadPrint = document.getElementById('uploadPrint').files[0];
     let additionalWishes = document.getElementById('additionalWishes').value;
     let totalPrice = 0;
