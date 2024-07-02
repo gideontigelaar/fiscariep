@@ -1,7 +1,19 @@
 <?php
-$stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' ORDER BY created_at DESC");
-$stmt->execute();
-$openPrints = $stmt->fetchAll();
+session_start();
+
+$stmt = $pdo->prepare("SELECT role FROM users WHERE user_id = :user_id");
+$stmt->execute(['user_id' => $_SESSION['user_id']]);
+$role = $stmt->fetch(PDO::FETCH_ASSOC)['role'];
+
+if ($role === 'admin') {
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' ORDER BY created_at DESC");
+    $stmt->execute();
+    $openPrints = $stmt->fetchAll();
+} else {
+    $stmt = $pdo->prepare("SELECT * FROM prints WHERE status = 'openstaand' AND user_id = :user_id ORDER BY created_at DESC");
+    $stmt->execute(['user_id' => $_SESSION['user_id']]);
+    $openPrints = $stmt->fetchAll();
+}
 ?>
 <div>
     <h1 style="margin-bottom: 0px;">Alle printjobs</h1>
