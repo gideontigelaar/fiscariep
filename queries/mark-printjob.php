@@ -55,7 +55,7 @@ try {
     <html>
         <head>
         </head>
-        <body style="background: linear-gradient(#F5F5F5, #dadaee);display: flex;place-content: center;height:550px;justify-content: center;border-radius:15px;">
+        <body style="background: linear-gradient(#F5F5F5, #dadaee);display: flex;place-content: center;height:750px;justify-content: center;border-radius:15px;">
             <div style="width: calc(100% - 30px);background-color: white;height: fit-content;align-self: center;text-align: center;border-radius: 15px;padding-top: 50px;padding-bottom: 50px;place-content:center;max-width:600px;margin:auto;">
 
             <h1 style="color:black;font-family: sans-serif;">Printopdracht afgerond</h1>
